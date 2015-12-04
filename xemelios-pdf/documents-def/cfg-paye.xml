@@ -1,0 +1,2022 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<documents xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:noNamespaceSchemaLocation="../../../defs/config-metier/documents-def.xsd">
+    <document 
+        balise="DocumentPaye" 
+        extension="xhl" 
+        id="cfg-paye"
+        import-class="fr.gouv.finances.dgfip.xemelios.importers.DefaultImporter"
+        libelle-extension="de l&apos;Etat de Paye (XHL)" 
+        referentiel="Nomenclatures"
+        referentiel-xslt-file="paye/nomenclature-paye.xsl" 
+        schema="DocumentPaye_1.1.xsd"
+        titre="Paye"
+        genre-titre="F"
+        persistence-config="paye/cfg-paye-persistence.xml" menu-grouping="split"
+        isControlable="true"
+        pj-namespace-uri="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+        control-config-file="paye/cfg-paye-controls.xml" 
+        ordre-presentation="1"
+        natIdColl="SIRET">
+        <namespaces>
+            <ns prefix="n" uri="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"/>
+            <ns prefix="ano" uri="http://projets.admisource.gouv.fr/xemelios/namespaces#anomally"/>
+            <ns prefix="added" uri="http://projets.admisource.gouv.fr/xemelios/namespaces#added"/>
+        </namespaces>
+        <special-key path="/DocumentPaye/Annee/@V" pos="1" id="sp1" libelle="Année"/>
+        <special-key path="/DocumentPaye/Mois/@V" pos="2" transform="normalizeMonth" id="sp2" libelle="Mois">
+            <desc value="01">Janvier</desc>
+            <desc value="02">Février</desc>
+            <desc value="03">Mars</desc>
+            <desc value="04">Avril</desc>
+            <desc value="05">Mai</desc>
+            <desc value="06">Juin</desc>
+            <desc value="07">Juillet</desc>
+            <desc value="08">Août</desc>
+            <desc value="09">Septembre</desc>
+            <desc value="10">Octobre</desc>
+            <desc value="11">Novembre</desc>
+            <desc value="12">Décembre</desc>
+        </special-key>
+        <default-budget value="00">Budget Principal</default-budget>
+        <collectivite-path id="c1">
+            <path>/DocumentPaye/Employeur</path>
+            <code-path>/DocumentPaye/Employeur/Siret/@V</code-path>
+            <libelle-path>/DocumentPaye/Employeur/Nom/@V</libelle-path>
+        </collectivite-path>
+        <budget-path id="b1">
+            <path>/DocumentPaye/Budget</path>
+            <code-path>/DocumentPaye/Budget/Code/@V</code-path>
+            <libelle-path>/DocumentPaye/Budget/Libelle/@V</libelle-path>
+        </budget-path>
+        <entete id="IdVer">IdVer</entete>
+        <entete id="Annee">Annee</entete>
+        <entete id="Mois">Mois</entete>
+        <entete id="Employeur">Employeur</entete>
+        <entete id="Anomalie">Anomalie</entete>
+        <entete id="FileName">FileName</entete>
+        <entete id="Train">Train</entete>
+        <etat
+            balise="DonneesIndiv"
+            balise-namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+            id="etatPaye"
+            titre="Bulletins de paye"
+            cardinalite-titre="P"
+            use-external-browser="false"
+            xslt-file="paye/etatPaye.xsl"
+            importable-element="payeIndivMensuel"
+            exportable="true">
+            <help><![CDATA[Le bulletin de paye est l'élément principal de cet état. C'est le bulletin de paye que l'utilisateur peut visualiser.]]></help>
+            <entete id="Etablissement">Etablissement</entete>
+            <!--entete id="Anomalie">Anomalie</entete-->
+            
+            <element
+                balise="PayeIndivMensuel"
+                id="payeIndivMensuel"
+                max-display="500"
+                titre="Bulletins de paye">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel</path>
+                <environment>
+                    <variable name="max-display" domain="element" type="integer">
+                        <libelle>Nombre de bulletins affichés</libelle>
+                        <reference name="@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                    <variable name="max-display" domain="documents" type="integer">
+                        <libelle>Nombre de bulletins affichés</libelle>
+                        <reference
+                            name="/documents/document[@id='cfg-paye']/etat[@id='etatPaye']/element[@id='payeIndivMensuel']/@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                    <!--variable name="anomally" domain="element" type="boolean">
+                        <libelle>Affichage des critères sur anomalies</libelle>
+                        <reference name="@mode"/>
+                        <select id="anomally">
+                            <option value="true">OUI</option>
+                            <option value="false">NON</option>
+                        </select>
+                    </variable-->
+                </environment>
+                
+                <liste-resultat ordre="ASC,ASC,ASC" tri-defaut="lr3,lr4,lr15">
+                    <widget id="agentViewer"
+                        class="fr.gouv.finances.cp.xemelios.widgets.paye.AgentViewer"
+                        libelle="Voir tous les bulletins de l'agent">
+                        <help>Depuis un résultat de recherche, en faisant un clic-droit sur une ligne, on peut accéder à tous les bulletins de l'agent</help>
+                        <parameter name="matricule-res-id" value="hMatricule"/>
+                        <parameter name="elementId" value="payeIndivMensuel"/>
+                        <parameter name="matricule-crit-id" value="agent-matricule"/>
+                        <parameter name="matricule-input-id" value="VALEUR:agent_matricule"/>
+                    </widget>
+                    <hidden name="hMatricule">
+                        <valeur>n:Agent/n:Matricule/@V</valeur>
+                    </hidden>
+                    
+                    <champ datatype="integer" id="lr1" libelle="Année" exportable="true" identifiant="true">
+                        <help>L'année du bulletin</help>
+                        <valeur>n:Annee/@V</valeur>
+                    </champ>
+                    <champ datatype="integer" id="lr2" libelle="Mois" exportable="true" identifiant="true">
+                        <help>Le mois du bulletin</help>
+                        <valeur>n:Mois/@V</valeur>
+                    </champ>
+                    <champ id="lr3" libelle="Nom" exportable="true">
+                        <help>Nom de l'agent</help>
+                        <valeur>n:Agent/n:Nom/@V</valeur>
+                    </champ>
+                    <champ id="lr4" libelle="Prénom" exportable="true">
+                        <help>Prénom de l'agent</help>
+                        <valeur>n:Agent/n:Prenom/@V</valeur>
+                    </champ>
+                    <champ id="lr15" libelle="Matricule" identifiant="true" exportable="true">
+                        <help>Le matricule de l'agent</help>
+                        <valeur>n:Agent/n:Matricule/@V</valeur>
+                    </champ>
+                    <champ id="lr5" libelle="Statut" exportable="true">
+                        <help>Le statu de l'agent</help>
+                        <valeur>n:Agent/n:Statut/@V</valeur>
+                    </champ>
+                    <champ id="lr6" libelle="Emploi" exportable="true">
+                        <help>L'emploi de l'agent</help>
+                        <valeur>n:Agent/n:EmploiMetier/@V</valeur>
+                    </champ>
+                    <champ id="lr7" libelle="Service" exportable="true">
+                        <help>Le service de l'agent</help>
+                        <valeur>n:Service/@V</valeur>
+                    </champ>
+                    <champ datatype="integer" id="lr8" libelle="Indice" exportable="true">
+                        <help>L'indice de l'agent</help>
+                        <valeur>n:Agent/n:Indice/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr9" libelle="Net" aggregate="true" exportable="true">
+                        <help>Le montant net du bulletin</help>
+                        <valeur>n:MtNet/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr10" libelle="Brut" aggregate="true" exportable="true">
+                        <help>Le montant brut du bulletin</help>
+                        <valeur>n:MtBrut/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lrNetAPayer" libelle="Net à Payer" aggregate="true" exportable="true">
+                        <help>Le montant net à payer du bulletin</help>
+                        <valeur>n:MtNetAPayer/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr11" libelle="Trait. Principal" aggregate="false" exportable="false">
+                        <help>Le montant de la première ligne de traitement brut du bulletin</help>
+                        <valeur>n:Remuneration/n:TraitBrut[1]/n:Mt/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="mtbudget" libelle="Mt Budget 1" default-display="false" aggregate="false" exportable="false">
+                        <help>Le montant imputé sur le premier budget</help>
+                        <valeur>n:RepartitionBudget[1]/n:Mt/@V</valeur>
+                    </champ>
+                    <champ id="codebudget1" libelle="Code budget 1" default-display="false" exportable="false">
+                        <help>Le code du premier budget sur lequel ce bulletin impute</help>
+                        <valeur>n:RepartitionBudget[1]/n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="mtbudget2" libelle="Mt Budget 2" default-display="false" aggregate="false" exportable="false">
+                        <help>Le montant imputé sur le second budget</help>
+                        <valeur>n:RepartitionBudget[2]/n:Mt/@V</valeur>
+                    </champ>
+                    <champ id="codebudget2" libelle="Code budget 2" default-display="false" exportable="false">
+                        <help>Le code du second budget sur lequel impute ce bulletin</help>
+                        <valeur>n:RepartitionBudget[2]/n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="lr13" libelle="Evènement" exportable="false">
+                        <help>Le premier évènement de ce bulletin</help>
+                        <valeur>n:Evenement[1]/n:Description/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr26" libelle="Impos." default-display="false" aggregate="true" exportable="true">
+                        <help>Le montant imposable de ce bulletin</help>
+                        <valeur>n:MtImposable/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr25" libelle="Heures Sup." default-display="false" aggregate="true" exportable="true">
+                        <help>Le nombre d'heures supplémentaires</help>
+                        <valeur>n:NbHeureSup/@V</valeur>
+                    </champ>
+                    <champ datatype="decimal" id="lr24" libelle="Heures" default-display="false" aggregate="true" exportable="true">
+                        <help>Le nombre total d'heures effectuées</help>
+                        <valeur>n:NbHeureTotal/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="lr23" libelle="Temps de travail" default-display="false" aggregate="true" exportable="true">
+                        <help>Le temps de travail</help>
+                        <valeur>n:QuotiteTrav/@V</valeur>
+                    </champ>
+                    <champ datatype="decimal" id="lr21" libelle="NBI" default-display="false" aggregate="true" exportable="false">
+                        <help>La valeur de la nouvelle bonification indiciaire</help>
+                        <valeur>n:NBI/@V</valeur>
+                    </champ>
+                    <champ id="lr16" libelle="Nir" default-display="false" exportable="true">
+                        <help>Identifiant INSEE de l'agent</help>
+                        <valeur>n:Agent/n:NIR/@V</valeur>
+                    </champ>
+                    <champ id="nbenf" datatype="integer" libelle="Enfants" default-display="false" aggregate="true" exportable="true">
+                        <help>Nombre d'enfants à charge (au sens du supplément familial)</help>
+                        <valeur>n:Agent/n:NbEnfants/@V</valeur>
+                    </champ>
+                    <champ id="lr19" libelle="Grade" default-display="false" exportable="true">
+                        <help>Le grade de l'agent</help>
+                        <valeur>n:Agent/n:Grade/@V</valeur>
+                    </champ>
+                    <champ id="lr20" libelle="Echelon" default-display="false" exportable="true">
+                        <help>Echelon de l'agent</help>
+                        <valeur>n:Agent/n:Echelon/@V</valeur>
+                    </champ>
+                    <champ id="lr151" libelle="Budget" default-display="false" exportable="false">
+                        <help>Premier budget sur lequel impute ce bulletin</help>
+                        <valeur>n:RepartitionBudget[1]/n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="lr161" libelle="Nomencl. Statutaire" default-display="false" exportable="true">
+                        <help>Référence à la Nomeclature Statutaire, i.e. pour le FPT conforme à la NET, pour la FPH, en attente de la nomenclature DHOS</help>
+                        <valeur>n:Agent/n:RefNomenStatutaire/@desc</valeur>
+                    </champ>
+                    <champ id="lr17" libelle="RIB" default-display="false" exportable="true">
+                        <help>Références bancaires de l'agent</help>
+                        <valeur>n:Agent/n:CptBancaire/@rib</valeur>
+                    </champ>
+                    <champ id="lr18" libelle="Cumul Brut" datatype="amount" default-display="false" aggregate="true">
+                        <help>Cumul annuel du montant brut</help>
+                        <valeur>n:CumulMtBrut/@V</valeur>
+                    </champ>
+                    <champ id="lr27" libelle="PJs" default-display="true" exportable="false" datatype="pj-list">
+                        <help>Liste des pièces justificatives attachées</help>
+                        <valeur>n:PJRef</valeur>
+                    </champ>
+                    <champ id="etabl" libelle="Etablissement" default-display="false" exportable="true">
+                        <help>Etablissement dans lequel l'aget travaille</help>
+                        <valeur>../n:Etablissement/n:Nom/@V</valeur>
+                    </champ>
+                    <champ id="budget1" libelle="Budget" default-display="false" exportable="false">
+                        <help>Premier budget sur lequel impute ce bulletin</help>
+                        <valeur>n:RepartitionBudget[1]/n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="train" libelle="Train" default-display="false" exportable="true">
+                        <help>Train de paye</help>
+                        <valeur>/n:DocumentPaye/n:Train/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                
+                <enfants>
+                    <enfant element="lignePaye" path="n:Remuneration/*"/>
+                    <enfant element="evt" path="n:Evenement"/>
+                    <enfant element="NBI" path="n:NBI"/>
+                    <enfant element="RepartitionBudget" path="n:RepartitionBudget"/>
+                    <enfant element="PJRef" path="n:PJRef"/>
+                </enfants>
+                <critere id="annee-mois" libelle="Année et Mois">
+                    <help><![CDATA[Permet de filtrer sur une année et un mois. XéMéLios ne propose dans les listes Année et Mois que des Années et des Mois pour lesquels il y a des valeurs.]]></help>
+                    <path>{../../n:Annee/@V=##VALEUR:annee##}{../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="annee" libelle="Année">
+                        <special-key-entry distinct="true" pos="1" id="sp1"/>
+                    </select>
+                    <select id="mois" libelle="Mois" sort="key">
+                        <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                            <key1>##VALEUR:annee##</key1>
+                        </special-key-entry>
+                    </select>
+                </critere>
+                <critere id="evenement" libelle="Evènement">
+                    <help><![CDATA[Permet de filtrer les bulletins pour lesquels il y a l'évènement séléctionné. XéMéLios affiche les évènements déclarés dans la nomenclature du fichier.]]></help>
+                    <path>{n:Evenement/n:Code/@V=&quot;##VALEUR:Evt##&quot;}</path>
+                    <select id="Evt">
+                        <recherche-paire id="rp1">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureEvtPaye/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="tous-evenements" libelle="Tous les Evènements">
+                    <help><![CDATA[Permet de filter les bulletins pour lesquel il y a au moins un évènement.]]></help>
+                    <path>{n:Evenement}</path>
+                    <blank/>
+                </critere>
+                <critere id="mt-net" libelle="Montant Net">
+                    <help><![CDATA[Permet de filtrer les bulletins pour lesquels le montant net est égal, inférieur ou supérieur à un montant donné.]]></help>
+                    <path>{n:MtNet/@V##OPERATEUR:mtnet####VALEUR:mtnet##}</path>
+                    <input datatype="numeric" id="mtnet"/>
+                </critere>
+                <critere id="mt-brut" libelle="Montant Brut">
+                    <help><![CDATA[Permet de filtrer les bulletins pour lesquels le montant brut est égal, inférieur ou supérieur à un montant donné.]]></help>
+                    <path>{n:MtBrut/@V##OPERATEUR:mtbrut####VALEUR:mtbrut##}</path>
+                    <input datatype="numeric" id="mtbrut"/>
+                </critere>
+                <critere id="mt-imposable" libelle="Montant Imposable" optional-display-id="lr26">
+                    <help><![CDATA[Permet de filtrer les bulletins pour lesquels le montant imposable est égal, inférieur ou supérieur à un montant donné. Ce champ peut être optionnellement affiché en résultat de recherche.]]></help>
+                    <path>{n:MtImposable/@V##OPERATEUR:mtimpo####VALEUR:mtimpo##}</path>
+                    <input datatype="numeric" id="mtimpo"/>
+                </critere>
+                <critere id="mt-netapayer" libelle="Net à payer">
+                    <help>Permet de filtrer les bulletins pour lesquels le montant net à payer est égal, inférieur ou supérieur à un montant donné.</help>
+                    <path>{n:MtNetAPayer/@V##OPERATEUR:netapayer####VALEUR:netapayer##}</path>
+                    <input id="netapayer" datatype="numeric"/>
+                </critere>
+                <critere id="heures-supp" libelle="Heures supplémentaires" optional-display-id="lr25">
+                    <help>Permet de filtrer les bulletins pour lesquels le nombre d'heures supplémentaires est égal, inférieur ou supérieur à une valeur donnée.</help>
+                    <path>{n:NbHeureSup/@V##OPERATEUR:nbheuressup####VALEUR:nbheuressup##}</path>
+                    <input datatype="numeric" id="nbheuressup"/>
+                </critere>
+                <critere id="heures-trav" libelle="Heures travaillées" optional-display-id="lr24">
+                    <help>Permet de filtrer les bulletins pour lesquels le nombre d'heures travaillées est égal, inférieur ou supérieur à une valeur donnée.</help>
+                    <path>{n:NbHeureTotal/@V##OPERATEUR:nbheures####VALEUR:nbheures##}</path>
+                    <input datatype="numeric" id="nbheures"/>
+                </critere>
+                <critere id="tps-trav" libelle="Temps de travail" optional-display-id="lr23">
+                    <help>Permet de filtrer les bulletins pour lesquels le temps de travail est égal, inférieur ou supérieur à une valeur donnée.</help>
+                    <path>{n:QuotiteTrav/@V##OPERATEUR:quotite####VALEUR:quotite##}</path>
+                    <input datatype="numeric" id="quotite"/>
+                </critere>
+                <critere id="indice" libelle="Indice">
+                    <help>Permet de filtrer les bulletins pour lesquels l'indice de l'Agent est égal, inférieur ou supérieur à une valeur donnée.</help>
+                    <path>{n:Agent/n:Indice/@V##OPERATEUR:indice####VALEUR:indice##}</path>
+                    <input datatype="numeric" id="indice"/>
+                </critere>
+                <critere id="nbi" libelle="NBI" optional-display-id="lr21">
+                    <help>Permet de filtrer les bulletins dont le NBI est égal, supérieur ou inférieur à une valeur donnée.</help>
+                    <path>{n:NBI/@V##OPERATEUR:nbi####VALEUR:nbi##}</path>
+                    <input datatype="numeric" id="nbi"/>
+                </critere>
+                <critere id="emploi" libelle="Emploi">
+                    <help>Permet de filtrer les bulletins dont l'emploi de l'agent vaut une certaine valeur. Un assistant affiche la liste des valeurs disponibles pour l'emploi.</help>
+                    <path>{##OPERATEUR:emploi##(n:Agent/n:EmploiMetier/@V2,&quot;##VALEUR:emploi##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:EmploiMetier/@V"
+                        id="emploi" uppercase="true"/>
+                </critere>
+                <critere id="service" libelle="Service">
+                    <help>Permet de filtrer les bulletins dont l'agent est rattaché au service spécifié. Un assistant affiche la liste des valeurs disponibles pour le service.</help>
+                    <path>{##OPERATEUR:service##(n:Service/@V2,&quot;##VALEUR:service##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Service/@V" id="service"
+                        uppercase="true"/>
+                </critere>
+                <critere id="cat-rubriques" libelle="Catégorie de Rubriques">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de la catégorie de rubrique précisée, et pour laquelle le montant sera égal, inférieur ou supérieur à celui spécifié.</help>
+                    <path>{n:Remuneration/n:##VALEUR:exist##/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <select id="exist">
+                        <option value="TraitBrut">Traitement Principal</option>
+                        <option value="IndemResid">Indemnité de Résidence</option>
+                        <option value="SupFam">Supplément Familial</option>
+                        <option value="Indemnite">Autres indemnités</option>
+                        <option value="RemDivers">Autres Rémunérations Diverses</option>
+                        <option value="AvantageNature">Avantages en nature</option>
+                        <option value="Deduction">Déductions</option>
+                        <option value="Acompte">Acomptes</option>
+                        <option value="Rappel">Rappels</option>
+                        <option value="Retenue">Retenues sur net</option>
+                        <option value="Cotisation">Cotisations patronales</option>
+                    </select>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rubrique-detail" libelle="Rubrique détaillée">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne dont la rubrique détaillée est celle spécifiée et dont le montant est égal, inférieur ou supérieur à celui spécifié.</help>
+                    <path>{n:Remuneration/*{n:Code/@V2=&quot;##VALEUR:RubLig##&quot; and n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}}</path>
+                    <select id="RubLig" libelle="Rubrique" sort="lib">
+                        <recherche-paire id="rp2">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureRubriquePaye/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="caisse" libelle="Caisse (cotisation)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne portant sur la caisse de cotisation spécifiée.</help>
+                    <path>{n:Remuneration/*/n:CodeCaisse/@V=&quot;##VALEUR:Caisse##&quot;}</path>
+                    <select id="Caisse">
+                        <recherche-paire id="rp3">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureCaisse/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="agent-nom" libelle="Agent (nom)">
+                    <help>Permet de filtrer les bulletins par nom d'agent.</help>
+                    <path>{##OPERATEUR:agent_nom##(n:Agent/n:Nom/@V2,&quot;##VALEUR:agent_nom##&quot;)}</path>
+                    <input datatype="string" id="agent_nom" uppercase="true"/>
+                </critere>
+                <critere id="agent-prenom" libelle="Agent (prénom)">
+                    <help>Permet de filtrer les bulletins par prénom d'agent.</help>
+                    <path>{##OPERATEUR:agent_prenom##(n:Agent/n:Prenom/@V2,&quot;##VALEUR:agent_prenom##&quot;)}</path>
+                    <input datatype="string" id="agent_prenom" uppercase="true"/>
+                </critere>
+                <critere id="agent-matricule" libelle="Agent (matricule)">
+                    <help>Permet de filtrer les bulletins par matricule d'agent.</help>
+                    <path>{##OPERATEUR:agent_matricule##(n:Agent/n:Matricule/@V2,&quot;##VALEUR:agent_matricule##&quot;)}</path>
+                    <input datatype="string" id="agent_matricule" uppercase="true"/>
+                </critere>
+                <critere id="agent-nir" libelle="Agent (nir)" optional-display-id="lr16">
+                    <help>Permet de filtrer les bulletins par NIR d'agent.</help>
+                    <path>{##OPERATEUR:agent_nir##(n:Agent/n:NIR/@V,&quot;##VALEUR:agent_nir##&quot;)}</path>
+                    <input datatype="string" id="agent_nir"/>
+                </critere>
+                <critere id="agent-statut" libelle="Agent (statut)">
+                    <help>Permet de filtrer les bulletins dont le statut de l'agent est celui spécifié.</help>
+                    <path>{n:Agent/n:Statut/@V=&quot;##VALEUR:agent_statut##&quot;}</path>
+                    <select id="agent_statut">
+                        <recherche-paire id="rp4">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureStatut/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="agent-enfants" libelle="Agent (enfants à charge)" optional-display-id="nbenf">
+                    <help>Permet de filtrer les bulletins dont l'agent a le nombre spécifié d'enfants.</help>
+                    <path>{n:Agent/n:NbEnfants/@V##OPERATEUR:nbenf####VALEUR:nbenf##}</path>
+                    <input datatype="numeric" id="nbenf"/>
+                </critere>
+                <critere id="grade" libelle="Grade" optional-display-id="lr19">
+                    <help>Permet de filtrer les bulletins dont l'agent a le grade spécifié. Un assistant affiche l'ensemble des valeurs disponibles pour le grade.</help>
+                    <path>{##OPERATEUR:grade##(n:Agent/n:Grade/@V,&quot;##VALEUR:grade##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Grade/@V" id="grade"
+                    />
+                </critere>
+                <critere id="echelon" libelle="Echelon" optional-display-id="lr20">
+                    <help>Permet de filtrer les bulletins dont l'agent a l'échelon spécifié. Un assistant affiche l'ensemble des valeurs disponibles pour le grade.</help>
+                    <path>{##OPERATEUR:echelon##(n:Agent/n:Echelon/@V,&quot;##VALEUR:echelon##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Echelon/@V"
+                        id="echelon"/>
+                </critere>
+                <critere id="rub-trait-brut" libelle="Rubriques (Traitement Principal)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de traitement principal dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:TraitBrut/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-indemn-resid" libelle="Rubriques (Indemnité de Résidence)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne d'indemnité de résidence dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:IndemResid/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-supp-fam" libelle="Rubriques (Supplément Familial)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de supplément familial dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:SupFam/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-autres" libelle="Rubriques (Autre Indemnité)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne d'autres indemnités dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Indemnite/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-avantag-natur" libelle="Rubriques (Avantage en Nature)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne d'avantage en nature dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:AvantageNature/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-deduction" libelle="Rubriques (Déduction sur brut)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de déduction sur brut dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Deduction/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-rappel" libelle="Rubriques (Rappel)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de rappel dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Rappel/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-acompte" libelle="Rubriques (Acompte)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne d'acompte dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Acompte/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-retenue" libelle="Rubriques (Retenue sur net)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de retenue sur net dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Retenue/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-cotis-patron" libelle="Rubriques (Cotisation Patronale)">
+                    <help>Permet de filtrer les bulletins sur des informations des lignes. XéMéLios n'affichera que les bulletins ayant au moins une ligne de cotisation patronale dont le montant correspond à la valeur spécifiée.</help>
+                    <path>{n:Remuneration/n:Cotisation/n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="code-budget" libelle="Budget" optional-display-id="budget1">
+                    <help>Permet de filtrer les bulletins portant au moins sur ce budget.</help>
+                    <path>{n:RepartitionBudget/n:CodeBudget/@V=&quot;##VALEUR:CodeBudget##&quot;}</path>
+                    <select id="CodeBudget" sort="lib">
+                        <recherche-paire id="rp5">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureBudget/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="refNomenStatutaire" libelle="Réf. Nomencl. Statutaire"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont la référence statutaire de l'agent correspond à la valeur spécifiée.</help>
+                    <path>{##OPERATEUR:refNomclStatut##(upper-case(n:Agent/n:RefNomenStatutaire/@desc),&quot;##VALEUR:refNomclStatut##&quot;)}</path>
+                    <input id="refNomclStatut" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/@desc"
+                    />
+                </critere>
+                <critere id="codeRefNomclStatut" libelle="Réf. Nomencl. Statutaire (code)"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont le code de la référence statutaire de l'agent correspond à la valeur spécifiée.</help>
+                    <path>{upper-case(n:Agent/n:RefNomenStatutaire/n:Code/@V)=&quot;##VALEUR:codeRefNomclStatut##&quot;}</path>
+                    <input id="codeRefNomclStatut" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Code/@V"
+                    />
+                </critere>
+                <critere id="libelleRefNomclStatut" libelle="Réf. Nomencl. Statutaire (libellé)"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont le libellé de la référence statutaire de l'agent correspond à la valeur spécifiée.</help>
+                    <path>{##OPERATEUR:libelleRefNomclStatut##(upper-case(n:Agent/n:RefNomenStatutaire/n:Libelle/@V),&quot;##VALEUR:libelleRefNomclStatut##&quot;)}</path>
+                    <input id="libelleRefNomclStatut" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Libelle/@V"
+                        datatype="string"/>
+                </critere>
+                <critere id="rib" libelle="RIB" optional-display-id="lr17">
+                    <help>Permet de filtrer les bulletins dont le RIB de l'agent correspond à la valeur spécifiée.</help>
+                    <path>{##OPERATEUR:rib##(n:Agent/n:CptBancaire/@rib,&quot;##VALEUR:rib##&quot;)}</path>
+                    <input id="rib" datatype="string"/>
+                </critere>
+                <critere id="cumul_brut" libelle="Cumul Brut" optional-display-id="lr18">
+                    <help>Permet de filtrer par cumul brut.</help>
+                    <path>{n:CumulMtBrut/@V##OPERATEUR:cumul_brut####VALEUR:cumul_brut##}</path>
+                    <input id="cumul_brut" datatype="numeric"/>
+                </critere>
+                <critere id="avec-pj" libelle="Avec PJ">
+                    <help>Permet de ne chercher que les bulletins avec au moins une Pièce justificative.</help>
+                    <path>{n:PJRef}</path>
+                    <blank/>
+                </critere>
+                <critere id="pj-idUnique" libelle="PJ (Id Unique)">
+                    <help>Permet de chercher les bulletins ayant une Pièce justificative dont l'ID unique correspond à la valeur saisie.</help>
+                    <path>{n:PJRef{##OPERATEUR:idUnique##(n:IdUnique/@V,&quot;##VALEUR:idUnique##&quot;)}}</path>
+                    <input id="idUnique" datatype="string"/>
+                </critere>
+                <critere id="pj-nom" libelle="PJ (Nom)">
+                    <help>Permet de chercher les bulletins ayant une Pièce justificative dont le nom correspond à la valeur saisie.</help>
+                    <path>{##OPERATEUR:nomPj##(n:PJRef/n:NomPJ/@V,&quot;##VALEUR:nomPj##&quot;)}</path>
+                    <input id="nomPj" datatype="string"/>
+                </critere>
+                <critere id="comment" libelle="Commentaire">
+                    <help>Permet de filtrer par commentaire de ligne de paye</help>
+                    <path>{n:Remuneration/n:Commentaire{##OPERATEUR:comment##(upper-case(n:Libelle/@V),&quot;##VALEUR:comment##&quot;)}}</path>
+                    <input id="comment" datatype="string" uppercase="true"/>
+                </critere>
+                <critere id="etabl" libelle="Etablissement" optional-display-id="etabl">
+                    <help>Permet de chercher les bulletins rattachés à un établissement. Un assistant affiche l'ensemble des établissements disponibles pour la collectivité.</help>
+                    <path>{##OPERATEUR:etabl##(../n:Etablissement/n:Nom/@V,&quot;##VALEUR:etabl##&quot;)}</path>
+                    <input id="etabl" datatype="string" help="/n:DocumentPaye/n:DonneesIndiv/n:Etablissement/n:Nom/@V"/>
+                </critere>
+                <critere id="annee" libelle="Année">
+                    <help>Permet de filtrer les bulletins portant sur l'année spécifiée.</help>
+                    <path>{../../n:Annee/@V##OPERATEUR:annee####VALEUR:annee##}</path>
+                    <input datatype="numeric" id="annee"/>
+                </critere>
+                <critere id="mois" libelle="Mois">
+                    <help>Permet de filtrer les bulletins portant sur le mois spécifié.</help>
+                    <path>{../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="mois" sort="no">
+                        <option value="01">Janvier</option>
+                        <option value="02">Février</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Avril</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juin</option>
+                        <option value="07">Juillet</option>
+                        <option value="08">Août</option>
+                        <option value="09">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+                </critere>
+                <critere id="file.name" libelle="Nom de fichier">
+                    <help>Permet de filtrer par nom original du fichier importé</help>
+                    <path>{##OPERATEUR:file.name##(/n:DocumentPaye/added:FileName/@V,&apos;##VALEUR:file.name##&apos;)}</path>
+                    <input id="file.name" datatype="string" help="/n:DocumentPaye/added:FileName/@V"></input>
+                </critere>
+                <critere id="train" libelle="Train de paye" optional-display-id="train">
+                    <help>Permet de filtrer par train de paye. Attention, cette information n'est pas toujours transmise.</help>
+                    <path>{../../n:Train/@V=&apos;##VALEUR:train##&apos;}</path>
+                    <select id="train">
+                        <recherche-paire id="rp3">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureTrain/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                        
+                    </select>
+                </critere>
+                <plugin available-persistences="mysql" type="search" class="fr.gouv.finances.cp.xemelios.plugins.paye.Dedoublonnement" title="Dédoublonnement des bulletins de paye" id="dédoublonnement">
+                    <help>Permet de rechercher les agents qui apparaissent plusieurs fois.</help>
+                	<critere libelle="Choisissez les critères sur lesquels effectuer le dédoublonnement" id="l_critere"/>
+                	<critere libelle="Dédoublonnement par" id="c_critere">
+                		<select id="critere">
+                			<option value="MATRICULE">Matricule</option>
+                			<option value="RIB">RIB</option>
+                		</select>
+                	</critere>
+                	<critere libelle="Période" id="c_periode">
+                		<select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                        	<option value="RIEN"></option>
+                            <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                	</critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.EntrantsSortants"
+                    title="Entrants" type="search" sum-possible="false"
+                    available-persistences="mysql" id="entrants">
+                    <help>Cette recherche permet de trouver les agents qui sont entrés entre la période 1 et la période 2. C'est à dire ceux n'ayant pas de bulletin de paye sur la période 1 mais en ayant un sur la période 2.</help>
+                    <critere id="titre-entrants" libelle="RECHERCHE DES ENTRANTS"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry name="tata" depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.EntrantsSortants"
+                    title="Sortants" type="search" available-persistences="mysql" id="sortants">
+                    <help>Cette recherche permet de trouver les agents qui sont sortis entre la période 1 et la période 2. C'est à dire ceux ayant un bulletin de paye sur la période 1 mais n'en ayant pas sur la période 2.</help>
+                    <critere id="titre-sortants" libelle="RECHERCHE DES SORTANTS"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.EntrantsSortants"
+                    title="Entrants et Sortants" type="search" sum-possible="true"
+                    available-persistences="mysql" id="entrantsSortants">
+                    <help>Cette recherche permet de trouver les agents étant entrés ou sortis entre la période 1 et la période 2. Le résultat de cette recherche est la combinaison du résultat des 2 précédentes recherches.</help>
+                    <property name="entrants.sortants" value="true"/>
+                    <critere id="titre-entrants-sortants"
+                        libelle="RECHERCHE DES ENTRANTS ET SORTANTS"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.Variations"
+                    title="Variations revenus" type="search" available-persistences="mysql" id="variations">
+                    <help>Cette recherche permet de trouver les bulletins des agents dont le revenu a varié plus qu'indiqué. Cette recherche peut porter sur les variation de montant brut ou de montant net. La variation peut être exprimée en pourcentage ou en montant.</help>
+                    <property name="attribute" value="V"/>
+                    <critere id="titre-variation" libelle="RECHERCHE DE VARIATION DE REVENUS"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="delta" libelle="Variation supérieure à :">
+                        <input id="delta"/>
+                        <select id="typeVariation" sort="no">
+                            <option value="percent">%</option>
+                            <option value="euro">&#8364;</option>
+                        </select>
+                    </critere>
+                    <critere id="valeur" libelle="Valeur">
+                        <select id="tag" sort="no">
+                            <option value="MtNet">Montant Net</option>
+                            <option value="MtBrut">Montant Brut</option>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.Variations"
+                    title="Variations indices" type="search" available-persistences="mysql" id="varIndices">
+                    <help>Cette recherche permet de trouver les bulletins des agents dont l'indice a varié plus qu'indiqué entre les deux périodes. Cette variation peut être exprimée en pourcentage ou en points.</help>
+                    <property name="attribute" value="V"/>
+                    <property name="valeur" value="Indice"/>
+                    <property name="valeur-sql" value="AGENT_INDICE"/>
+                    <critere id="titre-variation" libelle="RECHERCHE DE VARIATION D'INDICES"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="delta" libelle="Variation supérieure à :">
+                        <input id="delta"/>
+                        <select id="typeVariation" sort="no">
+                            <option value="percent">%</option>
+                            <option value="euro">points</option>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.VariationsRib"
+                    title="Variations RIB" type="search" available-persistences="mysql" id="rib">
+                    <help>Cette recherche permet de trouver les bulletins des agents dont le RIB a changé entre les deux périodes.</help>
+                    <property name="attribute" value="rib"/>
+                    <critere id="titre-variation" libelle="RECHERCHE DE VARIATION DE RIB"/>
+                    <critere id="periode-debut" libelle="Période de début :">
+                        <select id="year1" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month1" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year1##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="periode-fin" libelle="Période de fin :">
+                        <select id="year2" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month2" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year2##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.ExportLignes" separator=";"
+                    title="Export de toutes les lignes de paie" type="export"
+                    available-persistences="mysql" id="lignes">
+                    <help>Cet export exporte toutes les lignes de paye d'une période.</help>
+                    <header>Annee;Mois;Matricule;Ordre;Code;Libelle;Base;Taux;NbUnite;Montant;Code Caisse;Periode Debut;Periode Fin</header>
+                    <property name="request"
+                        value="SELECT DOC_ID, AGENT_MATRICULE FROM ${table-index-T1} WHERE COLLECTIVITE='${collectivite}' AND BUDGET='${budget}' AND ANNEE=##VALEUR:year## AND MOIS='##VALEUR:month##' ORDER BY AGENT_MATRICULE"/>
+                    <property name="export.xpath"
+                        value="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/*"/>
+                    <property name="header.field.1" value="VALEUR:year"/>
+                    <property name="header.field.2" value="VALEUR:month"/>
+                    <property name="default.file.extension" value="csv"/>
+                    <critere id="titre-export" libelle="EXPORT DE TOUTES LES LIGNES"/>
+                    <critere id="periode" libelle="Période :">
+                        <select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <liste-export>
+                        <champ id="p1lr0" libelle="Ordre">
+                            <valeur>n:Ordre/@V</valeur>
+                        </champ>
+                        <champ id="p1lr1" libelle="Code">
+                            <valeur>n:Code/@V</valeur>
+                        </champ>
+                        <champ id="p1lr2" libelle="Libelle">
+                            <valeur>n:Libelle/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p1lr3" libelle="Base">
+                            <valeur>n:Base/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p1lr4" libelle="Taux">
+                            <valeur>n:Taux/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p1lr5" libelle="NbUnite">
+                            <valeur>n:NbUnite/@V</valeur>
+                        </champ>
+                        <champ datatype="amount" id="p1lr6" libelle="Montant">
+                            <valeur>n:Mt/@V</valeur>
+                        </champ>
+                        <champ id="p1lr7" libelle="Code Caisse">
+                            <valeur>n:CodeCaisse/@V</valeur>
+                        </champ>
+                        <champ id="p1lr8" libelle="Periode Debut">
+                            <valeur>n:PeriodeRef/n:DateDebut/@V</valeur>
+                        </champ>
+                        <champ id="p1lr9" libelle="Periode Fin">
+                            <valeur>n:PeriodeRef/n:DateFin/@V</valeur>
+                        </champ>
+                    </liste-export>
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.ExportLignes" separator=";"
+                    title="Export des lignes par catégorie" type="export"
+                    available-persistences="mysql" id="lignesCat">
+                    <help>Cet export exporte toutes les lignes de paye de la catégorie spécifiée et dont le montant correspond à la valeur spécifiée.</help>
+                    <header>Annee;Mois;Matricule;Ordre;Code;Libelle;Base;Taux;NbUnite;Montant;Code Caisse;Periode Debut;Periode Fin</header>
+                    <property name="request"
+                        value="SELECT DISTINCT ${table-index-T1}.DOC_ID, ${table-index-T1}.AGENT_MATRICULE FROM ${table-index-T1} WHERE COLLECTIVITE='${collectivite}' AND BUDGET='${budget}' AND ANNEE=##VALEUR:year## AND MOIS='##VALEUR:month##' ORDER BY AGENT_MATRICULE"/>
+                    <property name="export.xpath"
+                        value="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:##VALEUR:exist##{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}"/>
+                    <property name="header.field.1" value="VALEUR:year"/>
+                    <property name="header.field.2" value="VALEUR:month"/>
+                    <property name="default.file.extension" value="csv"/>
+                    <critere id="titre-export" libelle="EXPORT DES LIGNES PAR CATEGORIE"/>
+                    <critere id="periode" libelle="Période :">
+                        <select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="export-categorie" libelle="Catégorie">
+                        <select id="exist">
+                            <option value="TraitBrut">Traitement Brut</option>
+                            <option value="IndemResid">Indemnité de Résidence</option>
+                            <option value="SupFam">Supplément Familial</option>
+                            <option value="Indemnite">Autres indemnités</option>
+                            <option value="RemDivers">Autres Rémunérations Diverses</option>
+                            <option value="AvantageNature">Avantages en nature</option>
+                            <option value="Deduction">Déductions</option>
+                            <option value="Acompte">Acomptes</option>
+                            <option value="Rappel">Rappels</option>
+                            <option value="Retenue">Retenues sur net</option>
+                            <option value="Cotisation">Cotisations patronales</option>
+                        </select>
+                        <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                    </critere>
+                    <liste-export>
+                        <champ id="p2lr0" libelle="Ordre">
+                            <valeur>n:Ordre/@V</valeur>
+                        </champ>
+                        <champ id="p2lr1" libelle="Code">
+                            <valeur>n:Code/@V</valeur>
+                        </champ>
+                        <champ id="p2lr2" libelle="Libelle">
+                            <valeur>n:Libelle/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p2lr3" libelle="Base">
+                            <valeur>n:Base/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p2lr4" libelle="Taux">
+                            <valeur>n:Taux/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p2lr5" libelle="NbUnite">
+                            <valeur>n:NbUnite/@V</valeur>
+                        </champ>
+                        <champ datatype="amount" id="p2lr6" libelle="Montant">
+                            <valeur>n:Mt/@V</valeur>
+                        </champ>
+                        <champ id="p2lr7" libelle="Code Caisse">
+                            <valeur>n:CodeCaisse/@V</valeur>
+                        </champ>
+                        <champ id="p2lr8" libelle="Periode Debut">
+                            <valeur>n:PeriodeRef/n:DateDebut/@V</valeur>
+                        </champ>
+                        <champ id="p2lr9" libelle="Periode Fin">
+                            <valeur>n:PeriodeRef/n:DateFin/@V</valeur>
+                        </champ>
+                    </liste-export>
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.ExportLignes" separator=";"
+                    title="Export des lignes par rubrique" type="export"
+                    available-persistences="mysql" id="lignesRub">
+                    <help>Cet export exporte les lignes de paye dont la rubrique correspond à la valeur spécifiée et dont le montant est égal, supérieur ou inférieur à la valeur spécifiée.</help>
+                    <header>Annee;Mois;Matricule;Ordre;Code;Libelle;Base;Taux;NbUnite;Montant;Code Caisse;Periode Debut;Periode Fin</header>
+                    <property name="request"
+                        value="SELECT DISTINCT ${table-index-T1}.DOC_ID, ${table-index-T1}.AGENT_MATRICULE FROM ${table-index-T2},${table-index-T1} WHERE ${table-index-T1}.DOC_ID=${table-index-T2}.DOC_ID AND ${table-index-T1}.COLLECTIVITE='${collectivite}' AND ${table-index-T1}.BUDGET='${budget}' AND ${table-index-T1}.ANNEE=##VALEUR:year## AND ${table-index-T1}.MOIS='##VALEUR:month##' AND ${table-index-T2}.CODE='##VALEUR:RubLig##' AND ${table-index-T2}.MT##OPERATEUR:MtLig####VALEUR:MtLig##"/>
+                    <property name="export.xpath"
+                        value="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/*{n:Code/@V=&quot;##VALEUR:RubLig##&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}"/>
+                    <property name="header.field.1" value="VALEUR:year"/>
+                    <property name="header.field.2" value="VALEUR:month"/>
+                    <property name="default.file.extension" value="csv"/>
+                    <critere id="titre-export" libelle="EXPORT DES LIGNES PAR RUBRIQUE"/>
+                    <critere id="periode" libelle="Période :">
+                        <select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="export-rubrique" libelle="Rubrique">
+                        <select id="RubLig" libelle="Rubrique">
+                            <recherche-paire id="rp10">
+                                <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureRubriquePaye/n:Correspondance</path>
+                                <code-path>n:Code/@V</code-path>
+                                <libelle-path>n:Libelle/@V</libelle-path>
+                            </recherche-paire>
+                        </select>
+                        <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                    </critere>
+                    <liste-export>
+                        <champ id="p3lr0" libelle="Ordre">
+                            <valeur>n:Ordre/@V</valeur>
+                        </champ>
+                        <champ id="p3lr1" libelle="Code">
+                            <valeur>n:Code/@V</valeur>
+                        </champ>
+                        <champ id="p3lr2" libelle="Libelle">
+                            <valeur>n:Libelle/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p3lr3" libelle="Base">
+                            <valeur>n:Base/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p3lr4" libelle="Taux">
+                            <valeur>n:Taux/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p3lr5" libelle="NbUnite">
+                            <valeur>n:NbUnite/@V</valeur>
+                        </champ>
+                        <champ datatype="amount" id="p3lr6" libelle="Montant">
+                            <valeur>n:Mt/@V</valeur>
+                        </champ>
+                        <champ id="p3lr7" libelle="Code Caisse">
+                            <valeur>n:CodeCaisse/@V</valeur>
+                        </champ>
+                        <champ id="p3lr8" libelle="Periode Debut">
+                            <valeur>n:PeriodeRef/n:DateDebut/@V</valeur>
+                        </champ>
+                        <champ id="p3lr9" libelle="Periode Fin">
+                            <valeur>n:PeriodeRef/n:DateFin/@V</valeur>
+                        </champ>
+                    </liste-export>
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.ExportLignes" separator=";"
+                    title="Export des lignes par caisse" type="export"
+                    available-persistences="mysql" id="lignesCaisse">
+                    <help>Cet export exporte les lignes se rapportant à la caisse spécifiée.</help>
+                    <header>Annee;Mois;Matricule;Ordre;Code;Libelle;Base;Taux;NbUnite;Montant;Code Caisse;Periode Debut;Periode Fin</header>
+                    <property name="request"
+                        value="SELECT DISTINCT ${table-index-T1}.DOC_ID, ${table-index-T1}.AGENT_MATRICULE FROM ${table-index-T2},${table-index-T1} WHERE ${table-index-T1}.DOC_ID=${table-index-T2}.DOC_ID AND ${table-index-T1}.COLLECTIVITE='${collectivite}' AND ${table-index-T1}.BUDGET='${budget}' AND ${table-index-T1}.ANNEE=##VALEUR:year## AND ${table-index-T1}.MOIS='##VALEUR:month##' AND ${table-index-T2}.CODE_CAISSE='##VALEUR:Caisse##' "/>
+                    <property name="export.xpath"
+                        value="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/*{n:CodeCaisse/@V=&quot;##VALEUR:Caisse##&quot;}"/>
+                    <property name="header.field.1" value="VALEUR:year"/>
+                    <property name="header.field.2" value="VALEUR:month"/>
+                    <property name="default.file.extension" value="csv"/>
+                    <critere id="titre-export" libelle="EXPORT DES LIGNES PAR CAISSE"/>
+                    <critere id="periode" libelle="Période :">
+                        <select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="export-caisse" libelle="Caisse (cotisation)">
+                        <select id="Caisse">
+                            <recherche-paire id="rp11">
+                                <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureCaisse/n:Correspondance</path>
+                                <code-path>n:Code/@V</code-path>
+                                <libelle-path>n:Libelle/@V</libelle-path>
+                            </recherche-paire>
+                        </select>
+                    </critere>
+                    <liste-export>
+                        <champ id="p4lr0" libelle="Ordre">
+                            <valeur>n:Ordre/@V</valeur>
+                        </champ>
+                        <champ id="p4lr1" libelle="Code">
+                            <valeur>n:Code/@V</valeur>
+                        </champ>
+                        <champ id="p4lr2" libelle="Libelle">
+                            <valeur>n:Libelle/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p4lr3" libelle="Base">
+                            <valeur>n:Base/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p4lr4" libelle="Taux">
+                            <valeur>n:Taux/@V</valeur>
+                        </champ>
+                        <champ datatype="decimal" id="p4lr5" libelle="NbUnite">
+                            <valeur>n:NbUnite/@V</valeur>
+                        </champ>
+                        <champ datatype="amount" id="p4lr6" libelle="Montant">
+                            <valeur>n:Mt/@V</valeur>
+                        </champ>
+                        <champ id="p4lr7" libelle="Code Caisse">
+                            <valeur>n:CodeCaisse/@V</valeur>
+                        </champ>
+                        <champ id="p4lr8" libelle="Periode Debut">
+                            <valeur>n:PeriodeRef/n:DateDebut/@V</valeur>
+                        </champ>
+                        <champ id="p4lr9" libelle="Periode Fin">
+                            <valeur>n:PeriodeRef/n:DateFin/@V</valeur>
+                        </champ>
+                    </liste-export>
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.data.impl.mysql.SqlGenericSearchPlugin"
+                    title="Agents multi-budgets" type="search" available-persistences="mysql" id="multiBudget">
+                    <help>Cette recherche permet de trouver les bulletins des agents ayant été imputés sur plusieurs budgets.</help>
+                    <property name="request"
+                    value="SELECT SQL_CALC_FOUND_ROWS DISTINCT(${table-index-T1}.DOC_ID) FROM ${table-index-T1} JOIN ${table-index-T3} ON ${table-index-T1}.DOC_ID=${table-index-T3}.DOC_ID WHERE ${table-index-T1}.COLLECTIVITE='${collectivite}' AND ${table-index-T1}.BUDGET='${budget}' AND ${table-index-T1}.ANNEE='##VALEUR:year##' AND ${table-index-T1}.MOIS='##VALEUR:month##' GROUP BY ${table-index-T1}.DOC_ID HAVING COUNT(${table-index-T3}.CODE_BUDGET)>=2"/>
+                    <property name="xpath" value="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel"/>
+                    <critere id="title" libelle="Agents multi-budgets"/>
+                    <critere id="annee-mois" libelle="Année Mois">
+                        <select id="year" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="month" libelle="Mois" sort="key">
+                            <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:year##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.Totalisations"
+                    separator=";" title="Totalisation par rubriques" type="export"
+                    available-persistences="mysql" id="totalRub">
+                    <help>Permet de totaliser par rubrique.</help>
+                    <header>Code rubrique;libelle;Montant;Code Nature(part employeur);Code
+                        Nature(part salarie)</header>
+                    <property name="request-rubrique"
+                        value="SELECT ${table-index-T2}.CODE, ${table-index-T2}.LIBELLE, SUM(${table-index-T2}.MT) FROM ${table-index-T1} LEFT JOIN ${table-index-T2} ON ${table-index-T1}.DOC_ID=${table-index-T2}.DOC_ID AND ${table-index-T1}.COLLECTIVITE=${table-index-T2}.COLLECTIVITE AND ${table-index-T1}.BUDGET=${table-index-T2}.BUDGET WHERE ${table-index-T1}.ANNEE=##VALEUR:annee## AND ${table-index-T1}.MOIS IN (##VALEUR:mois##) AND ${table-index-T1}.COLLECTIVITE='${collectivite}' AND ${table-index-T1}.BUDGET='${budget}'"/>
+                    <property name="group-by" value="RUBRIQUE"/>
+                    <critere id="titre-export" libelle="Totalisation des lignes par rubriques"/>
+                    <critere id="annee" libelle="Période :">
+                        <select id="annee" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="mois" libelle="Mois" sort="key">
+                            <option value="TOUS">Tous</option>
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:annee##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="rubrique-detail" libelle="Rubrique :">
+                        <select id="Rub">
+                            <option value="TOUS">Toutes</option>
+                            <recherche-paire id="rp12" sort="lib">
+                                <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureRubriquePaye/n:Correspondance</path>
+                                <code-path>n:Code/@V</code-path>
+                                <libelle-path>n:Libelle/@V</libelle-path>
+                            </recherche-paire>
+                        </select>
+                    </critere>
+                    <critere id="output" libelle="Sortie en :">
+                        <select id="output">
+                            <option value="HTML">HTML</option>
+                            <option value="CSV">CSV</option>
+                        </select>
+                    </critere>
+
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.Totalisations"
+                    separator=";" title="Totalisation par caisses" type="export"
+                    available-persistences="mysql" id="totalCaisse">
+                    <help>Permet de totaliser par caisse</help>
+                    <header>Code caisse;libelle;Montant</header>
+                    <property name="request-rubrique"
+                        value="SELECT ${table-index-T2}.CODE_CAISSE, SUM(${table-index-T2}.MT) FROM ${table-index-T1} LEFT JOIN ${table-index-T2} ON ${table-index-T1}.DOC_ID=${table-index-T2}.DOC_ID AND ${table-index-T1}.COLLECTIVITE=${table-index-T2}.COLLECTIVITE AND ${table-index-T1}.BUDGET=${table-index-T2}.BUDGET WHERE ${table-index-T1}.ANNEE=##VALEUR:annee## AND ${table-index-T1}.MOIS IN (##VALEUR:mois##) AND ${table-index-T1}.COLLECTIVITE='${collectivite}' AND ${table-index-T1}.BUDGET='${budget}'"/>
+                    <property name="group-by" value="CAISSE"/>
+                    <critere id="titre-export" libelle="Totalisation des lignes par caisses"/>
+                    <critere id="annee" libelle="Période :">
+                        <select id="annee" libelle="Année">
+                            <special-key-entry distinct="true" pos="1" id="sp1"/>
+                        </select>
+                        <select id="mois" libelle="Mois" sort="key">
+                            <option value="TOUS">Tous</option>
+                            <special-key-entry depends="true" distinct="true" pos="2" id="sp2">
+                                <key1>##VALEUR:annee##</key1>
+                            </special-key-entry>
+                        </select>
+                    </critere>
+                    <critere id="caisse" libelle="Caisse :">
+                        <select id="caisse">
+                            <option value="TOUS">Toutes</option>
+                            <recherche-paire id="rp13" sort="lib">
+                                <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureCaisse/n:Correspondance</path>
+                                <code-path>n:Code/@V</code-path>
+                                <libelle-path>n:Libelle/@V</libelle-path>
+                            </recherche-paire>
+                        </select>
+                    </critere>
+                    <critere id="output" libelle="Sortie en :">
+                        <select id="output">
+                            <option value="HTML">HTML</option>
+                            <option value="CSV">CSV</option>
+                        </select>
+                    </critere>
+
+                </plugin>
+                <plugin class="fr.gouv.finances.cp.xemelios.plugins.paye.SommeHeuresSup"
+                    type="search" title="Sommes des heures supplémentaires" id="pgHeuresSup" available-persistences="mysql" sum-possible="false">
+                    <help>Permet de totaliser les heures supplémentaires.</help>
+                    <critere id="titre_heuresSup" libelle="Sommes des heures supplémentaires"/>
+                    <critere id="nbHeures" libelle="Nb d'heures supplémentaires">
+                        <input id="nbHeures" datatype="numeric"/>
+                    </critere>
+                    <critere id="start" libelle="Entre">
+                        <select id="yearStart" sort="key">
+                            <special-key-entry id="p1" distinct="true" pos="1"/>
+                        </select>
+                        <select id="monthStart">
+                            <option value="01">Janvier</option>
+                            <option value="02">Février</option>
+                            <option value="03">Mars</option>
+                            <option value="04">Avril</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juin</option>
+                            <option value="07">Juillet</option>
+                            <option value="08">Août</option>
+                            <option value="09">Septembre</option>
+                            <option value="10">Octobre</option>
+                            <option value="11">Novembre</option>
+                            <option value="12">Décembre</option>
+                        </select>
+                    </critere>
+                    <critere id="end" libelle="et">
+                        <select id="yearEnd" sort="key">
+                            <special-key-entry id="p2" distinct="true" pos="1"/>
+                        </select>
+                        <select id="monthEnd">
+                            <option value="01">Janvier</option>
+                            <option value="02">Février</option>
+                            <option value="03">Mars</option>
+                            <option value="04">Avril</option>
+                            <option value="05">Mai</option>
+                            <option value="06">Juin</option>
+                            <option value="07">Juillet</option>
+                            <option value="08">Août</option>
+                            <option value="09">Septembre</option>
+                            <option value="10">Octobre</option>
+                            <option value="11">Novembre</option>
+                            <option value="12">Décembre</option>
+                        </select>
+                    </critere>
+                    <critere-optionnel id="op_agent-statut" id-ref="agent-statut" optional="true"/>
+                    <critere-optionnel id="op_grade" id-ref="grade" optional="true"/>
+                    <critere-optionnel id="op_emploi" id-ref="emploi" optional="true"/>
+                    <critere-optionnel id="op_service" id-ref="service" optional="true"/>
+                    <critere-optionnel id="op_mt-brut" id-ref="mt-brut" optional="true"/>
+                    <critere-optionnel id="op_mt-net" id-ref="mt-net" optional="true"/>
+                    <critere-optionnel id="op_indice" id-ref="indice" optional="true"/>                    
+                </plugin>
+            </element>
+
+            <element
+                balise="TraitBrut"
+                id="lignePaye"
+                max-display="100"
+                titre="Lignes de paye">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/*</path>
+                
+                <environment>
+                    <variable name="max-display" domain="element" type="integer">
+                        <libelle>Nombre de bulletins affichés</libelle>
+                        <reference name="@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                    <variable name="max-display" domain="documents" type="integer">
+                        <libelle>Nombre de bulletins affichés</libelle>
+                        <reference name="/documents/document[@id='cfg-paye']/etat[@id='etatPaye']/element[@id='lignePaye']/@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                </environment>
+                
+                <liste-resultat ordre="ASC,ASC,ASC,ASC,ASC" tri-defaut="e2lr1,e2lr2,e2lr3,e2lr4,e2lr5">
+                    <widget
+                        class="fr.gouv.finances.cp.xemelios.widgets.paye.AgentViewer"
+                        libelle="Voir tous les bulletins de l'agent">
+                        <help>Permet de visualiser tous les bulletins de paye de l'agent.</help>
+                        <parameter name="matricule-res-id" value="hMatricule"/>
+                        <parameter name="elementId" value="payeIndivMensuel"/>
+                        <parameter name="matricule-crit-id" value="agent-matricule"/>
+                        <parameter name="matricule-input-id" value="VALEUR:agent_matricule"/>
+                    </widget>
+                    <hidden name="xsl-param:IdLignePaye">
+                        <valeur>@generated-id</valeur>
+                    </hidden>
+                    <hidden name="hMatricule">
+                        <valeur>../../n:Agent/n:Matricule/@V</valeur>
+                    </hidden>
+                    <champ datatype="integer" id="e2lr1" libelle="Année" identifiant="true" exportable="false">
+                        <help>L'année du bulletin</help>
+                        <valeur>../../../../n:Annee/@V</valeur>
+                    </champ>
+                    <champ datatype="integer" id="e2lr2" libelle="Mois" identifiant="true" exportable="false">
+                        <help>Le mois du bulletin</help>
+                        <valeur>../../../../n:Mois/@V</valeur>
+                    </champ>
+                    <champ id="e2lr3" libelle="Nom" exportable="true">
+                        <help>Le nom de l'agent</help>
+                        <valeur>../../n:Agent/n:Nom/@V</valeur>
+                    </champ>
+                    <champ id="e2lr4" libelle="Prénom" exportable="true">
+                        <help>Le prénom de l'agent</help>
+                        <valeur>../../n:Agent/n:Prenom/@V</valeur>
+                    </champ>
+                    <champ id="e2lr5" libelle="Matricule" identifiant="true" exportable="false">
+                        <help>Le matricule de l'agent</help>
+                        <valeur>../../n:Agent/n:Matricule/@V</valeur>
+                    </champ>
+                    <champ id="e2lr6" libelle="Libellé" exportable="true">
+                        <help>Le libellé de la ligne de paye</help>
+                        <valeur>n:Libelle/@V</valeur>
+                    </champ>
+                    <champ id="e2lr7" libelle="Code" exportable="true">
+                        <help>LE code de la rubrique</help>
+                        <valeur>n:Code/@V</valeur>
+                    </champ>
+                    <champ id="lrBase" libelle="Base" datatype="amount" exportable="true" aggregate="false">
+                        <help>La base</help>
+                        <valeur>n:Base/@V</valeur>
+                    </champ>
+                    <champ id="e2lr8" libelle="Taux" datatype="amount" exportable="true">
+                        <help>Le taux</help>
+                        <valeur>n:Taux/@V</valeur>
+                    </champ>
+                    <champ id="e2lr9" libelle="Nb. Unité" datatype="decimal" exportable="true" aggregate="false">
+                        <help>Le nombre d'unités</help>
+                        <valeur>n:NbUnite/@V</valeur>
+                    </champ>
+                    <champ id="lrCaisse" libelle="Code caisse" exportable="true">
+                        <help>Le code de la caisse</help>
+                        <valeur>n:CodeCaisse/@V</valeur>
+                    </champ>
+                    <champ id="e2lr10" libelle="Montant" datatype="amount" exportable="true" aggregate="true">
+                        <help>Le montant</help>
+                        <valeur>n:Mt/@V</valeur>
+                    </champ>
+                    <champ id="e2lr11" libelle="Date début" datatype="date" exportable="true">
+                        <help>La date de début de la période de référence de la ligne</help>
+                        <valeur>n:PeriodeRef/n:DateDebut/@V</valeur>
+                    </champ>
+                    <champ id="e2lr12" libelle="Date fin" datatype="date" exportable="true">
+                        <help>La date de fin de la période de référence de la ligne</help>
+                        <valeur>n:PeriodeRef/n:DateFin/@V</valeur>
+                    </champ>
+                    <champ id="e2lr16" libelle="Nir" default-display="false">
+                        <help>Le numpéro d'identifiant national (numéro de sécurité sociale)</help>
+                        <valeur>../../n:Agent/n:NIR/@V</valeur>
+                    </champ>
+                    <champ id="e2lr15" libelle="Budget" default-display="false">
+                        <help>Le code du premier budget de la ligne</help>
+                        <valeur>../../n:RepartitionBudget[1]/n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="e2lr161" libelle="Nomencl. Statutaire" default-display="false">
+                        <help>Référence à la nomenclature statutaire, i.e. pour le F.P.T. conforme à la NET, pour la FPH, en attente de la nomenclature DHOS</help>
+                        <valeur>../../n:Agent/n:RefNomenStatutaire/@desc</valeur>
+                    </champ>
+                    <champ id="e2lr17" libelle="RIB" default-display="false">
+                        <help>Les coordonnées bancaires de l'agent</help>
+                        <valeur>../../n:Agent/n:CptBancaire/@rib</valeur>
+                    </champ>
+                </liste-resultat>
+                
+                <parent element="payeIndivMensuel" path="../.."/>
+                
+                <critere id="annee-mois" libelle="Année et Mois">
+                    <help>Permet de filtrer par année mois</help>
+                    <path>{/n:DocumentPaye/n:Annee/@V=##VALEUR:annee##}{/n:DocumentPaye/n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="annee" libelle="Année">
+                        <special-key-entry distinct="true" pos="1" id="sp1"/>
+                    </select>
+                    <select id="mois" libelle="Mois" sort="key">
+                        <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                            <key1>##VALEUR:annee##</key1>
+                        </special-key-entry>
+                    </select>
+                </critere>
+                <!-- debut -->
+                <critere id="evenement" libelle="Evènement">
+                    <help>Permet de filtrer les bulletins pour lesquels il y a l'évènement sélectionné. XéMéLios affiche les évènements déclarés dans la nomenclature associée.</help>
+                    <path>{../../n:Evenement/n:Code/@V=&quot;##VALEUR:Evt##&quot;}</path>
+                    <select id="Evt">
+                        <recherche-paire id="rp1">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureEvtPaye/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="tous-evenements" libelle="Tous les Evènements">
+                    <help>Permet de filtrer les bulletins qui ont au moins un évènement</help>
+                    <path>{../../n:Evenement}</path>
+                    <blank/>
+                </critere>
+                <critere id="mt-net" libelle="Montant Net">
+                    <help>Permet de filtrer les bulletins pour lesquels le montant net (de pied) correspond aux valeurs saisies.</help>
+                    <path>{../../n:MtNet/@V##OPERATEUR:mtnet####VALEUR:mtnet##}</path>
+                    <input datatype="numeric" id="mtnet"/>
+                </critere>
+                <critere id="mt-brut" libelle="Montant Brut">
+                    <help>Permet de filtrer les bulletins pour lesquels le montant brut (de pied) correspond aux valeurs saisies.</help>
+                    <path>{../../n:MtBrut/@V##OPERATEUR:mtbrut####VALEUR:mtbrut##}</path>
+                    <input datatype="numeric" id="mtbrut"/>
+                </critere>
+                <critere id="mt-imposable" libelle="Montant Imposable">
+                    <help>Permet de filtrer les bulletins pour lesquels le montant imposable (de pied) correspond aux valeurs saisies.</help>
+                    <path>{../../n:MtImposable/@V##OPERATEUR:mtimpo####VALEUR:mtimpo##}</path>
+                    <input datatype="numeric" id="mtimpo"/>
+                </critere>
+                <critere id="heures-supp" libelle="Heures supplémentaires">
+                    <help>Permet de filtrer les bulletins pour lesquels les heures supplémentaires correspondent aux valeurs saisies</help>
+                    <path>{../../n:NbHeureSup/@V##OPERATEUR:nbheuressup####VALEUR:nbheuressup##}</path>
+                    <input datatype="numeric" id="nbheuressup"/>
+                </critere>
+                <critere id="heures-trav" libelle="Heures travaillées">
+                    <help>Permet de filtrer les bulletins pour lesquels les heures travaillées correspondent aux valeurs saisies</help>
+                    <path>{../../n:NbHeureTotal/@V##OPERATEUR:nbheures####VALEUR:nbheures##}</path>
+                    <input datatype="numeric" id="nbheures"/>
+                </critere>
+                <critere id="tps-trav" libelle="Temps de travail">
+                    <help>Permet de filtrer les bulletins pour lesquels le temps de travail correspond aux valeurs saisies</help>
+                    <path>{../../n:QuotiteTrav/@V##OPERATEUR:quotite####VALEUR:quotite##}</path>
+                    <input datatype="numeric" id="quotite"/>
+                </critere>
+                <critere id="indice" libelle="Indice">
+                    <help>Permet de filtrer les bulletins dont l'indice de l'agent correspond aux valeurs saisies</help>
+                    <path>{../../n:Agent/n:Indice/@V##OPERATEUR:indice####VALEUR:indice##}</path>
+                    <input datatype="numeric" id="indice"/>
+                </critere>
+                <critere id="nbi" libelle="NBI">
+                    <help>Permet de filtrer les bulletins pour lesquels la NBI correspond aux valeurs saisies</help>
+                    <path>{../../n:NBI/@V##OPERATEUR:nbi####VALEUR:nbi##}</path>
+                    <input datatype="numeric" id="nbi"/>
+                </critere>
+                <critere id="emploi" libelle="Emploi">
+                    <help>Permet de filtrer les bulletins dont l'emploi de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:emploi##(../../n:Agent/n:EmploiMetier/@V2,&quot;##VALEUR:emploi##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:EmploiMetier/@V"
+                        id="emploi" uppercase="true"/>
+                </critere>
+                <critere id="service" libelle="Service">
+                    <help>Permet de filtrer les bulletins pour lesquels le service de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:service##(../../n:Service/@V2,&quot;##VALEUR:service##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Service/@V" id="service"
+                        uppercase="true"/>
+                </critere>
+                <critere id="cat-rubriques" libelle="Catégorie de Rubriques">
+                    <help>Permet de filtrer les lignes par catégorie de rubrique</help>
+                    <path>{name(.)=&quot;##VALEUR:exist##&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <select id="exist">
+                        <option value="TraitBrut">Traitement Principal</option>
+                        <option value="IndemResid">Indemnité de Résidence</option>
+                        <option value="SupFam">Supplément Familial</option>
+                        <option value="Indemnite">Autres indemnités</option>
+                        <option value="RemDivers">Autres Rémunérations Diverses</option>
+                        <option value="AvantageNature">Avantages en nature</option>
+                        <option value="Deduction">Déductions</option>
+                        <option value="Acompte">Acomptes</option>
+                        <option value="Rappel">Rappels</option>
+                        <option value="Retenue">Retenues sur net</option>
+                        <option value="Cotisation">Cotisations patronales</option>
+                    </select>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rubrique-detail" libelle="Rubrique détaillée">
+                    <help>Permet de filtrer les lignes par rubrique détaillée. XéMéLios affiche les valeurs issues de la nomenclature associée</help>
+                    <path>{n:Code/@V=&quot;##VALEUR:RubLig##&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <select id="RubLig" libelle="Rubrique">
+                        <recherche-paire id="rp2">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureRubriquePaye/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="caisse" libelle="Caisse (cotisation)">
+                    <help>Permet de filtrer les lignes par caisse de cotisation. XéMéLios affiche les valeurs issues de la nomenclature associée.</help>
+                    <path>{n:CodeCaisse/@V=&quot;##VALEUR:Caisse##&quot;}</path>
+                    <select id="Caisse">
+                        <recherche-paire id="rp3">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureCaisse/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="agent-nom" libelle="Agent (nom)">
+                    <help>Permet de filtrer les bulletins dont le nom de l'agent correspond aux valeurs saisies.</help>
+                    <path>{##OPERATEUR:agent_nom##(../../n:Agent/n:Nom/@V2,&quot;##VALEUR:agent_nom##&quot;)}</path>
+                    <input datatype="string" id="agent_nom" uppercase="true"/>
+                </critere>
+                <critere id="agent-prenom" libelle="Agent (prénom)">
+                    <help>Permet de filtrer les bulletins dont le prénom de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:agent_prenom##(../../n:Agent/n:Prenom/@V2,&quot;##VALEUR:agent_prenom##&quot;)}</path>
+                    <input datatype="string" id="agent_prenom" uppercase="true"/>
+                </critere>
+                <critere id="agent-matricule" libelle="Agent (matricule)">
+                    <help>Permet de filtrer les bulletins dont le matricule de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:agent_matricule##(../../n:Agent/n:Matricule/@V2,&quot;##VALEUR:agent_matricule##&quot;)}</path>
+                    <input datatype="string" id="agent_matricule" uppercase="true"/>
+                </critere>
+                <critere id="agent-nir" libelle="Agent (nir)" optional-display-id="lr16">
+                    <help>Permet de filtrer les bulletins dont le NIR (numéro de sécu) correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:agent_nir##(../../n:Agent/n:NIR/@V,&quot;##VALEUR:agent_nir##&quot;)}</path>
+                    <input datatype="string" id="agent_nir"/>
+                </critere>
+                <critere id="agent-statut" libelle="Agent (statut)">
+                    <help>Permet de filtrer les bulletins dont de le statut de l'agent correpond à la valeur saisie. XéMéLios affiche les valeurs issues de la nomenclature</help>
+                    <path>{../../n:Agent/n:Statut/@V=&quot;##VALEUR:agent_statut##&quot;}</path>
+                    <select id="agent_statut">
+                        <recherche-paire id="rp4">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureStatut/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="agent-enfants" libelle="Agent (enfants à charge)">
+                    <help>Permet de filtrer les bulletins dont le nombre d'enfants à charge de l'agent correspond aux valeurs saisies</help>
+                    <path>{../../n:Agent/n:NbEnfants/@V##OPERATEUR:nbenf####VALEUR:nbenf##}</path>
+                    <input datatype="numeric" id="nbenf"/>
+                </critere>
+                <critere id="grade" libelle="Grade">
+                    <help>Permet de filtrer les bulletins dont le grade de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:grade##(../../n:Agent/n:Grade/@V,&quot;##VALEUR:grade##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Grade/@V" id="grade"
+                    />
+                </critere>
+                <critere id="echelon" libelle="Echelon">
+                    <help>Permet de filtrer les bulletins dont l'échelon de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:echelon##(../../n:Agent/n:Echelon/@V,&quot;##VALEUR:echelon##&quot;)}</path>
+                    <input datatype="string"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Echelon/@V"
+                        id="echelon"/>
+                </critere>
+                <critere id="rub-trait-brut" libelle="Rubriques (Traitement Principal)">
+                    <help>Permet de ne rechercher que les lignes de traitement principal</help>
+                    <path>{name(.)=&quot;TraitBrut&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-indemn-resid" libelle="Rubriques (Indemnité de Résidence)">
+                    <help>Permet de n'afficher que les lignes d'indemnité de résidence</help>
+                    <path>{name(.)=&quot;IndemResid&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-supp-fam" libelle="Rubriques (Supplément Familial)">
+                    <help>Permet de n'afficher que les lignes de supplément familial</help>
+                    <path>{name(.)=&quot;SupFam&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-autres" libelle="Rubriques (Autre Indemnité)">
+                    <help>Permet de n'afficher que les lignes d'autres rubriques</help>
+                    <path>{name(.)=&quot;Indemnite&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-avantag-natur" libelle="Rubriques (Avantage en Nature)">
+                    <help>Permet de n'afficher que les lignes d'avantage en nature</help>
+                    <path>{name(.)=&quot;AvantageNature&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-deduction" libelle="Rubriques (Déduction sur brut)">
+                    <help>Permet de n'afficher que les lignes de déduction sur brut</help>
+                    <path>{name(.)=&quot;Deduction&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-rappel" libelle="Rubriques (Rappel)">
+                    <help>Permet de n'afficher que les lignes de rappel</help>
+                    <path>{name(.)=&quot;Rappel&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-acompte" libelle="Rubriques (Acompte)">
+                    <help>Permet de n'afficher que les lignes d'acompte</help>
+                    <path>{name(.)=&quot;Acompte&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-retenue" libelle="Rubriques (Retenue sur net)">
+                    <help>Permet de n'afficher que les lignes de retenues sur net</help>
+                    <path>{name(.)=&quot;Retenue&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="rub-cotis-patron" libelle="Rubriques (Cotisation Patronale)">
+                    <help>Permet de n'afficher que les lignes de cotisations patronales</help>
+                    <path>{name(.)=&quot;Cotisation&quot;}{n:Mt/@V##OPERATEUR:MtLig####VALEUR:MtLig##}</path>
+                    <input datatype="numeric" id="MtLig" libelle="Mt"/>
+                </critere>
+                <critere id="cumul_brut" libelle="Cumul Brut">
+                    <help>Permet de filtrer les bulletins dont le montant cumulé net annuel correspond aux valeurs saisies</help>
+                    <path>{../../n:CumulMtBrut/@V##OPERATEUR:cumul_brut####VALEUR:cumul_brut##}</path>
+                    <input id="cumul_brut" datatype="numeric"/>
+                </critere>
+                <!-- ajouts 2007-07-16 -->
+                <critere id="code-budget" libelle="Budget" optional-display-id="e2lr15">
+                    <help>Permet de filtrer les bulletins ayant une imputation budgétaire sur le budget spécifié</help>
+                    <path>{../../n:RepartitionBudget/n:CodeBudget/@V=&quot;##VALEUR:CodeBudget##&quot;}</path>
+                    <select id="CodeBudget" sort="lib">
+                        <recherche-paire id="rp5">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureBudget/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="refNomenStatutaire" libelle="Réf. Nomencl. Statutaire"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont la référence statutaire de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:refNomclStatut##(upper-case(../../n:Agent/n:RefNomenStatutaire/@desc),&quot;##VALEUR:refNomclStatut##&quot;)}</path>
+                    <input id="refNomclStatut" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/@desc"
+                    />
+                </critere>
+                <critere id="codeRefNomclStatut" libelle="Réf. Nomencl. Statutaire (code)"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont la référence statutaire de l'agent correspond aux valeurs saisies</help>
+                    <path>{upper-case(../../n:Agent/n:RefNomenStatutaire/n:Code/@V)=&quot;##VALEUR:codeRefNomclStatut##&quot;}</path>
+                    <input id="codeRefNomclStatut" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Code/@V"
+                    />
+                </critere>
+                <critere id="libelleRefNomclStatut" libelle="Réf. Nomencl. Statutaire (libellé)"
+                    optional-display-id="lr161">
+                    <help>Permet de filtrer les bulletins dont le libellé de la référence statutaire de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:libelleRefNomclStatut##(upper-case(../../n:Agent/n:RefNomenStatutaire/n:Libelle/@V),&quot;##VALEUR:libelleRefNomclStatut##&quot;)}</path>
+                    <input id="libelleRefNomclStatut" uppercase="true"
+                        help="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Libelle/@V"
+                        datatype="string"/>
+                </critere>
+                <critere id="rib" libelle="RIB" optional-display-id="e2lr17">
+                    <help>Permet de filtrer les bulletins dont le RIB de l'agent correspond aux valeurs saisies</help>
+                    <path>{##OPERATEUR:rib##(../../n:Agent/n:CptBancaire/@rib,&quot;##VALEUR:rib##&quot;)}</path>
+                    <input id="rib" datatype="string"/>
+                </critere>
+                <critere id="annee" libelle="Année">
+                    <help>Permet de filtrer les bulletins par année</help>
+                    <path>{../../../../n:Annee/@V##OPERATEUR:annee####VALEUR:annee##}</path>
+                    <input datatype="numeric" id="annee"/>
+                </critere>
+                <critere id="mois" libelle="Mois">
+                    <help>Permet de filtrer les bulletins par mois</help>
+                    <path>{../../../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="mois" sort="no">
+                        <option value="01">Janvier</option>
+                        <option value="02">Février</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Avril</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juin</option>
+                        <option value="07">Juillet</option>
+                        <option value="08">Août</option>
+                        <option value="09">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+                </critere>
+                <critere id="file.name" libelle="Nom de fichier">
+                    <help>Permet de filtrer par nom original du fichier importé</help>
+                    <path>{##OPERATEUR:file.name##(/n:DocumentPaye/added:FileName/@V,&apos;##VALEUR:file.name##&apos;)}</path>
+                    <input id="file.name" datatype="string" help="/n:DocumentPaye/added:FileName/@V"></input>
+                </critere>
+                <critere id="train" libelle="Train de paye">
+                    <help>Permet de filtrer par train de paye. Attention, cette information n'est pas toujours transmise.</help>
+                    <path>{/n:DocumentPaye/n:Train/@V=&apos;##VALEUR:train##&apos;}</path>
+                    <select id="train">
+                        <recherche-paire id="rp3">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureTrain/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                        
+                    </select>
+                </critere>
+            </element>
+            <element balise="Commentaire" id="comment" max-display="100" titre="Commentaire" searchable="false">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Commentaire</path>
+                <liste-resultat ordre="ASC" tri-defaut="chComment">
+                    <champ id="chComment" libelle="Commentaire">
+                        <valeur>n:Libelle/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <parent element="payeIndivMensuel" path="../.."/>
+            </element>
+            
+            <element
+                balise="Evenement"
+                id="evt"
+                max-display="100"
+                titre="Evènements de paye"
+                searchable="false">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Evenement</path>
+                <liste-resultat ordre="" tri-defaut="">
+                    <champ id="C1" libelle="Code" exportable="true" datatype="string">
+                        <valeur>n:Code/@V</valeur>
+                    </champ>
+                    <champ id="C2" libelle="Description" exportable="true" datatype="string">
+                        <valeur>n:Description/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <parent element="payeIndivMensuel" path=".."/>
+            </element>
+            <element
+                balise="NBI"
+                id="NBI"
+                max-display="100"
+                titre="NBI"
+                searchable="false">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:NBI</path>
+                <liste-resultat ordre="" tri-defaut="">
+                    <champ id="e3C1" libelle="NBI" datatype="amount" exportable="true" aggregate="true">
+                        <valeur>@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <parent element="payeIndivMensuel" path=".."/>
+            </element>
+            <element
+                balise="RepartitionBudget"
+                id="RepartitionBudget"
+                searchable="false"
+                titre="Répartition Budgétaire"
+                max-display="100">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:RepartitionBudget</path>
+                <liste-resultat ordre="" tri-defaut="">
+                    <champ id="e4C1" libelle="Code Budget" exportable="true" datatype="string">
+                        <valeur>n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="e4C2" libelle="Taux" exportable="true" datatype="decimal" aggregate="true">
+                        <valeur>n:Taux/@V</valeur>
+                    </champ>
+                    <champ id="e4C3" libelle="Montant" exportable="true" datatype="amount" aggregate="true">
+                        <valeur>n:Mt/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <parent element="payeIndivMensuel" path=".."/>
+            </element>
+            <element balise="PJRef" id="PJRef" titre="Pièces justficatives" max-display="100" searchable="false">
+                <path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:PJRef</path>
+                <liste-resultat ordre="" tri-defaut="">
+                    <champ id="e5C1" libelle="Support" exportable="true">
+                        <valeur>n:Support/@V</valeur>
+                    </champ>
+                    <champ id="e5C2" libelle="IdUnique" exportable="true" identifiant="true">
+                        <valeur>n:IdUnique/@V</valeur>
+                    </champ>
+                    <champ id="e5C3" libelle="Nom PJ" exportable="true">
+                        <valeur>n:NomPJ/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <parent element="payeIndivMensuel" path=".."/>
+            </element>
+
+        </etat>
+
+
+        <etat 
+            balise="RepartitionParNature" 
+            balise-namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+            id="RepartitionNature" 
+            titre="Répartitions par nature"
+            use-external-browser="false" 
+            exportable="true">
+            <help>Représente la répartition des versements par Nature, et éventuellement par fonction lorsque la collectivité vote son budget par fonction ou par nature avec références fonctionnelles.</help>
+            <element balise="Repartition" id="DetailRepartitionNature" max-display="1000"
+                titre="Répartition par nature">
+                <path>/n:DocumentPaye/n:RepartitionParNature/n:Repartition</path>
+                <environment>
+                    <variable name="max-display" domain="element" type="integer">
+                        <libelle>Nombre de répartitions affichées</libelle>
+                        <reference name="@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                    <variable name="max-display" domain="documents" type="integer">
+                        <libelle>Nombre de répartitions affichées</libelle>
+                        <reference name="/documents/document[@id='cfg-paye']/etat[@id='RepartitionNature']/element[@id='DetailRepartitionNature']/@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                </environment>
+                <liste-resultat ordre="ASC" tri-defaut="e5lr1">
+                    <champ id="e5lr1" libelle="Année" exportable="true" identifiant="true">
+                        <help>L'année</help>
+                        <valeur>n:Annee/@V</valeur>
+                    </champ>
+                    <champ id="e5lr2" libelle="Mois" identifiant="true" exportable="true">
+                        <help>Le mois</help>
+                        <valeur>n:Mois/@V</valeur>
+                    </champ>
+                    <champ id="e5lr3" libelle="Libellé" exportable="true">
+                        <help>Le libellé</help>
+                        <valeur>n:Libelle/@V</valeur>
+                    </champ>
+                    <champ id="e5lr4" libelle="Code" exportable="true" identifiant="true">
+                        <help>Le code nature</help>
+                        <valeur>n:Code/@V</valeur>
+                    </champ>
+                    <champ datatype="amount" id="e5lr5" libelle="Montant" exportable="true" aggregate="true">
+                        <help>Le montant</help>
+                        <valeur>n:Mt/@V</valeur>
+                    </champ>
+                    <champ id="e5lr6" libelle="Code Budget" identifiant="true" exportable="true">
+                        <help>Le code budget pour les flux multi-budgets</help>
+                        <valeur>n:CodeBudget/@V</valeur>
+                    </champ>
+                    <champ id="e5lr7" libelle="Code Fonction" exportable="true" identifiant="true">
+                        <help>Le code fonction pour les budgets votés par fonction</help>
+                        <valeur>n:CodeFonction/@V2</valeur>
+                    </champ>
+                    <champ id="rn.file.name" libelle="Nom de fichier" exportable="true" default-display="false">
+                        <help>Le nom original du fichier importé</help>
+                        <valeur>/n:DocumentPaye/added:FileName/@V</valeur>
+                    </champ>
+                    <champ id="rn.train" libelle="Train de paye" default-display="false" exportable="true">
+                        <help>Le train de paye</help>
+                        <valeur>/n:DocumentPaye/n:Train/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <critere id="annee-mois" libelle="Année et Mois">
+                    <help>Permet de filtrer les lignes de répartitions par nature par année et mois</help>
+                    <path>{../../n:Annee/@V=##VALEUR:annee##}{../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="annee" libelle="Année">
+                        <special-key-entry distinct="true" pos="1" id="sp1"/>
+                    </select>
+                    <select id="mois" libelle="Mois" sort="key">
+                        <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                            <key1>##VALEUR:annee##</key1>
+                        </special-key-entry>
+                    </select>
+                </critere>
+                <critere id="code-fonction" libelle="Fonction">
+                    <help>Permet de filtrer les lignes de répartition par nature par code fonction</help>
+                    <path>{##OPERATEUR:code-fonction##(n:CodeFonction/@V2,&quot;##VALEUR:code-fonction##&quot;)}</path>
+                    <input id="code-fonction" datatype="string"
+                        help="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:CodeFonction/@V2"
+                        uppercase="true"/>
+                </critere>
+                <critere id="code-budget" libelle="Budget">
+                    <help>Permet de filtrer les lignes de répatition par nature par code budget</help>
+                    <path>{n:CodeBudget/@V=&quot;##VALEUR:code-budget##&quot;}</path>
+                    <select id="code-budget" sort="lib">
+                        <recherche-paire id="rp1">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureBudget/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                    </select>
+                </critere>
+                <critere id="code-nature" libelle="Nature">
+                    <help>Permet de filtrer les lignes de répartition par nature par code nature</help>
+                    <path>{##OPERATEUR:code-nature##(n:Code/@V,&quot;##VALEUR:code-nature##&quot;)}</path>
+                    <input id="code-nature" datatype="string" help="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:Code/@V" uppercase="true"/>
+                </critere>
+                <critere id="annee" libelle="Année">
+                    <help>Permet de filtrer les lignes de répatition par nature par année</help>
+                    <path>{../../n:Annee/@V##OPERATEUR:annee##&quot;##VALEUR:annee##&quot;}</path>
+                    <input datatype="numeric" id="annee"/>
+                </critere>
+                <critere id="mois" libelle="Mois">
+                    <help>Permet de filtrer les lignes de répartition par nature par mois</help>
+                    <path>{../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="mois" sort="no">
+                        <option value="01">Janvier</option>
+                        <option value="02">Février</option>
+                        <option value="03">Mars</option>
+                        <option value="04">Avril</option>
+                        <option value="05">Mai</option>
+                        <option value="06">Juin</option>
+                        <option value="07">Juillet</option>
+                        <option value="08">Août</option>
+                        <option value="09">Septembre</option>
+                        <option value="10">Octobre</option>
+                        <option value="11">Novembre</option>
+                        <option value="12">Décembre</option>
+                    </select>
+                </critere>
+                <critere id="file.name" libelle="Nom de fichier">
+                    <help>Permet de filtrer par nom original du fichier importé</help>
+                    <path>{##OPERATEUR:file.name##(/n:DocumentPaye/added:FileName/@V,&apos;##VALEUR:file.name##&apos;)}</path>
+                    <input id="file.name" datatype="string" help="/n:DocumentPaye/added:FileName/@V"></input>
+                </critere>
+                <critere id="train" libelle="Train de paye">
+                    <help>Permet de filtrer par train de paye. Attention, cette information n'est pas toujours transmise.</help>
+                    <path>{/n:DocumentPaye/n:Train/@V=&apos;##VALEUR:train##&apos;}</path>
+                    <select id="train">
+                        <recherche-paire id="rp3">
+                            <path>/n:DocumentPaye/n:Nomenclatures/n:NomenclatureTrain/n:Correspondance</path>
+                            <code-path>n:Code/@V</code-path>
+                            <libelle-path>n:Libelle/@V</libelle-path>
+                        </recherche-paire>
+                        
+                    </select>
+                </critere>
+                
+            </element>
+        </etat>
+
+        <etat 
+            balise="Totalisation" 
+            balise-namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+            id="Totalisation" 
+            titre="Totalisations"
+            use-external-browser="true" 
+            displayInMenuIf="xemelios.paye.totalisation">
+            <help>Etat de totalisation. Cet état est optionnel et n'est que très rarement utilisé.</help>
+            <element balise="ligne" id="ligneTotalisation" max-display="500"
+                titre="Lignes de totalisation">
+                <path>/n:DocumentPaye/n:Totalisation/n:ligne</path>
+                <environment>
+                    <variable name="max-display" domain="element" type="integer">
+                        <libelle>Nombre de totalisations affichées</libelle>
+                        <reference name="@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                    <variable name="max-display" domain="documents" type="integer">
+                        <libelle>Nombre de totalisations affichées</libelle>
+                        <reference name="/documents/document[@id='cfg-paye']/etat[@id='Totalisation']/element[@id='ligneTotalisation']/@max-display"/>
+                        <input id="max-display"/>
+                    </variable>
+                </environment>
+                <liste-resultat ordre="ASC" tri-defaut="ordreTotal">
+                    <champ id="ordreTotal" libelle="Ordre" aggregate="false" datatype="integer">
+                        <help>L'ordre d'affichage</help>
+                        <valeur>n:Ordre/@V</valeur>
+                    </champ>
+                    <champ id="rubriqueTotal" libelle="Rubrique" datatype="string">
+                        <help>La rubrique</help>
+                        <valeur>n:Rubrique/@added:display</valeur>
+                    </champ>
+                    <champ id="etablTotal" libelle="Etablissement" datatype="string">
+                        <help>L'établissement</help>
+                        <valeur>n:Etablissement/@V</valeur>
+                    </champ>
+                    <champ id="typeCreditTotal" libelle="Type Crédit" datatype="string">
+                        <help>Le type de crédit</help>
+                        <valeur>n:TypeCredit/@V</valeur>
+                    </champ>
+                    <champ id="typeLigneTotal" libelle="Type Ligne" datatype="string">
+                        <help>Le type de ligne</help>
+                        <valeur>n:TypeLigne/@V</valeur>
+                    </champ>
+                    <champ id="caisseTotal" libelle="Caisse" datatype="string">
+                        <help>La caisse de cotisation</help>
+                        <valeur>n:Caisse/@added:display</valeur>
+                    </champ>
+                    <champ id="montantTotal" libelle="Montant" datatype="amount" aggregate="true">
+                        <help>Le montant</help>
+                        <valeur>n:Montant1/@V</valeur>
+                    </champ>
+                </liste-resultat>
+                <critere id="annee-mois-Total" libelle="Année Mois">
+                    <help>Permet de filtrer les lignes de totalisation par année mois</help>
+                    <path>{../../n:Annee/@V=##VALEUR:annee##}{../../n:Mois/@V=##VALEUR:mois##}</path>
+                    <select id="annee" libelle="Année">
+                        <special-key-entry distinct="true" pos="1" id="sp1"/>
+                    </select>
+                    <select id="mois" libelle="Mois" sort="key">
+                        <special-key-entry name="toti" depends="true" distinct="true" pos="2" id="sp2">
+                            <key1>##VALEUR:annee##</key1>
+                        </special-key-entry>
+                    </select>
+                </critere>
+                <critere id="rubriqueTotalCode" libelle="Rubrique (Code)">
+                    <help>Permet de filtrer les lignes de totalisation par code rubrique</help>
+                    <path>{##OPERATEUR:RubLig##(n:Rubrique/n:Code/@V2,&quot;##VALEUR:RubLig##&quot;)}</path>
+                    <input id="RubLig" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:Rubrique/n:Code/@V2"/>
+                </critere>
+                <critere id="rubriqueTotalLib" libelle="Rubrique (Libelle)">
+                    <help>Permet de filtrer les lignes de totalisation par libellé de rubrique</help>
+                    <path>{##OPERATEUR:RubLig##(n:Rubrique/n:Libelle/@V2,&quot;##VALEUR:RubLig##&quot;)}</path>
+                    <input id="RubLig" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:Rubrique/n:Libelle/@V2"/>
+                </critere>
+                <critere id="etablTotal" libelle="Etablissement">
+                    <help>Permet de filtrer les lignes de totalisation par établissement</help>
+                    <path>{##OPERATEUR:etabl##(n:Etablissement/@V2,&quot;##VALEUR:etabl##&quot;)}</path>
+                    <input id="etabl" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:Etablissement/@V2"/>
+                </critere>
+                <critere id="typeCredit" libelle="Type Crédit">
+                    <help>Permet de filtrer les lignes de totalisations par type de crédit</help>
+                    <path>{##OPERATEUR:typeCredit##(n:TypeCredit/@V2,&quot;##VALEUR:typeCredit##&quot;)}</path>
+                    <input id="typeCredit" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:TypeCredit/@V2"/>
+                </critere>
+                <critere id="typeLigne" libelle="Type Ligne">
+                    <help>Permet de filtrer les lignes de totalisation par type de ligne</help>
+                    <path>{n:TypeLigne/@V=&quot;##VALEUR:typeLigne##&quot;}</path>
+                    <select id="typeLigne">
+                        <option value="P">Part patronale</option>
+                        <option value="S">Part salariale</option>
+                        <option value="A">Autre</option>
+                    </select>
+                </critere>
+                <critere id="caisseCode" libelle="Caisse (Code)">
+                    <help>Permet de filtrer les lignes de totalisation par code de caisse de cotisation</help>
+                    <path>{##OPERATEUR:Caisse##(n:Caisse/n:Code/@V2,&quot;##VALEUR:Caisse##&quot;)}</path>
+                    <input id="Caisse" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:Caisse/n:Code/@V2"/>
+                </critere>
+                <critere id="caisseLib" libelle="Caisse (Libelle)">
+                    <help>Permet de filtrer les lignes de totalisation par libellé de caisse de totalisation</help>
+                    <path>{##OPERATEUR:Caisse##(n:Caisse/n:Lib/@V2,&quot;##VALEUR:Caisse##&quot;)}</path>
+                    <input id="Caisse" datatype="string" uppercase="true"
+                        help="/n:DocumentPaye/n:Totalisation/n:ligne/n:Caisse/n:Libelle/@V2"/>
+                </critere>
+                <critere id="mtTotal" libelle="Montant">
+                    <help>Permet de filtrer les lignes de totalisation par montant</help>
+                    <path>{n:Montant1/@V##OPERATEUR:mt####VALEUR:mt##}</path>
+                    <input id="mt" datatype="numeric"/>
+                </critere>
+            </element>
+        </etat>
+    </document>
+</documents>

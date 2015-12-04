@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<controls>
+ <document id="cfg-paye" urlDocumentation="" tableReference="">
+  <Message>Aucun contrôle n'est réalisé sur la répartition par nature</Message>
+  <controlTech id="TECH03" libelle="Contrôle de la conformance au schéma." severity="BLOQUANT">
+   <paramTech id="schemaLocation" name="schemaLocation" value="paye/schema/1.4/DocumentPaye.xsd"/></controlTech>
+  <control id="PAY01" libelle="Contrôle des codes budget" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY01">
+   <regle-fonctionnelle>Les codes budget utilisés dans les payes doivent être déclarés dans la nomenclature.</regle-fonctionnelle>
+   <message-echec>Les codes suivants sont utilisés mais non déclarés dans la nomenclature : ##LISTE##</message-echec>
+  </control>
+  <control id="PAY02" libelle="Contrôle des codes budget répartition par nature" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY02">
+   <regle-fonctionnelle>Les codes budget utilisés dans les répartitions par nature doivent être déclarés dans la nomenclature.</regle-fonctionnelle>
+   <message-echec>Les codes suivants sont utilisés mais non déclarés dans la nomenclature : ##LISTE##</message-echec>
+  </control>
+  <control id="PAY03" libelle="Contrôle des codes caisse" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY03">
+   <regle-fonctionnelle>Les codes caisse utilisés dans les payes doivent être déclarés dans la nomenclature.</regle-fonctionnelle>
+   <message-echec>Les codes suivants sont utilisés mais non déclarés dans la nomenclature : ##LISTE##</message-echec>
+  </control>
+  <control id="PAY04" libelle="Contrôle des codes évènements" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY04">
+   <regle-fonctionnelle>Les codes évènements utilisés doivent être déclarés dans la nomenclature.</regle-fonctionnelle>
+   <message-echec>##MESSAGE_MULTIPLE_DANS_LE_CODE##</message-echec>
+  </control>
+  <control id="PAY05" libelle="Contrôle des codes rubrique de paye" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY05">
+   <regle-fonctionnelle>Les codes rubrique de paye utilisés doivent être déclarés dans la nomenclature.</regle-fonctionnelle>
+   <message-echec>Les codes suivants sont utilisés mais non déclarés dans la nomenclature : ##LISTE##</message-echec>
+  </control>
+  <control id="PAY06" libelle="Contrôle de la collectivité" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY06">
+   <regle-fonctionnelle>Le champ Employeur/Nom est vide.</regle-fonctionnelle>
+   <message-echec>Le champ Employeur/Nom est vide.</message-echec>
+  </control>
+  <control id="PAY07" libelle="Contrôle de la validité des numéro de compte" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY07">
+   <regle-fonctionnelle>Les numéros de comptes doivent être valides.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : le numéro de compte (établissement / guichet / id compte / clé rib) ##COMPTE## n'est pas valide.</message-echec>
+  </control>
+  <control id="PAY08" libelle="Contrôle de l'échelon" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY08">
+   <regle-fonctionnelle>L'échelon doit être renseigné.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : l'échelon n'est pas renseigné.</message-echec>
+  </control>
+  <control id="PAY09" libelle="Contrôle de l'emploi métier" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY09">
+   <regle-fonctionnelle>L'emploi métier doit être renseigné.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : l'emploi métier n'est pas renseigné.</message-echec>
+  </control>
+  <control id="PAY10" libelle="Contrôle du grade" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY10">
+   <regle-fonctionnelle>Le grade doit être renseigné.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : le grade n'est pas renseigné.</message-echec>
+  </control>
+  <control id="PAY11" libelle="Contrôle des heures supplémentaires" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY11">
+   <regle-fonctionnelle>Les heures supplémentaires doivent être des nombres entiers, supérieurs ou égaux à zéro.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : la valeur des heures supplémentaires n'est pas correcte.</message-echec>
+  </control>
+  <control id="PAY21" libelle="Contrôle des heures supplémentaires" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY11">
+   <regle-fonctionnelle>Il n'y a aucune heure supplémentaire dans le fichier.</regle-fonctionnelle>
+   <message-echec>Il est étonnant qu'aucune heure supplémentaire apparaisse.</message-echec>
+  </control>
+  <control id="PAY12" libelle="Contrôle nom et complément de nom" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY12">
+   <regle-fonctionnelle>Le complément de nom ne doit pas être identique au nom.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : le complément de nom est identique au nom.</message-echec>
+  </control>
+  <control id="PAY13" libelle="Contrôle des périodes des lignes" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY13">
+   <regle-fonctionnelle>Toutes les lignes de paye renseignent la période. Seules les lignes ne correspondant pas à la période de référence du bulletin doivent être précisées.</regle-fonctionnelle>
+   <message-echec>Il n'est pas nécessaire de renseigner les périodes pour les lignes correspondant à la période de référence du bulletin.</message-echec>
+  </control>
+  <control id="PAY14" libelle="Contrôle du nombre de répartition par nature" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY14">
+   <regle-fonctionnelle>L'état répartition par nature doit posséder plus de 10 lignes.</regle-fonctionnelle>
+   <message-echec>L'état répartition par nature doit posséder plus de 10 lignes.</message-echec>
+  </control>
+  <control id="PAY15" libelle="Contrôle de la présence du SIRET" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY15">
+   <regle-fonctionnelle>Le SIRET situé dans le champ employeur doit être renseigné.</regle-fonctionnelle>
+   <message-echec>Le SIRET situé dans le champ employeur est vide.</message-echec>
+  </control>
+  <control id="PAY16" libelle="Contrôle des types de ligne" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY16">
+   <regle-fonctionnelle>Tous les types de ligne ne sont pas utilisés.</regle-fonctionnelle>
+   <message-echec>Les types de ligne suivants ne sont pas utilisés : ##LISTE##.</message-echec>
+  </control>
+  <control id="PAY17" libelle="Contrôle du nom du fichier" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY17">
+   <regle-fonctionnelle><![CDATA[<div class="warning">IMPORTANT : A titre indicatif.</div><br/>Le nom du fichier correspondant à un état mensuel donné pour une collectivité donnée doit avoir un caractère unique, conformément aux principes de la charte de dématérialisation et au fonctionnement de Xemelios.<br/>Il est donc conseillé qu'il comporte un identifiant de la collectivité (<b>SIREN</b> dans le cas d'un flux Multi-Collectivité OU du <b>SIRET</b> dans le cas d'un flux portant sur une seule collectivité), du mois et de l'année, ainsi que toutes autres informations nécessaires à son unicité.<br/>Ex: SIREN-ANNEE-ETAT_PAYE-MOIS.xhl <b>OU</b> SIRET-ANNEE-ETAT_PAYE-MOIS.xhl]]></regle-fonctionnelle>
+   <message-echec><![CDATA[Le nom de fichier <b>##FICHIER##</b> n'est pas correct; il devrait être : <b>##CORRECT_FICHIER##</b>]]></message-echec>
+  </control>
+  <control id="PAY18" libelle="Contrôle périodes de référence des rappels" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY18">
+   <regle-fonctionnelle>Chaque rappel doit avoir une période de référence.</regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : certains rappels n'ont pas de période de référence.</message-echec>
+  </control>
+  <control id="PAY19" libelle="Contrôle des adresse des agents" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY19">
+   <regle-fonctionnelle><![CDATA[L'adresse d'un agent doit être valide.<br/>Les éléments adr1, adr2 et adr3 doivent contenir une chaine de plus de 2 caractères ou rien.<br/>L'élément cp doit contenir une chaine de plus de 5 caractère ou rien.<br/>L'élément ville doit contenir une chaine de plus de 2 caractères ou rien.]]></regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : l'adresse de l'agent n'est pas valide.</message-echec>
+  </control>
+  <control id="PAY20" libelle="Contrôle des adresses des établissements" severity="FORCABLE" class="fr.gouv.finances.cp.xemelios.controls.paye.PAY20">
+   <regle-fonctionnelle><![CDATA[L'adresse d'un établissement doit être valide.<br/>Les éléments adr1, adr2 et adr3 doivent contenir une chaine de plus de 2 caractères ou rien.<br/>L'élément cp doit contenir une chaine de plus de 5 caractère ou rien.<br/>L'élément ville doit contenir une chaine de plus de 2 caractères ou rien.]]></regle-fonctionnelle>
+   <message-echec>Paye (##PAYE##) : l'adresse de l'établissement n'est pas valide.</message-echec>
+  </control>
+ </document>
+</controls>

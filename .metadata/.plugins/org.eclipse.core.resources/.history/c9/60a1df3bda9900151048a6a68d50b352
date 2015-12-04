@@ -1,0 +1,8 @@
+package mermory;
+
+public class Car {
+	String brand;
+	String color;
+	double price;
+	Motor motor;
+}

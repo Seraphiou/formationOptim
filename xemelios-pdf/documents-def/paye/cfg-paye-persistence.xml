@@ -1,0 +1,1261 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<persistence-config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:noNamespaceSchemaLocation="../../../../defs/config-metier/Persistence.xsd">
+ <layer name="mysql" persistence-model="xemelios-sql">
+  <document
+  	id="cfg-paye"
+  	repository-import-xslt-file="paye/nomenclature-import.xsl">
+   <table type="repository" base-name="PAYE_REPOSITORY" version="3">
+   	 CREATE TABLE IF NOT EXISTS ${base-name} (
+        ID VARCHAR(25),
+        LIBELLE VARCHAR(100),
+        COLLECTIVITE VARCHAR(15) NOT NULL,
+        REPOSITORY LONGBLOB,
+        ENCODING VARCHAR(20)
+    ) ENGINE MYISAM
+   	<patch from-version="1">
+   	    <sql failonerror="false">ALTER TABLE ${base-name} ADD ID VARCHAR(25)</sql>
+   	    <sql failonerror="false">ALTER TABLE ${base-name} ADD LIBELLE VARCHAR(100)</sql>
+   	</patch>
+       <patch from-version="2">
+           <sql failonerror="false">ALTER TABLE ${base-name} ADD ID VARCHAR(25)</sql>
+           <sql failonerror="false">ALTER TABLE ${base-name} ADD LIBELLE VARCHAR(100)</sql>
+       </patch>
+   </table>
+   <table type="special-key" base-name="PAYE_SPECIAL_KEYS" version="1">
+	CREATE TABLE IF NOT EXISTS ${base-name} (
+            COLLECTIVITE VARCHAR(15) NOT NULL,
+            BUDGET VARCHAR(24) NOT NULL,
+            INITIAL_DOC_NAME VARCHAR(100) NOT NULL,
+            KEY1 VARCHAR(100) NOT NULL,
+            LIB1 VARCHAR(200),
+            KEY2 VARCHAR(100),
+            LIB2 VARCHAR(200),
+            KEY3 VARCHAR(100),
+            LIB3 VARCHAR(200),
+            INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET),
+            ARCHIVE_NAME VARCHAR(100),
+            INDEX ${base-name}_AN (ARCHIVE_NAME)
+    ) ENGINE MYISAM
+   </table>
+   <table type="list-bc" base-name="PAYE_LIST_BUDG_COLL" version="1">
+   	CREATE TABLE IF NOT EXISTS ${base-name} (
+            COLLECTIVITE VARCHAR(15) NOT NULL,
+            BUDGET VARCHAR(24) NOT NULL,
+            BUDGET_LIB VARCHAR(200),
+            COLLECTIVITE_LIB VARCHAR(200),
+            INITIAL_DOC_NAME VARCHAR(100) NOT NULL,
+            INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET),
+            ARCHIVE_NAME VARCHAR(100),
+            INDEX ${base-name}_AN (ARCHIVE_NAME)
+    ) ENGINE MYISAM
+   </table>
+   <etat
+   		id="etatPaye"
+   		import-xslt-file="paye/etatPaye-import-mysql.xsl">
+   	<key1>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/@generated-id</path>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/@generated-id</path>
+   	</key1>
+    <key2>
+    	<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:RepartitionBudget/@generated-id</path>
+    </key2>
+    <key3>
+    	<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Evenement/@generated-id</path>
+    </key3>
+   	<key4>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:PJRef/@generated-id</path>
+   	</key4>
+   	<key5>
+   		<path>/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Commentaire/@generated-id</path>
+   	</key5>
+   	<table type="document" base-name="PAYE_ETATPAYE_DOCUMENTS" version="1">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+            COLLECTIVITE VARCHAR(15) NOT NULL,
+            BUDGET VARCHAR(24) NOT NULL,
+            INITIAL_DOC_NAME VARCHAR(100) NOT NULL,
+            DOC_ID VARCHAR(100) NOT NULL,
+            DOC LONGBLOB,
+            ENCODING VARCHAR(20),
+            INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+            ARCHIVE_NAME VARCHAR(100),
+            INDEX ${base-name}_AN (ARCHIVE_NAME)
+       ) ENGINE MYISAM
+   	</table>
+	<table type="index" id="T1" base-name="PAYE_ETATPAYE_INDEX_PAYE" version="9" main="true">
+		CREATE TABLE IF NOT EXISTS ${base-name} (
+			COLLECTIVITE VARCHAR(15) NOT NULL,
+			BUDGET VARCHAR(24) NOT NULL,
+			DOC_ID VARCHAR(100) NOT NULL,
+			ANNEE INTEGER,
+			MOIS VARCHAR(2),
+			AGENT_NOM VARCHAR(50),
+			AGENT_PRENOM VARCHAR(50),
+			AGENT_MATRICULE VARCHAR(24),
+			AGENT_NIR VARCHAR(15),
+			AGENT_STATUT VARCHAR(13),
+			AGENT_ENFANTS SMALLINT,
+			AGENT_GRADE VARCHAR(100),
+			AGENT_ECHELON VARCHAR(50),
+			AGENT_INDICE SMALLINT,
+			AGENT_METIER VARCHAR(50),
+			NBI DECIMAL(8,3),
+			SERVICE VARCHAR(50),
+			TRAVAIL DECIMAL(5,2),
+			HEURES_TOTAL DECIMAL(8,3),
+			HEURES_SUPP DECIMAL(8,3),
+			MT_NET DECIMAL(14,2),
+			MT_BRUT DECIMAL(14,2),
+			MT_IMPOS DECIMAL(14,2),
+			MT_NETAPAYER DECIMAL(14,2),
+			CUMUL_BRUT DECIMAL(14,2),
+            RIB VARCHAR(23),
+            REF_NOMENCL_CODE VARCHAR(10),
+            REF_NOMENCL_LIB VARCHAR(100),
+            REF_NOMENCL_DESC VARCHAR(113),
+            ANNEE_MOIS VARCHAR(6),
+            PRIMARY_KEY VARCHAR(100) NOT NULL,
+            ETABL VARCHAR(100),
+            TRAIN VARCHAR(24),
+			INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+			INDEX IX_${base-name}_YM (ANNEE,MOIS),
+			INDEX IX_${base-name}_MATR (AGENT_MATRICULE),
+			INITIAL_DOC_NAME VARCHAR(100),
+			INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+			ARCHIVE_NAME VARCHAR(100),
+			INDEX ${base-name}_AN (ARCHIVE_NAME)
+		) ENGINE MYISAM
+		<patch from-version="1">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD REF_NOMENCL_DESC VARCHAR(113)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} MODIFY AGENT_NOM VARCHAR(50)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} MODIFY SERVICE VARCHAR(50)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD CUMUL_BRUT DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ANNEE_MOIS VARCHAR(6)</sql>
+			<sql failonerror="false">UPDATE ${base-name} SET ANNEE_MOIS=CONCAT(ANNEE,MOIS)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD PRIMARY_KEY VARCHAR(100) NOT NULL</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		<patch from-version="2">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD CUMUL_BRUT DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ANNEE_MOIS VARCHAR(6)</sql>
+			<sql failonerror="false">UPDATE ${base-name} SET ANNEE_MOIS=CONCAT(ANNEE,MOIS)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD PRIMARY_KEY VARCHAR(100) NOT NULL</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		<patch from-version="3">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ANNEE_MOIS VARCHAR(6)</sql>
+			<sql failonerror="false">UPDATE ${base-name} SET ANNEE_MOIS=CONCAT(ANNEE,MOIS)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD PRIMARY_KEY VARCHAR(100) NOT NULL</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		<patch from-version="4">
+            <sql failonerror="false">ALTER TABLE ${base-name} DROP ANNEE_MOIS</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ANNEE_MOIS VARCHAR(6)</sql>
+			<sql failonerror="false">UPDATE ${base-name} SET ANNEE_MOIS=CONCAT(ANNEE,MOIS)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD PRIMARY_KEY VARCHAR(100) NOT NULL</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		<patch from-version="5">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD PRIMARY_KEY VARCHAR(100) NOT NULL</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		<patch from-version="6">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD ETABL VARCHAR(100)</sql>
+		    <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+	    <patch from-version="7">
+	        <sql failonerror="false">ALTER TABLE ${base-name} ADD MT_NETAPAYER DECIMAL(14,2)</sql>
+	    	<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+	    </patch>
+		<patch from-version="8">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+		
+	</table>
+	<table type="index" id="T2" base-name="PAYE_ETATPAYE_INDEX_LIGNES" based-on="key1" version="2">
+		CREATE TABLE IF NOT EXISTS ${base-name} (
+			COLLECTIVITE VARCHAR(15) NOT NULL,
+			BUDGET VARCHAR(24) NOT NULL,
+			DOC_ID VARCHAR(100) NOT NULL,
+			NODE_ID VARCHAR(50) NOT NULL,
+			TYPE_LIGNE VARCHAR(14),
+			CODE VARCHAR(12),
+			LIBELLE VARCHAR(100),
+			MT DECIMAL(14,2),
+			CODE_CAISSE VARCHAR(24),
+			INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+			INDEX IX_${base-name}_DC (DOC_ID),
+			INITIAL_DOC_NAME VARCHAR(100),
+			INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+			ARCHIVE_NAME VARCHAR(100),
+			INDEX ${base-name}_AN (ARCHIVE_NAME)
+		) ENGINE MYISAM
+		<patch from-version="1">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD LIBELLE VARCHAR(100)</sql>
+		</patch>
+	</table>
+    <table type="index" id="T3" base-name="PAYE_ETATPAYE_INDEX_BUDGET" based-on="key2" version="1">
+        CREATE TABLE IF NOT EXISTS ${base-name} (
+          COLLECTIVITE VARCHAR(15) NOT NULL,
+          BUDGET VARCHAR(24) NOT NULL,
+          DOC_ID VARCHAR(100) NOT NULL,
+          CODE_BUDGET VARCHAR(24),
+          MT DECIMAL(14,2),
+          INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+          INDEX IX_${base-name}_DC (DOC_ID),
+          INITIAL_DOC_NAME VARCHAR(100),
+          INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+          ARCHIVE_NAME VARCHAR(100),
+          INDEX ${base-name}_AN (ARCHIVE_NAME)
+        ) ENGINE MYISAM
+    </table>
+    <table type="index" id="T4" base-name="PAYE_ETATPAYE_INDEX_EVT" based-on="key3" version="1">
+      CREATE TABLE IF NOT EXISTS ${base-name} (
+          COLLECTIVITE VARCHAR(15) NOT NULL,
+          BUDGET VARCHAR(24) NOT NULL,
+          DOC_ID VARCHAR(100) NOT NULL,
+          EVENEMENT VARCHAR(24),
+          INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+          INDEX IX_${base-name}_DC (DOC_ID),
+          INITIAL_DOC_NAME VARCHAR(100),
+          INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+          ARCHIVE_NAME VARCHAR(100),
+          INDEX ${base-name}_AN (ARCHIVE_NAME)
+        ) ENGINE MYISAM
+    </table>
+   	<table type="index" id="T5"
+   		base-name="PAYE_ETATPAYE_INDEX_PJ"
+   		based-on="key4"
+   		version="1">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+	   		COLLECTIVITE VARCHAR(15) NOT NULL,
+	   		BUDGET VARCHAR(24) NOT NULL,
+	   		DOC_ID VARCHAR(100) NOT NULL,
+	   		SUPPORT_PJ VARCHAR(2),
+	   		ID_UNIQUE_PJ VARCHAR(50),
+	   		NOM_PJ VARCHAR(100),
+	   		INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+	   		INITIAL_DOC_NAME VARCHAR(100),
+	   		INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+	   		ARCHIVE_NAME VARCHAR(100),
+	   		INDEX ${base-name}_AN (ARCHIVE_NAME)
+   		) ENGINE MYISAM   		
+   	</table>
+   	<table type="index" id="T6"
+   		base-name="PAYE_ETATPAYE_INDEX_COMMENT"
+   		based-on="key5"
+   		version="1">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+   		COLLECTIVITE VARCHAR(15) NOT NULL,
+   		BUDGET VARCHAR(24) NOT NULL,
+   		DOC_ID VARCHAR(100) NOT NULL,
+   		INITIAL_DOC_NAME VARCHAR(100),
+   		ARCHIVE_NAME VARCHAR(100),
+   		NODE_ID VARCHAR(50) NOT NULL,
+   		LIBELLE VARCHAR(100),
+   		INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+   		INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+   		INDEX ${base-name}_AN (ARCHIVE_NAME),
+   		INDEX ${base-name}_LIB (LIBELLE)
+   		) ENGINE MYISAM   		
+   	</table>
+   	<criteria id="agent-enfants" type="1" sql-index-id="S7">
+   		<where-clause>${table}.${column}##OPERATEUR:nbenf####VALEUR:nbenf##</where-clause>
+   	</criteria>
+   	<criteria id="agent-matricule" type="1" sql-index-id="S4">
+   		<where-clause>fn:string-compare(${table}.${column},agent_matricule)</where-clause>
+   	</criteria>
+   	<criteria id="agent-nir" type="1" sql-index-id="S5">
+   		<where-clause>fn:string-compare(${table}.${column},agent_nir)</where-clause>
+   	</criteria>
+   	<criteria id="agent-nom" type="1" sql-index-id="S3">
+   		<where-clause>fn:string-compare(${table}.${column},agent_nom)</where-clause>
+   	</criteria>
+   	<criteria id="agent-prenom" type="1" sql-index-id="S76">
+   		<where-clause>fn:string-compare(${table}.${column},agent_prenom)</where-clause>
+   	</criteria>
+   	<criteria id="agent-statut" type="1" sql-index-id="S6">
+   		<where-clause>${table}.${column}='##VALEUR:agent_statut##'</where-clause>
+   	</criteria>
+   	<criteria id="annee" type="1" sql-index-id="S1">
+   		<where-clause>${table}.${column}##OPERATEUR:annee####VALEUR:annee##</where-clause>
+   	</criteria>
+   	<criteria id="annee-mois" type="1" sql-index-id="S1">
+   		<where-clause>(${table}.ANNEE=##VALEUR:annee## AND ${table}.MOIS='##VALEUR:mois##')</where-clause>
+   	</criteria>
+   	<criteria id="caisse" type="1" sql-index-id="S42">
+   		<where-clause>${table}.${column}='##VALEUR:Caisse##'</where-clause>
+   	</criteria>
+   	<criteria id="cat-rubriques" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='##VALEUR:exist##' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="echelon" type="1" sql-index-id="S9">
+   		<where-clause>fn:string-compare(${table}.${column},echelon)</where-clause>
+   	</criteria>
+   	<criteria id="emploi" type="1" sql-index-id="S12">
+   		<where-clause>fn:string-compare(${table}.${column},emploi)</where-clause>
+   	</criteria>
+   	<criteria id="evenement" type="1" sql-index-id="S75">
+   		<where-clause>${table}.${column}='##VALEUR:Evt##'</where-clause>
+   	</criteria>
+   	<criteria id="grade" type="1" sql-index-id="S8">
+   		<where-clause>fn:string-compare(${table}.${column},grade)</where-clause>
+   	</criteria>
+   	<criteria id="heures-supp" type="1" sql-index-id="S16">
+   		<where-clause>${table}.${column}##OPERATEUR:nbheuressup####VALEUR:nbheuressup##</where-clause>
+   	</criteria>
+   	<criteria id="heures-trav" type="1" sql-index-id="S15">
+   		<where-clause>${table}.${column}##OPERATEUR:nbheures####VALEUR:nbheures##</where-clause>
+   	</criteria>
+   	<criteria id="indice" type="1" sql-index-id="S10">
+   		<where-clause>${table}.${column}##OPERATEUR:indice####VALEUR:indice##</where-clause>
+   	</criteria>
+   	<criteria id="mois" type="1" sql-index-id="S2">
+   		<where-clause>${table}.${column}='##VALEUR:mois##'</where-clause>
+   	</criteria>
+   	<criteria id="mt-brut" type="1" sql-index-id="S18">
+   		<where-clause>${table}.${column}##OPERATEUR:mtbrut####VALEUR:mtbrut##</where-clause>
+   	</criteria>
+   	<criteria id="mt-imposable" type="1" sql-index-id="S19">
+   		<where-clause>${table}.${column}##OPERATEUR:mtimpo####VALEUR:mtimpo##</where-clause>
+   	</criteria>
+   	<criteria id="mt-net" type="1" sql-index-id="S17">
+   		<where-clause>${table}.${column}##OPERATEUR:mtnet####VALEUR:mtnet##</where-clause>
+   	</criteria>
+   	<criteria id="mt-netapayer" sql-index-id="SMtNetAPayer">
+   		<where-clause>${table}.${column}##OPERATEUR:netapayer####VALEUR:netapayer##</where-clause>
+   	</criteria>
+   	
+   	<criteria id="nbi" type="1" sql-index-id="S11">
+   		<where-clause>${table}.${column}##OPERATEUR:nbi####VALEUR:nbi##</where-clause>
+   	</criteria>
+   	<criteria id="rub-acompte" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Acompte' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-avantag-natur" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='AvantageNature' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-cotis-patron" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Cotisation' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-deduction" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Deduction' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-indemn-resid" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='IndemResid' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-rappel" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Rappel' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-retenue" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Retenue' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-autres" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='Indeminte' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rubrique-detail" type="2" sql-index-id="S31">
+   		<where-clause>${table}.${column}='##VALEUR:RubLig##' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-supp-fam" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='SupFam' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="rub-trait-brut" type="1" sql-index-id="S53">
+   		<where-clause>${table}.${column}='TraitBrut' AND ${table}.MT##OPERATEUR:MtLig####VALEUR:MtLig##</where-clause>
+   	</criteria>
+   	<criteria id="service" type="1" sql-index-id="S13">
+   		<where-clause>fn:string-compare(${table}.${column},service)</where-clause>
+   	</criteria>
+   	<criteria id="tous-evenements" type="1" sql-index-id="S75">
+   		<where-clause>${table}.${column} IS NOT NULL</where-clause>
+   	</criteria>
+   	<criteria id="tps-trav" type="1" sql-index-id="S14">
+   		<where-clause>${table}.${column}##OPERATEUR:quotite####VALEUR:quotite##</where-clause>
+   	</criteria>
+   	<criteria id="code-budget" type="1" sql-index-id="S80">
+   		<where-clause>${table}.${column}='##VALEUR:CodeBudget##'</where-clause>
+   	</criteria>
+   	<criteria id="codeRefNomclStatut" type="1" sql-index-id="S78">
+   		<where-clause>${table}.${column}='##VALEUR:codeRefNomclStatut##'</where-clause>
+   	</criteria>
+   	<criteria id="libelleRefNomclStatut" type="1" sql-index-id="S79">
+   		<where-clause>fn:string-compare(${table}.${column},libelleRefNomclStatut)</where-clause>
+   	</criteria>
+   	<criteria id="refNomenStatutaire" type="1" sql-index-id="S83">
+   		<where-clause>fn:string-compare(${table}.${column},refNomclStatut)</where-clause>
+   	</criteria>
+   	<criteria id="rib" type="1" sql-index-id="S82">
+   		<where-clause>fn:string-compare(${table}.${column},rib)</where-clause>
+   	</criteria>
+   	<criteria id="cumul_brut" sql-index-id="S84">
+   		<where-clause>${table}.${column}##OPERATEUR:cumul_brut####VALEUR:cumul_brut##</where-clause>
+   	</criteria>
+   	<criteria id="avec-pj" sql-index-id="S87">
+   		<where-clause>${table}.${column} IS NOT NULL</where-clause>
+   	</criteria>
+   	<criteria id="pj-idUnique" sql-index-id="S87">
+   		<where-clause>fn:string-compare(${table}.${column},idUnique)</where-clause>
+   	</criteria>
+   	<criteria id="pj-nom" sql-index-id="S88">
+   		<where-clause>fn:string-compare(${table}.${column},nomPj)</where-clause>
+   	</criteria>
+   	<criteria id="etabl" sql-index-id="S89">
+   		<where-clause>fn:string-compare(${table}.${column},etabl)</where-clause>
+   	</criteria>
+   	<criteria id="comment" sql-index-id="C1">
+   		<where-clause>fn:string-compare(${table}.${column},comment)</where-clause>
+   	</criteria>
+   	<criteria id="file.name" sql-index-id="S_FN">
+   		<where-clause>fn:string-compare(${table}.${column},file.name)</where-clause>
+   	</criteria>
+   	<criteria id="train" sql-index-id="S_TRAIN">
+   		<where-clause>${table}.${column}=&apos;##VALEUR:train##&apos;</where-clause>
+   	</criteria>
+   	
+   	
+   	
+   	<sql-index id="SQI_M0" path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/@added:primary-key" datatype="string" column="PRIMARY_KEY" table="T1"/>
+    <!--sql-index id="SQI_M1" path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/@added:primary-key" datatype="string" column="PRIMARY_KEY" table="T1"/-->
+   	      
+   	<sql-index id="S_FN" table="T1" column="INITIAL_DOC_NAME" path="/n:DocumentPaye/added:FileName/@V" generate="false"/>
+   	<sql-index id="S_TRAIN" table="T1" column="TRAIN" path="/n:DocumentPaye/n:Train/@V" datatype="string" format="uppercase"/>
+   	<sql-index
+    	id="S1"
+    	path="/n:DocumentPaye/n:Annee/@V"
+    	datatype="integer"
+    	column="ANNEE"
+    	table="T1"/>
+    <sql-index
+    	id="S2"
+    	path="/n:DocumentPaye/n:Mois/@V"
+    	datatype="string"
+    	format="normalize-month"
+    	column="MOIS"
+    	table="T1"/>
+    <sql-index
+    	id="S3"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Nom/@V"
+    	datatype="string"
+    	format="uppercase"
+    	column="AGENT_NOM"
+    	table="T1"/>
+    <sql-index
+    	id="S4"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Matricule/@V"
+    	datatype="string"
+    	format="uppercase"
+    	column="AGENT_MATRICULE"
+    	table="T1"/>
+    <sql-index
+    	id="S5"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:NIR/@V"
+    	datatype="string"
+    	column="AGENT_NIR"
+    	table="T1"/>
+    <sql-index
+    	id="S6"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Statut/@V"
+    	datatype="string"
+    	column="AGENT_STATUT"
+    	table="T1"/>
+    <sql-index
+    	id="S7"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:NbEnfants/@V"
+    	datatype="integer"
+    	column="AGENT_ENFANTS"
+    	table="T1"/>
+    <sql-index
+    	id="S8"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Grade/@V"
+    	datatype="string"
+    	column="AGENT_GRADE"
+    	table="T1"/>
+    <sql-index
+    	id="S9"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Echelon/@V"
+    	datatype="string"
+    	column="AGENT_ECHELON"
+    	table="T1"/>
+    <sql-index
+    	id="S10"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Indice/@V"
+    	datatype="integer"
+    	column="AGENT_INDICE"
+    	table="T1"/>
+    <sql-index
+    	id="S11"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:NBI/@V"
+    	datatype="decimal"
+    	column="NBI"
+    	table="T1"/>
+    <sql-index
+    	id="S12"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:EmploiMetier/@V"
+    	datatype="string"
+    	column="AGENT_METIER"
+        format="uppercase"
+    	table="T1"/>
+    <sql-index
+    	id="S13"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Service/@V"
+    	datatype="string"
+    	format="uppercase"
+    	column="SERVICE"
+    	table="T1"/>
+    <sql-index
+    	id="S14"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:QuotiteTrav/@V"
+    	datatype="decimal"
+    	column="TRAVAIL"
+    	table="T1"/>
+    <sql-index
+    	id="S15"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:NbHeureTotal/@V"
+    	datatype="decimal"
+    	column="HEURES_TOTAL"
+    	table="T1"/>
+    <sql-index
+    	id="S16"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:NbHeureSup/@V"
+    	datatype="decimal"
+    	column="HEURES_SUPP"
+    	table="T1"/>
+    <sql-index
+    	id="S17"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:MtNet/@V"
+    	datatype="decimal"
+    	column="MT_NET"
+    	table="T1"/>
+    <sql-index
+    	id="S18"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:MtBrut/@V"
+    	datatype="decimal"
+    	column="MT_BRUT"
+    	table="T1"/>
+    <sql-index
+    	id="S19"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:MtImposable/@V"
+    	datatype="decimal"
+    	column="MT_IMPOS"
+    	table="T1"/>
+   	<sql-index id="SMtNetAPayer" path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:MtNetAPayer/@V" datatype="decimal" column="MT_NETAPAYER" table="T1"/>
+   	<sql-index
+   		id="MtGenerique"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/*/n:Mt/@V"
+   		datatype="decimal"
+   		column="MT"
+   		table="T2"/>
+    <sql-index
+    	id="S20"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S21"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S22"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S23"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S24"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S25"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S26"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S27"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S28"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S29"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S30"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/n:Mt/@V"
+    	datatype="decimal"
+    	column="MT"
+    	table="T2"/>
+    <sql-index
+    	id="S31"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S32"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S33"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S34"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S35"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S36"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S37"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S38"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S39"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S40"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+    <sql-index
+    	id="S41"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/n:Code/@V"
+    	datatype="string"
+    	column="CODE"
+    	table="T2"/>
+   	<sql-index
+   		id="S31L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S32L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S33L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S34L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S35L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S36L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S37L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S38L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S39L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S40L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+   		id="S41L"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/n:Libelle/@V"
+   		datatype="string"
+   		column="LIBELLE"
+   		table="T2"/>
+   	<sql-index
+    	id="S42"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S43"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S44"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S45"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S46"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S47"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S48"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S49"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S50"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S51"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S52"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/n:CodeCaisse/@V"
+    	datatype="string"
+    	column="CODE_CAISSE"
+    	table="T2"/>
+    <sql-index
+    	id="S53"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S54"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S55"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S56"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S57"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S58"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S59"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S60"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S61"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S62"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S63"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/@tag-name"
+    	datatype="string"
+    	column="TYPE_LIGNE"
+    	table="T2"/>
+    <sql-index
+    	id="S64"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:SupFam/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S65"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:TraitBrut/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S66"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:IndemResid/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S67"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Indemnite/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S68"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:RemDivers/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S69"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:AvantageNature/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S70"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Acompte/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S71"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Cotisation/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="T72"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Rappel/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S73"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Retenue/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S74"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Deduction/@generated-id"
+    	datatype="string"
+    	column="NODE_ID"
+    	table="T2"/>
+    <sql-index
+    	id="S75"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Evenement/n:Code/@V"
+    	datatype="string"
+    	column="EVENEMENT"
+    	table="T4"/>
+    <sql-index
+    	id="S76"
+    	path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:Prenom/@V"
+    	datatype="string"
+    	format="uppercase"
+    	column="AGENT_PRENOM"
+    	table="T1"/>
+   <sql-index
+        id="S78"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Code/@V"
+        datatype="string"
+        format="uppercase"
+        column="REF_NOMENCL_CODE"
+        table="T1"/>
+   <sql-index
+        id="S79"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/n:Libelle/@V"
+        datatype="string"
+        format="uppercase"
+        column="REF_NOMENCL_LIB"
+        table="T1"/>
+   <sql-index
+        id="S80"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:RepartitionBudget/n:CodeBudget/@V"
+        datatype="string"
+        format="uppercase"
+        column="CODE_BUDGET"
+        table="T3"/>
+   <sql-index
+        id="S81"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:RepartitionBudget/n:Mt/@V"
+        datatype="decimal"
+        column="MT"
+        table="T3"/>
+   <sql-index
+        id="S82"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:CptBancaire/@rib"
+        datatype="string"
+        column="RIB"
+        table="T1"/>
+   <sql-index
+        id="S83"
+        path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Agent/n:RefNomenStatutaire/@desc"
+        datatype="string"
+        format="uppercase"
+        column="REF_NOMENCL_DESC"
+        table="T1"/>
+   <sql-index
+   		id="S84"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:CumulMtBrut/@V"
+   		datatype="decimal"
+   		column="CUMUL_BRUT"
+   		table="T1"/>
+   	<sql-index
+   		id="S85"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:AnneeMois/@V"
+   		datatype="string"
+   		column="ANNEE_MOIS"
+   		table="T1"/>
+   	<sql-index
+   		id="S86"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:PJRef/n:Support/@V"
+   		datatype="string"
+   		column="SUPPORT_PJ"
+   		table="T5"/>
+   	<sql-index
+   		id="S87"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:PJRef/n:IdUnique/@V"
+   		datatype="string"
+   		column="ID_UNIQUE_PJ"
+   		table="T5"/>
+   	<sql-index 
+   		id="S88"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:PJRef/n:NomPJ/@V"
+   		datatype="string"
+   		column="NOM_PJ"
+   		table="T5"/>
+   	<sql-index
+   		id="S89"
+   		path="/n:DocumentPaye/n:DonneesIndiv/n:Etablissement/n:Nom/@V"
+   		datatype="string"
+   		column="ETABL"
+   		table="T1"/>
+   	<sql-index id="C1" table="T6" column="LIBELLE" path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Commentaire/n:Libelle/@V" format="uppercase" datatype="string" reset-on="key5"/>
+   	<sql-index id="C2" table="T6" column="NODE_ID" path="/n:DocumentPaye/n:DonneesIndiv/n:PayeIndivMensuel/n:Remuneration/n:Commentaire/@generated-id" format="uppercase" datatype="string" reset-on="key5"/>
+   	<element id="lignePaye">
+   		<sql-count>COUNT(DISTINCT(CONCAT(PAYE_ETATPAYE_INDEX_PAYE.DOC_ID, PAYE_ETATPAYE_INDEX_LIGNES.NODE_ID)))</sql-count>
+   		<special-cond>PAYE_ETATPAYE_INDEX_LIGNES.NODE_ID IS NOT NULL</special-cond>
+   	</element>
+   </etat>
+
+   <etat
+    id="RepartitionNature"
+    import-xslt-file="paye/etatPaye-import-mysql.xsl">
+   	<table type="document" base-name="PAYE_NATURES_DOCUMENTS" version="1">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+            COLLECTIVITE VARCHAR(15) NOT NULL,
+            BUDGET VARCHAR(24) NOT NULL,
+            INITIAL_DOC_NAME VARCHAR(100) NOT NULL,
+            DOC_ID VARCHAR(100) NOT NULL,
+            DOC LONGBLOB,
+            ENCODING VARCHAR(20),
+            INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+            ARCHIVE_NAME VARCHAR(100),
+            INDEX ${base-name}_AN (ARCHIVE_NAME)
+       ) ENGINE MYISAM
+   	</table>
+   	<table type="index" id="T10" base-name="PAYE_NATURES_INDEX" version="4" main="true">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+			COLLECTIVITE VARCHAR(15) NOT NULL,
+			BUDGET VARCHAR(24) NOT NULL,
+			DOC_ID VARCHAR(100) NOT NULL,
+			ANNEE INTEGER,
+			MOIS VARCHAR(2),
+            CODE_FONCTION VARCHAR(24),
+            CODE_BUDGET VARCHAR(24),
+            CODE_NATURE VARCHAR(24),
+            MT DECIMAL(14,2),
+			INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+			INDEX IX_${base-name}_YM (ANNEE,MOIS),
+			INITIAL_DOC_NAME VARCHAR(100),
+			INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+			ARCHIVE_NAME VARCHAR(100),
+			INDEX ${base-name}_AN (ARCHIVE_NAME),
+			TRAIN VARCHAR(24)
+		) ENGINE MYISAM
+		<patch from-version="3">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+		</patch>
+   		
+   		<patch from-version="2">
+			<sql failonerror="false">ALTER TABLE ${base-name} ADD MT DECIMAL(14,2)</sql>
+   			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+   		</patch>
+   		<patch from-version="1">
+   			<sql failonerror="false">ALTER TABLE ${base-name} ADD CODE_NATURE VARCHAR(24)</sql>
+   			<sql failonerror="false">ALTER TABLE ${base-name} ADD MT DECIMAL(14,2)</sql>
+   			<sql failonerror="false">ALTER TABLE ${base-name} ADD TRAIN VARCHAR(24)</sql>
+   		</patch>
+   	</table>
+
+   	<criteria id="annee" type="1" sql-index-id="S101">
+   		<where-clause>${table}.${column}##OPERATEUR:annee####VALEUR:annee##</where-clause>
+   	</criteria>
+   	<criteria id="annee-mois" type="1" sql-index-id="S101">
+   		<where-clause>(${table}.ANNEE=##VALEUR:annee## AND ${table}.MOIS='##VALEUR:mois##')</where-clause>
+   	</criteria>
+   	<criteria id="mois" type="1" sql-index-id="S102">
+   		<where-clause>${table}.${column}='##VALEUR:mois##'</where-clause>
+   	</criteria>
+   	<criteria id="code-fonction" type="1" sql-index-id="S103">
+   		<where-clause>fn:string-compare(${table}.${column},code-fonction)</where-clause>
+   	</criteria>
+   	<criteria id="code-budget" type="1" sql-index-id="S104">
+   		<where-clause>${table}.${column}='##VALEUR:code-budget##'</where-clause>
+   	</criteria>
+   	<criteria id="code-nature" type="1" sql-index-id="S105">
+   		<where-clause>fn:string-compare(${table}.${column},code-nature)</where-clause>
+   	</criteria>
+   	<criteria id="file.name" sql-index-id="S_R_FN">
+   		<where-clause>fn:string-compare(${table}.${column},file.name)</where-clause>
+   	</criteria>
+   	<criteria id="train" sql-index-id="S_R_TRAIN">
+   		<where-clause>${table}.${column}=&apos;##VALEUR:train##&apos;</where-clause>
+   	</criteria>
+   	
+    <sql-index
+    	id="S101"
+    	path="/n:DocumentPaye/n:Annee/@V"
+    	datatype="integer"
+    	column="ANNEE"
+    	table="T10"/>
+    <sql-index
+    	id="S102"
+    	path="/n:DocumentPaye/n:Mois/@V"
+    	datatype="string"
+    	format="normalize-month"
+    	column="MOIS"
+    	table="T10"/>
+    <sql-index
+        id="S103"
+        path="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:CodeFonction/@V2"
+        datatype="string"
+        format="uppercase"
+        column="CODE_FONCTION"
+        table="T10"/>
+    <sql-index
+        id="S104"
+        path="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:CodeBudget/@V"
+        datatype="string"
+        format="uppercase"
+        column="CODE_BUDGET"
+        table="T10"/>
+   	<sql-index
+   		id="S105"
+   		path="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:Code/@V"
+   		datatype="string"
+   		format="uppercase"
+   		column="CODE_NATURE"
+   		table="T10"/>
+   	<sql-index
+   		id="S106"
+   		path="/n:DocumentPaye/n:RepartitionParNature/n:Repartition/n:Mt/@V"
+   		datatype="decimal"
+   		column="MT"
+   		table="T10"/>
+	<sql-index id="S_R_TRAIN" table="T10" column="TRAIN" path="/n:DocumentPaye/n:Train/@V"/>
+   	<sql-index id="S_R_FN" table="T10" column="INITIAL_DOC_NAME" path="/n:DocumentPaye/added:FileName/@V" generate="false"/>
+   </etat>
+   
+   <etat
+   	id="Totalisation"
+   	import-xslt-file="paye/totalisation-import-mysql.xsl">
+   	<table type="document" base-name="PAYE_TOTAL_DOCUMENTS" version="1">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+   		COLLECTIVITE VARCHAR(15) NOT NULL,
+   		BUDGET VARCHAR(24) NOT NULL,
+   		INITIAL_DOC_NAME VARCHAR(100) NOT NULL,
+   		DOC_ID VARCHAR(100) NOT NULL,
+   		DOC LONGBLOB,
+   		ENCODING VARCHAR(20),
+   		INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+   		ARCHIVE_NAME VARCHAR(100),
+   		INDEX ${base-name}_AN (ARCHIVE_NAME)
+   		) ENGINE MYISAM
+   	</table>
+   	<table type="index" id="T20" base-name="PAYE_TOTAL_INDEX" version="1" main="true">
+   		CREATE TABLE IF NOT EXISTS ${base-name} (
+   		COLLECTIVITE VARCHAR(15) NOT NULL,
+   		BUDGET VARCHAR(24) NOT NULL,
+   		DOC_ID VARCHAR(100) NOT NULL,
+   		ANNEE INTEGER,
+   		MOIS VARCHAR(2),
+   		ORDRE INTEGER,
+   		RUBRIQUE_CODE VARCHAR(12),
+   		RUBRIQUE_LIB VARCHAR(100),
+   		ETABL VARCHAR(100),
+   		CREDIT VARCHAR(38),
+   		TYPE VARCHAR(1),
+   		CAISSE_CODE VARCHAR(12),
+   		CAISSE_LIB VARCHAR(100),
+   		MT DECIMAL(14,2),
+   		INDEX IX_${base-name}_BC (COLLECTIVITE,BUDGET,DOC_ID),
+   		INDEX IX_${base-name}_YM (ANNEE,MOIS),
+   		INITIAL_DOC_NAME VARCHAR(100),
+   		INDEX ${base-name}_IDN (INITIAL_DOC_NAME),
+   		ARCHIVE_NAME VARCHAR(100),
+   		INDEX ${base-name}_AN (ARCHIVE_NAME)
+   		) ENGINE MYISAM
+   	</table>
+   	<criteria id="annee-mois-Total" sql-index-id="ST01">
+   		<where-clause>(${table}.ANNEE=##VALEUR:annee## AND ${table}.MOIS='##VALEUR:mois##')</where-clause>
+   	</criteria>
+   	<criteria id="rubriqueTotalCode" sql-index-id="ST04">
+   		<where-clause>fn:string-compare(${table}.${column},RubLig)</where-clause>
+   	</criteria>
+   	<criteria id="rubriqueTotalLib" sql-index-id="ST10">
+   		<where-clause>fn:string-compare(${table}.${column},RubLig)</where-clause>
+   	</criteria>
+   	<criteria id="etablTotal" sql-index-id="ST05">
+   		<where-clause>fn:string-compare(${table}.${column},etabl)</where-clause>
+   	</criteria>
+   	<criteria id="typeCredit" sql-index-id="ST06">
+   		<where-clause>fn:string-compare(${table}.${column},typeCredit)</where-clause>
+   	</criteria>
+   	<criteria id="typeLigne" sql-index-id="ST07">
+   		<where-clause>(${table}.${column}='##VALEUR:typeLigne##')</where-clause>
+   	</criteria>
+   	<criteria id="caisseCode" sql-index-id="ST08">
+   		<where-clause>fn:string-compare(${table}.${column},Caisse)</where-clause>
+   	</criteria>
+   	<criteria id="caisseLib" sql-index-id="ST11">
+   		<where-clause>fn:string-compare(${table}.${column},Caisse)</where-clause>
+   	</criteria>
+   	<criteria id="mtTotal" sql-index-id="ST09">
+   		<where-clause>(${table}.${column}##OPERATEUR:mt####VALEUR:mt##)</where-clause>
+   	</criteria>
+   	<sql-index column="ANNEE" id="ST01" path="/n:DocumentPaye/n:Annee/@V" table="T20" datatype="integer"/>
+   	<sql-index column="MOIS" id="ST02" path="/n:DocumentPaye/n:Mois/@V" table="T20" datatype="string"/>
+   	<sql-index column="ORDRE" id="ST03" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Ordre/@V" table="T20" datatype="integer"/>
+   	<sql-index column="RUBRIQUE_CODE" id="ST04" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Rubrique/n:Code/@V2" table="T20" format="uppercase" datatype="string"/>
+   	<sql-index column="ETABL" id="ST05" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Etablissement/@V2" table="T20" datatype="string" format="uppercase"/>
+   	<sql-index column="CREDIT" id="ST06" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:TypeCredit/@V2" table="T20" format="uppercase" datatype="string"/>
+   	<sql-index column="TYPE" id="ST07" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:TypeLigne/@V" table="T20" datatype="string"/>
+   	<sql-index column="CAISSE_CODE" id="ST08" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Caisse/n:Code/@V2" table="T20" datatype="string" format="uppercase"/>
+   	<sql-index column="MT" id="ST09" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Montant1/@V" table="T20" datatype="decimal"/>
+   	<sql-index column="RUBRIQUE_LIB" id="ST10" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Rubrique/n:Libelle/@V2" table="T20" format="uppercase" datatype="string"/>
+   	<sql-index column="CAISSE_LIB" id="ST11" path="/n:DocumentPaye/n:Totalisation/n:ligne/n:Caisse/n:Libelle/@V2" table="T20" datatype="string" format="uppercase"/>
+   </etat>
+  </document>
+ </layer>
+</persistence-config>

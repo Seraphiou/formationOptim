@@ -1,0 +1,556 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DocumentPaye xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:n="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:added="http://projets.admisource.gouv.fr/xemelios/namespaces#added"
+              xmlns:ano="http://projets.admisource.gouv.fr/xemelios/namespaces#anomally">
+   <FileName xmlns="http://projets.admisource.gouv.fr/xemelios/namespaces#added" V="paye.xhl"/>
+   <IdVer V="1.1"/>
+   <Annee V="2011"/>
+   <Mois V="8"/>
+   <Train V="AGENTS"/>
+   <Employeur>
+      <Nom V="Conseil Général du Département Test"
+           V2="CONSEIL GÉNÉRAL DU DÉPARTEMENT TEST"/>
+      <APE V="789A"/>
+      <Adresse>
+         <TypAdr V="1"/>
+         <Adr1 V="45 rue Lord Kitchener"/>
+         <Adr2 V=""/>
+         <Adr3 V=""/>
+         <CP V="77777"/>
+         <Ville V="VILLE"/>
+         <CodRes V="0"/>
+         <CodPays V="100"/>
+         <DteAdr V="2012-01-15"/>
+
+
+
+
+
+
+
+
+      </Adresse>
+      <NumUrssaf V="9999999999"/>
+      <Siret V="99999999900017"/>
+
+
+
+
+   </Employeur>
+   <DonneesIndiv>
+      <PayeIndivMensuel added:primary-key="2011-8-072702">
+         <Annee V="2011"/>
+         <Mois V="8"/>
+         <AnneeMois V="201108"/>
+         <Agent>
+            <Civilite V="MLLE"/>
+            <Nom V="XXXXXXXX" V2="XXXXXXXX"/>
+            <ComplNom V="XXXXXXX"/>
+            <Prenom V="XXXXXXX" V2="XXXXXXX"/>
+            <Matricule V="072702" V2="072702"/>
+            <NIR V="1234567890123"/>
+            <Adresse>
+               <TypAdr V="1"/>
+               <Adr1 V="XXXXXXXXX"/>
+               <Adr2 V="XXXXXXX"/>
+               <Adr3 V="XXXXX"/>
+               <CP V="77777"/>
+               <Ville V="VILLE"/>
+               <CodRes V="0"/>
+               <CodPays V="100"/>
+               <DteAdr V="2005-04-13"/>
+
+
+
+
+
+
+
+
+            </Adresse>
+            <NbEnfants V="2"/>
+            <Statut V="TITULAIRE"/>
+            <RefNomenStatutaire desc="ADJOINT ADMINISTRATIF (AAJ1)">
+               <Code V="AAJ1" V2="AAJ1"/>
+               <Libelle V="ADJOINT ADMINISTRATIF"/>
+
+            </RefNomenStatutaire>
+            <EmploiMetier V="EMPLOI" V2="EMPLOI"/>
+            <Grade V="GRADE"/>
+            <Echelon V="4  EME ECHELON"/>
+            <Indice V="287"/>
+            <CptBancaire rib="xxxxxXXXXXXXXXXXXXXXX99">
+               <IdPayInt V=""/>
+               <IdBancInt V=""/>
+               <CodeEtab V="xxxxx"/>
+               <CodeGuic V="XXXXX"/>
+               <IdCpte V="XXXXXXXXXXX"/>
+               <CleRib V="99"/>
+               <LibBanc V="BANQUE NATIONALE DE PARI"/>
+               <TitCpte V="XXXXXXXXXXXXXXX"/>
+               <DteBanc V="2005-04-13"/>
+
+
+
+
+
+
+
+
+            </CptBancaire>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </Agent>
+         <Evenement generated-id="d1e123" tag-name="Evenement">
+            <Code V="MIN" V2="MIN"/>
+            <Description V="AVCT ECHELON AU TEMPS MINIMUM"/>
+
+         </Evenement>
+         <Service V="SERVICE" V2="SERVICE"/>
+         <NBI V="0"/>
+         <QuotiteTrav V="100"/>
+         <Periode>
+            <DateDebut V="2005-04-01"/>
+            <DateFin V="2005-05-01"/>
+
+         </Periode>
+         <Remuneration>
+            <TraitBrut generated-id="d1e144" tag-name="TraitBrut">
+               <Libelle V="TRAIT.BASE TIT. MENS"/>
+               <Code V="010N" V2="010N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="1268.05"/>
+               <Ordre V="1"/>
+
+
+
+
+
+
+            </TraitBrut>
+            <IndemResid generated-id="d1e161" tag-name="IndemResid">
+               <Libelle V="IND. RESIDENCE"/>
+               <Code V="020N" V2="020N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="39.36"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="2"/>
+
+
+
+
+
+
+
+            </IndemResid>
+            <SupFam generated-id="d1e180" tag-name="SupFam">
+               <Libelle V="SUPPLEMT FAMILIAL TI"/>
+               <Code V="030N" V2="030N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="70.05"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </SupFam>
+            <Indemnite generated-id="d1e199" tag-name="Indemnite">
+               <Libelle V="IND FORF TRVX SUPPLE"/>
+               <Code V="513N" V2="513N"/>
+               <Base V="0"/>
+               <Taux V="2"/>
+               <NbUnite V="30"/>
+               <Mt V="113.53"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Indemnite>
+            <RemDivers generated-id="d1e218" tag-name="RemDivers">
+               <Libelle V="CENTRE AERE"/>
+               <Code V="339N" V2="339N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="157.5"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </RemDivers>
+            <Deduction generated-id="d1e238" tag-name="Deduction">
+               <Libelle V="COT. CNRACL"/>
+               <Code V="830C" V2="830C"/>
+               <Base V="1268.05"/>
+               <Taux V="7.85"/>
+               <NbUnite V="0"/>
+               <Mt V="99.54"/>
+               <CodeCaisse V="CNRACL"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e257" tag-name="Deduction">
+               <Libelle V="R.D.S."/>
+               <Code V="844C" V2="844C"/>
+               <Base V="1446.26"/>
+               <Taux V="0.5"/>
+               <NbUnite V="0"/>
+               <Mt V="7.23"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e276" tag-name="Deduction">
+               <Libelle V="COT. RETRAITE ADD FP"/>
+               <Code V="845C" V2="845C"/>
+               <Base V="253.61"/>
+               <Taux V="5"/>
+               <NbUnite V="0"/>
+               <Mt V="12.68"/>
+               <CodeCaisse V="RAFP"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e295" tag-name="Deduction">
+               <Libelle V="CSG DEDUCTIBLE"/>
+               <Code V="859C" V2="859C"/>
+               <Base V="1446.26"/>
+               <Taux V="5.1"/>
+               <NbUnite V="0"/>
+               <Mt V="73.76"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e314" tag-name="Deduction">
+               <Libelle V="C.S.G."/>
+               <Code V="869C" V2="869C"/>
+               <Base V="1446.26"/>
+               <Taux V="2.4"/>
+               <NbUnite V="0"/>
+               <Mt V="34.71"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Retenue generated-id="d1e333" tag-name="Retenue">
+               <Libelle V="M.G.P.A.T OUVRIERE"/>
+               <Code V="402M" V2="402M"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="71.14"/>
+               <CodeCaisse V="MGPAT"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Retenue>
+            <Retenue generated-id="d1e353" tag-name="Retenue">
+               <Libelle V="PRELEVEM TITRE REPAS"/>
+               <Code V="431N" V2="431N"/>
+               <Base V="0"/>
+               <Taux V="1.53"/>
+               <NbUnite V="18"/>
+               <Mt V="27.54"/>
+               <CodeCaisse V="APDEP"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Retenue>
+            <Cotisation generated-id="d1e372" tag-name="Cotisation">
+               <Libelle V="COT. SS TOT. RS"/>
+               <Code V="801C" V2="801C"/>
+               <Base V="1268.05"/>
+               <Taux V="11.5"/>
+               <NbUnite V="0"/>
+               <Mt V="145.83"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e391" tag-name="Cotisation">
+               <Libelle V="COT. FNAL PAT. R.S."/>
+               <Code V="814C" V2="814C"/>
+               <Base V="1268.05"/>
+               <Taux V="0.1"/>
+               <NbUnite V="0"/>
+               <Mt V="1.27"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e410" tag-name="Cotisation">
+               <Libelle V="COT.ALL.FAM.TOT.RS"/>
+               <Code V="816C" V2="816C"/>
+               <Base V="1268.05"/>
+               <Taux V="5.4"/>
+               <NbUnite V="0"/>
+               <Mt V="68.47"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e429" tag-name="Cotisation">
+               <Libelle V="COT. CNRACL"/>
+               <Code V="831C" V2="831C"/>
+               <Base V="1268.05"/>
+               <Taux V="27.3"/>
+               <NbUnite V="0"/>
+               <Mt V="346.18"/>
+               <CodeCaisse V="CNRACL"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e448" tag-name="Cotisation">
+               <Libelle V="COT. FCCPA PAT."/>
+               <Code V="833C" V2="833C"/>
+               <Base V="1268.05"/>
+               <Taux V="0.5"/>
+               <NbUnite V="0"/>
+               <Mt V="6.34"/>
+               <CodeCaisse V="CNRACL"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e468" tag-name="Cotisation">
+               <Libelle V="COT. ATIACL"/>
+               <Code V="834C" V2="834C"/>
+               <Base V="1268.05"/>
+               <Taux V="0.5"/>
+               <NbUnite V="0"/>
+               <Mt V="6.34"/>
+               <CodeCaisse V="CNRACL"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e487" tag-name="Cotisation">
+               <Libelle V="TAXE TRANSPORT T. RS"/>
+               <Code V="838C" V2="838C"/>
+               <Base V="1268.05"/>
+               <Taux V="1.4"/>
+               <NbUnite V="0"/>
+               <Mt V="17.75"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e506" tag-name="Cotisation">
+               <Libelle V="COT. RETRAITE ADD FP"/>
+               <Code V="846C" V2="846C"/>
+               <Base V="253.61"/>
+               <Taux V="5"/>
+               <NbUnite V="0"/>
+               <Mt V="12.68"/>
+               <CodeCaisse V="RAFP"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e525" tag-name="Cotisation">
+               <Libelle V="CONT SOLID AUTON TIT"/>
+               <Code V="864C" V2="864C"/>
+               <Base V="1268.05"/>
+               <Taux V="0.3"/>
+               <NbUnite V="0"/>
+               <Mt V="3.8"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e544" tag-name="Cotisation">
+               <Libelle V="COT. C.N.F.P.T"/>
+               <Code V="870C" V2="870C"/>
+               <Base V="1268.05"/>
+               <Taux V="1"/>
+               <NbUnite V="0"/>
+               <Mt V="12.68"/>
+               <CodeCaisse V="CNFPT"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </Remuneration>
+         <NbHeureTotal V="151.67"/>
+         <TauxHor V="0"/>
+         <NbHeureSup V="0"/>
+         <MtBrut V="1480.52"/>
+         <MtNet V="1321.89"/>
+         <MtNetAPayer V="1321.89"/>
+         <DatePaiement V="2005-04-27"/>
+         <MtImposable V="1305.01"/>
+         <CumulMtImposable V="5448.14"/>
+         <CumulMtBrut V="4712.36"/>
+         <CumulBaseSS V="3797.84"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </PayeIndivMensuel>
+   </DonneesIndiv>
+</DocumentPaye>

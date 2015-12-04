@@ -1,0 +1,17 @@
+package mermory;
+
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.Runtime;
+
+public class Memory {
+	
+	
+	public static void main(String[] args) {
+		Car car= new Car();
+		ReferenceQueue<? super Car> q = null;
+		PhantomReference<Car> phantomReference = new PhantomReference<Car>(car, q);
+		System.gc();
+		System.out.println(Runtime.freeMemory());
+	}
+}

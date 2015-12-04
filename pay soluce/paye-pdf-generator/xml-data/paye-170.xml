@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DocumentPaye xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:n="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:added="http://projets.admisource.gouv.fr/xemelios/namespaces#added"
+              xmlns:ano="http://projets.admisource.gouv.fr/xemelios/namespaces#anomally">
+   <FileName xmlns="http://projets.admisource.gouv.fr/xemelios/namespaces#added" V="paye.xhl"/>
+   <IdVer V="1.1"/>
+   <Annee V="2011"/>
+   <Mois V="8"/>
+   <Train V="AGENTS"/>
+   <Employeur>
+      <Nom V="Conseil Général du Département Test"
+           V2="CONSEIL GÉNÉRAL DU DÉPARTEMENT TEST"/>
+      <APE V="789A"/>
+      <Adresse>
+         <TypAdr V="1"/>
+         <Adr1 V="45 rue Lord Kitchener"/>
+         <Adr2 V=""/>
+         <Adr3 V=""/>
+         <CP V="77777"/>
+         <Ville V="VILLE"/>
+         <CodRes V="0"/>
+         <CodPays V="100"/>
+         <DteAdr V="2012-01-15"/>
+
+
+
+
+
+
+
+
+      </Adresse>
+      <NumUrssaf V="9999999999"/>
+      <Siret V="99999999900017"/>
+
+
+
+
+   </Employeur>
+   <DonneesIndiv>
+      <PayeIndivMensuel added:primary-key="2011-8-854584">
+         <Annee V="2011"/>
+         <Mois V="8"/>
+         <AnneeMois V="201108"/>
+         <Agent>
+            <Civilite V="MADAME"/>
+            <Nom V="XXXXXXXX" V2="XXXXXXXX"/>
+            <ComplNom V="XXXXXXX"/>
+            <Prenom V="XXXXXXX" V2="XXXXXXX"/>
+            <Matricule V="854584" V2="854584"/>
+            <NIR V="1234567890123"/>
+            <Adresse>
+               <TypAdr V="1"/>
+               <Adr1 V="XXXXXXXXX"/>
+               <Adr2 V="XXXXXXX"/>
+               <Adr3 V="XXXXX"/>
+               <CP V="77777"/>
+               <Ville V="VILLE"/>
+               <CodRes V="0"/>
+               <CodPays V="100"/>
+               <DteAdr V="2005-03-07"/>
+
+
+
+
+
+
+
+
+            </Adresse>
+            <NbEnfants V="0"/>
+            <Statut V="TITULAIRE"/>
+            <RefNomenStatutaire desc="REDACTEUR TERRITORIAL CHEF (AAR3)">
+               <Code V="AAR3" V2="AAR3"/>
+               <Libelle V="REDACTEUR TERRITORIAL CHEF"/>
+
+            </RefNomenStatutaire>
+            <EmploiMetier V="EMPLOI" V2="EMPLOI"/>
+            <Grade V="GRADE"/>
+            <Echelon V="7  EME ECHELON"/>
+            <Indice V="513"/>
+            <CptBancaire rib="xxxxxXXXXXXXXXXXXXXXX99">
+               <IdPayInt V=""/>
+               <IdBancInt V=""/>
+               <CodeEtab V="xxxxx"/>
+               <CodeGuic V="XXXXX"/>
+               <IdCpte V="XXXXXXXXXXX"/>
+               <CleRib V="99"/>
+               <LibBanc V="CAISSE D EPARGNE VAL-DE-"/>
+               <TitCpte V="XXXXXXXXXXXXXXX"/>
+               <DteBanc V="2005-03-07"/>
+
+
+
+
+
+
+
+
+            </CptBancaire>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </Agent>
+         <Evenement generated-id="d1e123" tag-name="Evenement">
+            <Code V="CPS" V2="CPS"/>
+            <Description V="CHANGEMENT POSITION STATUTAIRE"/>
+
+         </Evenement>
+         <Service V="SERVICE" V2="SERVICE"/>
+         <NBI V="0"/>
+         <QuotiteTrav V="100"/>
+         <Periode>
+            <DateDebut V="2005-01-01"/>
+            <DateFin V="2005-12-31"/>
+
+         </Periode>
+         <Remuneration>
+            <TraitBrut generated-id="d1e144" tag-name="TraitBrut">
+               <Libelle V="TRAIT.BASE TIT. MENS"/>
+               <Code V="010N" V2="010N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="1699.94"/>
+               <Ordre V="1"/>
+
+
+
+
+
+
+            </TraitBrut>
+            <Deduction generated-id="d1e161" tag-name="Deduction">
+               <Libelle V="CSG DEDUCTIBLE CA"/>
+               <Code V="806C" V2="806C"/>
+               <Base V="1699.94"/>
+               <Taux V="3.8"/>
+               <NbUnite V="0"/>
+               <Mt V="64.6"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e180" tag-name="Deduction">
+               <Libelle V="SS REVENUS REMPLACEM"/>
+               <Code V="809C" V2="809C"/>
+               <Base V="1699.94"/>
+               <Taux V="0.95"/>
+               <NbUnite V="0"/>
+               <Mt V="16.15"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e199" tag-name="Deduction">
+               <Libelle V="R.D.S."/>
+               <Code V="844C" V2="844C"/>
+               <Base V="1699.93"/>
+               <Taux V="0.5"/>
+               <NbUnite V="0"/>
+               <Mt V="8.5"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e218" tag-name="Deduction">
+               <Libelle V="C.S.G."/>
+               <Code V="869C" V2="869C"/>
+               <Base V="1699.93"/>
+               <Taux V="2.4"/>
+               <NbUnite V="0"/>
+               <Mt V="40.8"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Retenue generated-id="d1e238" tag-name="Retenue">
+               <Libelle V="M.G.P.A.T OUVRIERE"/>
+               <Code V="402M" V2="402M"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="75.32"/>
+               <CodeCaisse V="MGPAT"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Retenue>
+
+
+
+
+
+         </Remuneration>
+         <NbHeureTotal V="151.67"/>
+         <TauxHor V="0"/>
+         <NbHeureSup V="0"/>
+         <MtBrut V="1673.92"/>
+         <MtNet V="1494.57"/>
+         <MtNetAPayer V="1494.57"/>
+         <DatePaiement V="2005-04-27"/>
+         <MtImposable V="1619.19"/>
+         <CumulMtImposable V="6468.7"/>
+         <CumulMtBrut V="5091.36"/>
+         <CumulBaseSS V="0"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </PayeIndivMensuel>
+   </DonneesIndiv>
+</DocumentPaye>

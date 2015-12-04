@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE log4j:configuration PUBLIC "-//Apache Software Foundation//DTD log4j Configuration 1.0//EN" "log4j.dtd">
+
+<log4j:configuration threshold="all" debug="false" xmlns:log4j="http://jakarta.apache.org/log4j/">
+ <appender name="rollingFile" class="org.apache.log4j.RollingFileAppender">
+  <param name="File" value="xemelios.log"/>
+  <param name="MaxFileSize" value="100KB"/>
+  <param name="MaxBackupIndex" value="5"/>
+
+  <layout class="org.apache.log4j.PatternLayout">
+   <param name="ConversionPattern" value="%-5p [%c] %t %d{HH:mm:ss,SSS}: %m%n"/>
+
+  </layout>
+ </appender>
+ <appender name="console.appender" class="org.apache.log4j.ConsoleAppender">
+  <layout class="org.apache.log4j.PatternLayout">
+   <param name="ConversionPattern" value="%-5p [%c{3}] %t: %m%n"/>
+
+  </layout>
+ </appender>
+ <appender name="tempfile" class="org.apache.log4j.FileAppender">
+  <param name="File" value="/home/chm/devel/XEMELIOS-NB/XEMELIOS/src/xemelios.log"/>
+
+  <layout class="org.apache.log4j.PatternLayout">
+   <param name="ConversionPattern" value="%-5p : %m%n"/>
+
+  </layout>
+ </appender>
+ <logger name="httpclient" additivity="true">
+  <level value="info"/>
+
+  <appender-ref ref="console.appender"/>
+
+ </logger>
+ <logger name="org.apache.commons" additivity="true">
+  <level value="info"/>
+
+  <appender-ref ref="console.appender"/>
+
+ </logger>
+ <logger name="fr.gouv.finances.dgfip.xemelios.data.utils.jdbc" additivity="true">
+  <level value="error"/>
+
+ </logger>
+ <logger name="fr.gouv.finances" additivity="true">
+  <level value="info"/>
+
+  <appender-ref ref="console.appender"/>
+
+ </logger>
+ <logger name="fr.ccomptes" additivity="true">
+  <level value="info"/>
+
+  <appender-ref ref="console.appender"/>
+
+ </logger>
+ <logger name="org.xemelios" additivity="true">
+  <level value="info"/>
+
+  <appender-ref ref="rollingFile"/>
+
+ </logger>
+ <logger name="com.oxiane" additivity="true">
+     <level value="debug"/>
+     <appender-ref ref="console.appender"/>
+ </logger>
+</log4j:configuration>

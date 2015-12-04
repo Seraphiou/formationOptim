@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by USER USER (MINISTERE DE L'ECONOMIE ET DES FINANCES) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<xs:include schemaLocation="Simple_Type.xsd"/>
+	<xs:complexType name="TPJReference">
+		<xs:sequence>
+			<xs:element name="Support"  form="unqualified">
+				<xs:annotation>
+					<xs:documentation>
+00 - Support électronique (en ligne)
+01 - Support électronique (accès local)
+02 - Support papier
+03 - Support CDRom/DVDRom
+10 - Support électronique (accès local - pour compatibilité. Préferer 01)</xs:documentation>
+				</xs:annotation>
+				<xs:complexType>
+					<xs:attribute name="V" use="required">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="00"/>
+								<xs:enumeration value="01"/>
+								<xs:enumeration value="02"/>
+								<xs:enumeration value="03"/>
+								<xs:enumeration value="10"/>
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:attribute>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="IdUnique" type="Base_Texte50"  form="unqualified">
+				<xs:annotation>
+					<xs:documentation>Identifiant unique (si Support=10 et NomPJ absent, utilisé comme nom de fichier)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NomPJ" type="Base_Texte100" minOccurs="0"  form="unqualified">
+				<xs:annotation>
+					<xs:documentation>Nom du fichier PJ (utilisé pour acccéder au fichier  si Support=10)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

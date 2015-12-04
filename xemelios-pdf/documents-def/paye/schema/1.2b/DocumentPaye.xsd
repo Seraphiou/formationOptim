@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by USER USER (MINISTERE DE L'ECONOMIE ET DES FINANCES) -->
+<xs:schema xmlns:cm="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" targetNamespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" elementFormDefault="unqualified">
+	<xs:include schemaLocation="Class_DocumentPaye.xsd"/>
+	<xs:include schemaLocation="Class_Tiers.xsd"/>
+	<xs:include schemaLocation="Class_Nomenclature.xsd"/>
+	<!--xs:import namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun" schemaLocation="Class_SchemasCommuns.xsd"/-->
+	<xs:element name="DocumentPaye" type="TDocumentPaye">
+		<xs:annotation>
+			<xs:documentation>Document justificatif du mandatement de la paye (§201 du décret PJ)</xs:documentation>
+		</xs:annotation>
+	</xs:element>
+</xs:schema>

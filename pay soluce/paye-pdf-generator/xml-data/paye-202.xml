@@ -1,0 +1,566 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<DocumentPaye xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:xs="http://www.w3.org/2001/XMLSchema"
+              xmlns:n="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1"
+              xmlns:added="http://projets.admisource.gouv.fr/xemelios/namespaces#added"
+              xmlns:ano="http://projets.admisource.gouv.fr/xemelios/namespaces#anomally">
+   <FileName xmlns="http://projets.admisource.gouv.fr/xemelios/namespaces#added" V="paye.xhl"/>
+   <IdVer V="1.1"/>
+   <Annee V="2011"/>
+   <Mois V="8"/>
+   <Train V="AGENTS"/>
+   <Employeur>
+      <Nom V="Conseil Général du Département Test"
+           V2="CONSEIL GÉNÉRAL DU DÉPARTEMENT TEST"/>
+      <APE V="789A"/>
+      <Adresse>
+         <TypAdr V="1"/>
+         <Adr1 V="45 rue Lord Kitchener"/>
+         <Adr2 V=""/>
+         <Adr3 V=""/>
+         <CP V="77777"/>
+         <Ville V="VILLE"/>
+         <CodRes V="0"/>
+         <CodPays V="100"/>
+         <DteAdr V="2012-01-15"/>
+
+
+
+
+
+
+
+
+      </Adresse>
+      <NumUrssaf V="9999999999"/>
+      <Siret V="99999999900017"/>
+
+
+
+
+   </Employeur>
+   <DonneesIndiv>
+      <PayeIndivMensuel added:primary-key="2011-8-225225">
+         <Annee V="2011"/>
+         <Mois V="8"/>
+         <AnneeMois V="201108"/>
+         <Agent>
+            <Civilite V="MLLE"/>
+            <Nom V="XXXXXXXX" V2="XXXXXXXX"/>
+            <ComplNom V="XXXXXXX"/>
+            <Prenom V="XXXXXXX" V2="XXXXXXX"/>
+            <Matricule V="225225" V2="225225"/>
+            <NIR V="1234567890123"/>
+            <Adresse>
+               <TypAdr V="1"/>
+               <Adr1 V="XXXXXXXXX"/>
+               <Adr2 V="XXXXXXX"/>
+               <Adr3 V="XXXXX"/>
+               <CP V="77777"/>
+               <Ville V="VILLE"/>
+               <CodRes V="0"/>
+               <CodPays V="100"/>
+               <DteAdr V="2005-01-10"/>
+
+
+
+
+
+
+
+
+            </Adresse>
+            <NbEnfants V="0"/>
+            <Statut V="NON_TITULAIRE"/>
+            <EmploiMetier V="EMPLOI" V2="EMPLOI"/>
+            <Grade V="GRADE"/>
+            <Echelon V="1  ER  ECHELON"/>
+            <Indice V="263"/>
+            <CptBancaire rib="xxxxxXXXXXXXXXXXXXXXX99">
+               <IdPayInt V=""/>
+               <IdBancInt V=""/>
+               <CodeEtab V="xxxxx"/>
+               <CodeGuic V="XXXXX"/>
+               <IdCpte V="XXXXXXXXXXX"/>
+               <CleRib V="99"/>
+               <LibBanc V="CENTRE DE CHEQUES POSTAU"/>
+               <TitCpte V="XXXXXXXXXXXXXXX"/>
+               <DteBanc V="2005-01-10"/>
+
+
+
+
+
+
+
+
+            </CptBancaire>
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </Agent>
+         <Evenement generated-id="d1e117" tag-name="Evenement">
+            <Code V="PNT" V2="PNT"/>
+            <Description V="PROLONGATION TEMPORAIRE"/>
+
+         </Evenement>
+         <Service V="SERVICE" V2="SERVICE"/>
+         <NBI V="0"/>
+         <QuotiteTrav V="100"/>
+         <Periode>
+            <DateDebut V="2005-01-01"/>
+            <DateFin V="2005-12-31"/>
+
+         </Periode>
+         <Remuneration>
+            <TraitBrut generated-id="d1e138" tag-name="TraitBrut">
+               <Libelle V="TRAIT.BASE MENS. NT"/>
+               <Code V="011N" V2="011N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="1162.01"/>
+               <Ordre V="1"/>
+
+
+
+
+
+
+            </TraitBrut>
+            <IndemResid generated-id="d1e155" tag-name="IndemResid">
+               <Libelle V="INDEMN.RESIDENCE NT"/>
+               <Code V="021N" V2="021N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="39.36"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="2"/>
+
+
+
+
+
+
+
+            </IndemResid>
+            <Indemnite generated-id="d1e174" tag-name="Indemnite">
+               <Libelle V="PRIME - 13 HEURES"/>
+               <Code V="221N" V2="221N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="30"/>
+               <Mt V="98.63"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Indemnite>
+            <Indemnite generated-id="d1e193" tag-name="Indemnite">
+               <Libelle V="IND. SPEC. SUJETION"/>
+               <Code V="223N" V2="223N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="30"/>
+               <Mt V="116.2"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Indemnite>
+            <Indemnite generated-id="d1e212" tag-name="Indemnite">
+               <Libelle V="IND.SPEC.SUJ.DIM/J.F"/>
+               <Code V="230N" V2="230N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="78.56"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+            </Indemnite>
+            <Indemnite generated-id="d1e230" tag-name="Indemnite">
+               <Libelle V="PRIME D'AUXILIAIRE"/>
+               <Code V="238N" V2="238N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="0"/>
+               <Mt V="15.24"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Indemnite>
+            <RemDivers generated-id="d1e249" tag-name="RemDivers">
+               <Libelle V="REMBT. TRANSPORT"/>
+               <Code V="349N" V2="349N"/>
+               <Base V="0"/>
+               <Taux V="0"/>
+               <NbUnite V="30"/>
+               <Mt V="19.53"/>
+               <CodeCaisse V="AD0001"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </RemDivers>
+            <Deduction generated-id="d1e268" tag-name="Deduction">
+               <Libelle V="COT. SS VIEIL. RG"/>
+               <Code V="804C" V2="804C"/>
+               <Base V="1510"/>
+               <Taux V="6.55"/>
+               <NbUnite V="0"/>
+               <Mt V="98.91"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e287" tag-name="Deduction">
+               <Libelle V="COT. SS TOT. RG"/>
+               <Code V="810C" V2="810C"/>
+               <Base V="1510"/>
+               <Taux V="0.85"/>
+               <NbUnite V="0"/>
+               <Mt V="12.84"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e306" tag-name="Deduction">
+               <Libelle V="COT. IRCANTEC A"/>
+               <Code V="840C" V2="840C"/>
+               <Base V="1510"/>
+               <Taux V="2.25"/>
+               <NbUnite V="0"/>
+               <Mt V="33.98"/>
+               <CodeCaisse V="IRCANT"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e325" tag-name="Deduction">
+               <Libelle V="R.D.S."/>
+               <Code V="844C" V2="844C"/>
+               <Base V="1464.7"/>
+               <Taux V="0.5"/>
+               <NbUnite V="0"/>
+               <Mt V="7.32"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e345" tag-name="Deduction">
+               <Libelle V="CSG DEDUCTIBLE"/>
+               <Code V="859C" V2="859C"/>
+               <Base V="1464.7"/>
+               <Taux V="5.1"/>
+               <NbUnite V="0"/>
+               <Mt V="74.7"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Deduction generated-id="d1e364" tag-name="Deduction">
+               <Libelle V="C.S.G."/>
+               <Code V="869C" V2="869C"/>
+               <Base V="1464.7"/>
+               <Taux V="2.4"/>
+               <NbUnite V="0"/>
+               <Mt V="35.15"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="5"/>
+
+
+
+
+
+
+
+            </Deduction>
+            <Cotisation generated-id="d1e383" tag-name="Cotisation">
+               <Libelle V="COT. SS VIEIL. RG"/>
+               <Code V="805C" V2="805C"/>
+               <Base V="1510"/>
+               <Taux V="8.2"/>
+               <NbUnite V="0"/>
+               <Mt V="123.82"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e402" tag-name="Cotisation">
+               <Libelle V="COT.VIEILL.TOT. RG"/>
+               <Code V="807C" V2="807C"/>
+               <Base V="1510"/>
+               <Taux V="1.6"/>
+               <NbUnite V="0"/>
+               <Mt V="24.16"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e421" tag-name="Cotisation">
+               <Libelle V="COT. SS TOT. RG"/>
+               <Code V="811C" V2="811C"/>
+               <Base V="1510"/>
+               <Taux V="12.8"/>
+               <NbUnite V="0"/>
+               <Mt V="193.28"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e440" tag-name="Cotisation">
+               <Libelle V="COT. FNAL PAT. R.G."/>
+               <Code V="824C" V2="824C"/>
+               <Base V="1510"/>
+               <Taux V="0.1"/>
+               <NbUnite V="0"/>
+               <Mt V="1.51"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e460" tag-name="Cotisation">
+               <Libelle V="COT.ALL.FAM/.TOT.RG"/>
+               <Code V="826C" V2="826C"/>
+               <Base V="1510"/>
+               <Taux V="5.4"/>
+               <NbUnite V="0"/>
+               <Mt V="81.54"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e479" tag-name="Cotisation">
+               <Libelle V="COT. ACC. TRAV. RG"/>
+               <Code V="827C" V2="827C"/>
+               <Base V="1510"/>
+               <Taux V="0.92"/>
+               <NbUnite V="0"/>
+               <Mt V="13.89"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e498" tag-name="Cotisation">
+               <Libelle V="COT. IRCANTEC A"/>
+               <Code V="841C" V2="841C"/>
+               <Base V="1510"/>
+               <Taux V="3.38"/>
+               <NbUnite V="0"/>
+               <Mt V="51.04"/>
+               <CodeCaisse V="IRCANT"/>
+               <Ordre V="6"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e517" tag-name="Cotisation">
+               <Libelle V="TAXE TRANSPORT T. RG"/>
+               <Code V="848C" V2="848C"/>
+               <Base V="1510"/>
+               <Taux V="1.4"/>
+               <NbUnite V="0"/>
+               <Mt V="21.14"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e536" tag-name="Cotisation">
+               <Libelle V="CONT SOLID AUTON NT"/>
+               <Code V="866C" V2="866C"/>
+               <Base V="1510"/>
+               <Taux V="0.3"/>
+               <NbUnite V="0"/>
+               <Mt V="4.53"/>
+               <CodeCaisse V="URSSAF"/>
+               <Ordre V="3"/>
+
+
+
+
+
+
+
+            </Cotisation>
+            <Cotisation generated-id="d1e555" tag-name="Cotisation">
+               <Libelle V="FDS EMP. HOSPITALIER"/>
+               <Code V="874C" V2="874C"/>
+               <Base V="1510"/>
+               <Taux V="1"/>
+               <NbUnite V="0"/>
+               <Mt V="15.1"/>
+               <CodeCaisse V="CNRACL"/>
+               <Ordre V="4"/>
+
+
+
+
+
+
+
+            </Cotisation>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+         </Remuneration>
+         <NbHeureTotal V="151.67"/>
+         <TauxHor V="0"/>
+         <NbHeureSup V="0"/>
+         <MtBrut V="1431.29"/>
+         <MtNet V="1266.63"/>
+         <MtNetAPayer V="1266.63"/>
+         <DatePaiement V="2005-04-27"/>
+         <MtImposable V="1289.57"/>
+         <CumulMtImposable V="5333.75"/>
+         <CumulMtBrut V="4735.41"/>
+         <CumulBaseSS V="4735.41"/>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      </PayeIndivMensuel>
+   </DonneesIndiv>
+</DocumentPaye>

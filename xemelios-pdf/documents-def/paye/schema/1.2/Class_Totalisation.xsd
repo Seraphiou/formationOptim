@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:cm="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun">
+    <xs:import namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun" schemaLocation="Class_SchemasCommuns.xsd"/>
+    <xs:complexType name="TTotalisation">
+        <xs:sequence>
+            <xs:element name="ligne" type="TLigneTotalisation" minOccurs="1" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    <xs:complexType name="TLigneTotalisation">
+        <xs:sequence>
+            <xs:element name="Ordre" type="cm:Base_Num10" minOccurs="0"><xs:annotation><xs:documentation>Pour indiquer éventuellement un ordre d'affichage. Non utilisé pour le moment</xs:documentation></xs:annotation></xs:element>
+            <xs:element name="Rubrique" type="TRubrique" minOccurs="0"/>
+            <xs:element name="Etablissement" type="cm:Base_Texte100" minOccurs="0"/>
+            <xs:element name="TypeCredit" type="cm:Base_Texte38" minOccurs="0"/>
+            <xs:element name="TypeLigne" type="TTypeLigne"/>
+            <xs:element name="Caisse" type="TRubrique" minOccurs="0"><xs:annotation><xs:documentation>Eventuellement, on ne pourrait mettre que le code caisse, et récupérer le libellé depuis la nomenclature, mais c'est un peu compliqué dans un premier temps</xs:documentation></xs:annotation></xs:element>
+            <xs:element name="Montant1" type="cm:Base_Montant"><xs:annotation><xs:documentation>Le montant de la ligne</xs:documentation></xs:annotation></xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="TRubrique">
+        <xs:sequence>
+            <xs:element name="Code" type="cm:Base_Texte12"/>
+            <xs:element name="Libelle" type="cm:Base_Texte100"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="TTypeLigne">
+        <xs:attribute name="V">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="P"><xs:annotation><xs:documentation>Part patronnale</xs:documentation></xs:annotation></xs:enumeration>
+                    <xs:enumeration value="S"><xs:annotation><xs:documentation>Part salariale</xs:documentation></xs:annotation></xs:enumeration>
+                    <xs:enumeration value="A"><xs:annotation><xs:documentation>Autre</xs:documentation></xs:annotation></xs:enumeration>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+</xs:schema>

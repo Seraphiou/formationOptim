@@ -1,0 +1,6 @@
+Pour demarrer la classe bootstrap en cliquant sur le jar :
+utiliser le fichier manifest.txt qui doit contenir la ligne 
+Main-Class: fr.gouv.finances.cp.outil.common.Bootstrap
+
+une fois le jar demat.jar constitué avec les classes de l'appli, il faut lancer
+jar umf manifest.txt demat.jar

@@ -1,0 +1,354 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by USER USER (MINISTERE DE L'ECONOMIE ET DES FINANCES) -->
+<!-- edited with XMLSPY v5 rel. 4 U (http://www.xmlspy.com) by TEAM (RENEGADE) -->
+<xs:schema xmlns:cm="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+	<!--xs:import namespace="http://www.minefi.gouv.fr/cp/helios/pes_v2/commun" schemaLocation="Class_SchemasCommuns.xsd"/-->
+	<xs:include schemaLocation="Simple_Type.xsd"/>
+	<xs:include schemaLocation="Class_RepartitionBudget.xsd"/>
+	<xs:include schemaLocation="Class_PJReference.xsd"/>
+	<xs:include schemaLocation="Class_Adresse.xsd"/>
+	<xs:include schemaLocation="Class_Bancaire.xsd"/>
+	<xs:complexType name="TPayeIndivMensuel">
+		<xs:annotation>
+			<xs:documentation>Données mensuelles de Paye par Agent</xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="Agent" type="TAgentPaye">
+				<xs:annotation>
+					<xs:documentation>Description de l'Agent</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Evenement" type="TEvtPaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Liste des évènements individuels pris en compte dans ce mois de paye (code et description)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Service" type="Base_Texte50">
+				<xs:annotation>
+					<xs:documentation>Identification du Service (vide en l'absence de service)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NBI" type="Base_Dec3" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Nouvelle Bonification Indiciaire (en indice) - 
+dans le cas de plusieurs NBI, mentionner en premier, celle de la fonction principale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="QuotiteTrav" type="Base_Taux">
+				<xs:annotation>
+					<xs:documentation>Quotite travaille en pourcentage (100 si temps plein)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Periode" type="TPeriode">
+				<xs:annotation>
+					<xs:documentation>Periode de référence de la paye mensuelle</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Remuneration" type="TRemunerationPaye">
+				<xs:annotation>
+					<xs:documentation>Elements constituant la Rémuneration</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NbHeureTotal" type="Base_Dec3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Nombre d'heures payées dans le mois (optionnel si indemnité)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="TauxHor" type="Base_Montant3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Montant de la remuneration horaire (cas de paiement horaire)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NbHeureSup" type="Base_Dec3">
+				<xs:annotation>
+					<xs:documentation>Nombre d'heures supplementaires payées dans le mois</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MtBrut" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Montant Brut de la remuneration totale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MtNet" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Montant Net de la remuneration totale</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MtNetAPayer" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Montant Net a payer à l'Agent</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="DatePaiement" type="Base_Date">
+				<xs:annotation>
+					<xs:documentation>Date de Paiement</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="MtImposable" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Montant mensuel Net Imposable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CumulMtImposable" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Cumul annuel du montant Net Imposable</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CumulMtBrut" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Cumul annuel du montant Brut</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CumulBaseSS" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Cumul annuel Sécurité Sociale (il s'agit de la base SS brute c'est-à-dire la base complète servant au calcul des cotisations patronales)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RepartitionBudget" type="TRepartitionBudget" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>nécessaire en cas de répartition entre plusieurs budgets d'un même salarié</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PJRef" type="TPJReference" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Réference au document PJ</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TLignePaye">
+		<xs:sequence>
+			<xs:element name="Libelle" type="Base_Texte100">
+				<xs:annotation>
+					<xs:documentation>Libellé détaillé</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Code" type="Base_Texte12">
+				<xs:annotation>
+					<xs:documentation>Code Rubrique</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Base" type="Base_Montant" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Base d'application de cet élément de rémunération (non applicable pour unélément de rémunération par unité)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Taux" type="Base_Taux3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Taux servant au calcul de cet élément de rémunération (en cas d'une rémunération par unité, il s'agit d'un montant par unité)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NbUnite" type="Base_Dec3" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Nombre d'unités (cas d'une rémunération par unité - horaire par exemple)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Mt" type="Base_Montant">
+				<xs:annotation>
+					<xs:documentation>Montant</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="PeriodeRef" type="TPeriode" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Période de réference de cet élément de rémunération (si la période est différente de la période de référence du bulletin)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CodeCaisse" type="Base_Texte24" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Code de la caisse concernée</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ordre" type="Base_Num10">
+				<xs:annotation>
+					<xs:documentation>Ordre sur le bulletin de paye</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TLigneCommentaire">
+		<xs:sequence>
+			<xs:element name="Libelle" type="Base_Texte100">
+				<xs:annotation>
+					<xs:documentation>Libellé détaillé</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Ordre" type="Base_Num10">
+				<xs:annotation>
+					<xs:documentation>Ordre sur le bulletin de paye</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TRemunerationPaye">
+		<xs:sequence>
+			<xs:element name="TraitBrut" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Traitement(s) Brut(s) principaux (plusieurs traitements en cas d'affectations multiples) - le traitement principal indiciaire doit être le premier élément mentionné dans la liste - éléments de traitement formant à la rémunération régulière hors  indemnités, avantage en nature, supplément familial,  rappel de rémunération</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="IndemResid" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indemnité de Résidence</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="SupFam" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Supplément Familial</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="AvantageNature" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Avantage(s) en nature</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Indemnite" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Indemnités diverses</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RemDivers" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Autres éléments de rémunérations (ne relevant pas des autres catégories)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Deduction" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Deduction(s) sur rémunération Brute (y compris charges sociales - part salariale)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Acompte" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Acompte(s) sur rémunération</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Rappel" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Rappel(s) sur rémunération (hors charges sociales part patronales et salariales)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Retenue" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Retenue(s) sur rémunération Net</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Cotisation" type="TLignePaye" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Charges sociales (part patronale)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Commentaire" type="TLigneCommentaire" minOccurs="0" maxOccurs="unbounded">
+				<xs:annotation>
+					<xs:documentation>Commentaire entre différents éléments de rémunérations</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TAgentPaye">
+		<xs:sequence>
+			<xs:element name="Civilite" type="Base_Texte10" minOccurs="0"/>
+			<xs:element name="Nom" type="Base_Texte50"/>
+			<xs:element name="ComplNom" type="Base_Texte50" minOccurs="0"/>
+			<xs:element name="Prenom" type="Base_Texte50" minOccurs="0"/>
+			<xs:element name="Matricule" type="Base_Texte24"/>
+			<xs:element name="NIR" type="Base_Alphanum15">
+				<xs:annotation>
+					<xs:documentation>Identifiant attribué par l'INSEE à une personne physique</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Adresse" type="TAdresse">
+				<xs:annotation>
+					<xs:documentation>Adresse conforme PES</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="NbEnfants" type="Base_Num2">
+				<xs:annotation>
+					<xs:documentation>Nombre d'enfants a charge (au sens du supplement familial)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Statut" type="TStatut">
+				<xs:annotation>
+					<xs:documentation>Statut de l'agent (titulaire, non titulaire, stagiaire,emploi fonctionnel, emploi aidé, autre statut)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="RefNomenStatutaire" type="TRefNomenStatutaire" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Référence à la Nomeclature Statutaire, i.e. pour le FPT conforme à la NET, pour la FPH, en attente de la nomenclature DHOS</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="EmploiMetier" type="Base_Texte50">
+				<xs:annotation>
+					<xs:documentation>Appelation réelle de l'emploi figurant sur la feuille de paye Souvent appelé Qualification dans les progiciels</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Grade" type="Base_Texte100">
+				<xs:annotation>
+					<xs:documentation>Grade (tel qu'il existe dans progiciel) - vide en l'absence de grade</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Echelon" type="Base_Texte50">
+				<xs:annotation>
+					<xs:documentation>Echelon (vide en l'absence d'échelon) - mentionner le hors échelle, le cas échéant</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Indice" type="Base_Num4">
+				<xs:annotation>
+					<xs:documentation>Indice net majoré (vide en cas de rémunération non indiciaire)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="CptBancaire" type="TBancaire" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Références bancaires permettant le paiement</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TPeriode">
+		<xs:sequence>
+			<xs:element name="DateDebut" type="Base_Date"/>
+			<xs:element name="DateFin" type="Base_Date"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="Base_Mois">
+		<xs:attribute name="V" type="V_Mois" use="required"/>
+	</xs:complexType>
+	<xs:simpleType name="V_Mois">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="3"/>
+			<xs:pattern value="(0?[1-9])|(1[0-2])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="TEvtPaye">
+		<xs:sequence>
+			<xs:element name="Code" type="Base_Texte24"/>
+			<xs:element name="Description" type="Base_Texte100" minOccurs="0">
+				<xs:annotation>
+					<xs:documentation>Description utile, notamment pour préciser la date de l'évènement (souvent antérieure)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="TStatut">
+		<xs:attribute name="V" use="required">
+			<xs:simpleType>
+				<xs:restriction base="xs:string">
+					<xs:enumeration value="TITULAIRE"/>
+					<xs:enumeration value="NON_TITULAIRE"/>
+					<xs:enumeration value="STAGIAIRE"/>
+					<xs:enumeration value="EMPLOI_FONC"/>
+					<xs:enumeration value="EMPLOI_AIDE"/>
+					<xs:enumeration value="AUTRE_STATUT"/>
+				</xs:restriction>
+			</xs:simpleType>
+		</xs:attribute>
+	</xs:complexType>
+	<xs:complexType name="TRefNomenStatutaire">
+		<xs:sequence>
+			<xs:element name="Code" type="Base_Alphanum10">
+				<xs:annotation>
+					<xs:documentation>pour la NET (code détaillé su 4 caractères)</xs:documentation>
+				</xs:annotation>
+			</xs:element>
+			<xs:element name="Libelle" type="Base_Texte100"/>
+		</xs:sequence>
+	</xs:complexType>
+</xs:schema>

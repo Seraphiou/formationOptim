@@ -1,0 +1,6259 @@
+<?xml version="1.0" encoding="UTF-8"?><n:DocumentPaye xmlns:n="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" xmlns:added="http://projets.admisource.gouv.fr/xemelios/namspaces#added" xmlns:ano="http://projets.admisource.gouv.fr/xemelios/namspaces#anomally"><!--on est ici !-->
+<IdVer xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" V="1.1"/>
+<Annee xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" V="2011"/>
+<Mois xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" V="8"/>
+<Train xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1" V="AGENTS"/>
+<Employeur xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1">
+<Nom V="Conseil Général du Département Test"/>
+<APE V="789A"/>
+<Adresse>
+<TypAdr V="1"/>
+<Adr1 V="45 rue Lord Kitchener"/>
+<Adr2 V=""/>
+<Adr3 V=""/>
+<CP V="77777"/>
+<Ville V="VILLE"/>
+<CodRes V="0"/>
+<CodPays V="100"/>
+<DteAdr V="2012-01-15"/></Adresse>
+<NumUrssaf V="9999999999"/>
+<Siret V="99999999900017"/></Employeur>
+<Nomenclatures xmlns="http://www.minefi.gouv.fr/cp/helios/pes_v2/paye_1_1">
+<NomenclatureEvtPaye>
+<Description V="evenement de paie"/>
+<Correspondance>
+<Libelle V="AFFECTATION AGENT SUR POSTE (AFP)"/>
+<Code V="AFP"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT EN CFA (AFA)"/>
+<Code V="AFA"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT EN CPA (APA)"/>
+<Code V="APA"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT EN RENFORT (RFT)"/>
+<Code V="RFT"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT EN SUREFFECTIF (SUR)"/>
+<Code V="SUR"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT HORAIRE (HOR)"/>
+<Code V="HOR"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT MIS A LA RETRAITE (RTE)"/>
+<Code V="RTE"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SAISONNIER (SAI)"/>
+<Code V="SAI"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR CLD (CLD)"/>
+<Code V="CLD"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR CLM (CLM)"/>
+<Code V="CLM"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR CONGE MATERNITE (MAT)"/>
+<Code V="MAT"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR CONGE PARENTAL (SPA)"/>
+<Code V="SPA"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR CPA (CPA)"/>
+<Code V="CPA"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR DISPO FAMILIALE (SDF)"/>
+<Code V="SDF"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT SUR MI-TEMPS DE DROIT (MIT)"/>
+<Code V="MIT"/></Correspondance>
+<Correspondance>
+<Libelle V="AGENT VACATAIRE (VAC)"/>
+<Code V="VAC"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT DE GRADE (GRA)"/>
+<Code V="GRA"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT ECHELON AU TEMPS MAXIMUM (MAX)"/>
+<Code V="MAX"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT ECHELON AU TEMPS MINIMUM (MIN)"/>
+<Code V="MIN"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT ECHELON AU TEMPS MOYEN (MOY)"/>
+<Code V="MOY"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT ECHELON EXCEPTIONNEL (EXC)"/>
+<Code V="EXC"/></Correspondance>
+<Correspondance>
+<Libelle V="AVCT ECH REPRISE (ECH)"/>
+<Code V="ECH"/></Correspondance>
+<Correspondance>
+<Libelle V="BONIFICATION HOSPITALIERE (HOS)"/>
+<Code V="HOS"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT DE FONCTION (CFO)"/>
+<Code V="CFO"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT DE POSTE (CPO)"/>
+<Code V="CPO"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT DE SERVICE DU POSTE (CSE)"/>
+<Code V="CSE"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT EMPLOYEUR (CEM)"/>
+<Code V="CEM"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT IMPUTATION (CIM)"/>
+<Code V="CIM"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT MODE REMUNERATION (CMR)"/>
+<Code V="CMR"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT PERIODE PAIE (CPE)"/>
+<Code V="CPE"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT POSITION STATUTAIRE (CPS)"/>
+<Code V="CPS"/></Correspondance>
+<Correspondance>
+<Libelle V="CHANGEMENT SITUATION MEDICALE (SME)"/>
+<Code V="SME"/></Correspondance>
+<Correspondance>
+<Libelle V="CHEVRONNEMENT (CHE)"/>
+<Code V="CHE"/></Correspondance>
+<Correspondance>
+<Libelle V="CHGT DE SERVICE DE L'AGENT (SCE)"/>
+<Code V="SCE"/></Correspondance>
+<Correspondance>
+<Libelle V="CHGT TAUX D' EMPLOI (TAU)"/>
+<Code V="TAU"/></Correspondance>
+<Correspondance>
+<Libelle V="CONGE FORMATION NON REMUNERE (FNR)"/>
+<Code V="FNR"/></Correspondance>
+<Correspondance>
+<Libelle V="CONGE FORMATION REMUNERE (FOR)"/>
+<Code V="FOR"/></Correspondance>
+<Correspondance>
+<Libelle V="CONGE PARENTAL (PAR)"/>
+<Code V="PAR"/></Correspondance>
+<Correspondance>
+<Libelle V="CONGE SANS SOLDE NON TITULAIRE (CSS)"/>
+<Code V="CSS"/></Correspondance>
+<Correspondance>
+<Libelle V="CREATION DE POSTE (CRE)"/>
+<Code V="CRE"/></Correspondance>
+<Correspondance>
+<Libelle V="CREDIT  INSERTION (INS)"/>
+<Code V="INS"/></Correspondance>
+<Correspondance>
+<Libelle V="DEBUT AFFECTATION AGT. /POSTE (DPO)"/>
+<Code V="DPO"/></Correspondance>
+<Correspondance>
+<Libelle V="DECLARATION VACANCE CIG (DEC)"/>
+<Code V="DEC"/></Correspondance>
+<Correspondance>
+<Libelle V="DEMISSION (DEM)"/>
+<Code V="DEM"/></Correspondance>
+<Correspondance>
+<Libelle V="DEPART EN RETRAITE (RET)"/>
+<Code V="RET"/></Correspondance>
+<Correspondance>
+<Libelle V="DEPART EXTERNE (DEP)"/>
+<Code V="DEP"/></Correspondance>
+<Correspondance>
+<Libelle V="DEPART INTERNE (MOB)"/>
+<Code V="MOB"/></Correspondance>
+<Correspondance>
+<Libelle V="DESISTEMENT (DST)"/>
+<Code V="DST"/></Correspondance>
+<Correspondance>
+<Libelle V="DETACHEMENT (DET)"/>
+<Code V="DET"/></Correspondance>
+<Correspondance>
+<Libelle V="DETACHEMENT POUR STAGE (DES)"/>
+<Code V="DES"/></Correspondance>
+<Correspondance>
+<Libelle V="DISPONIBILITE (DIS)"/>
+<Code V="DIS"/></Correspondance>
+<Correspondance>
+<Libelle V="DISPO PR  RAISON FAMILIALE (DFM)"/>
+<Code V="DFM"/></Correspondance>
+<Correspondance>
+<Libelle V="FIN AFFECTATION AGT SUR POSTE (FPO)"/>
+<Code V="FPO"/></Correspondance>
+<Correspondance>
+<Libelle V="FIN DE CONTRAT (FCO)"/>
+<Code V="FCO"/></Correspondance>
+<Correspondance>
+<Libelle V="FIN DE DETACHEMENT (FDE)"/>
+<Code V="FDE"/></Correspondance>
+<Correspondance>
+<Libelle V="FIN VERST ALLOCATION CHOMAGE (FVA)"/>
+<Code V="FVA"/></Correspondance>
+<Correspondance>
+<Libelle V="INITIALISATION (INI)"/>
+<Code V="INI"/></Correspondance>
+<Correspondance>
+<Libelle V="INTEGRATION CADRE D'EMPLOIS (ICE)"/>
+<Code V="ICE"/></Correspondance>
+<Correspondance>
+<Libelle V="INTEGRATION FONCT PUBLIQ (INT)"/>
+<Code V="INT"/></Correspondance>
+<Correspondance>
+<Libelle V="LICENCIEMENT (LIC)"/>
+<Code V="LIC"/></Correspondance>
+<Correspondance>
+<Libelle V="MIS A DISPOSITION (MAD)"/>
+<Code V="MAD"/></Correspondance>
+<Correspondance>
+<Libelle V="MI-TEMPS DE DROIT (MTD)"/>
+<Code V="MTD"/></Correspondance>
+<Correspondance>
+<Libelle V="MI-TEMPS THERAPEUTIQUE (MTT)"/>
+<Code V="MTT"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 100 SANS MAJORATION (100)"/>
+<Code V="100"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 10 MAJ 30% (103)"/>
+<Code V="103"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 10 MAJ 50% (105)"/>
+<Code V="105"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 10 SANS MAJORATION (10N)"/>
+<Code V="10N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 15 MAJ 30% (153)"/>
+<Code V="153"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 15 MAJ 50% (155)"/>
+<Code V="155"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 15 SANS MAJORATION (15N)"/>
+<Code V="15N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 20 MAJ 30% ARTICLE 45 ZUS (203)"/>
+<Code V="203"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 20 MAJ 50% (205)"/>
+<Code V="205"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI  20 SANS MAJORATION (20N)"/>
+<Code V="20N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 25 SANS MAJORATION (25N)"/>
+<Code V="25N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 30 SANS MAJORATION (30N)"/>
+<Code V="30N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI 35 SANS MAJORATION (35N)"/>
+<Code V="35N"/></Correspondance>
+<Correspondance>
+<Libelle V="NBI  50 SANS MAJORATION (50N)"/>
+<Code V="50N"/></Correspondance>
+<Correspondance>
+<Libelle V="NOMINATION AUXILIAIRE (NAU)"/>
+<Code V="NAU"/></Correspondance>
+<Correspondance>
+<Libelle V="NOMINATION CONTRACTUEL (NCO)"/>
+<Code V="NCO"/></Correspondance>
+<Correspondance>
+<Libelle V="NOMINATION NON TITULAIRE (NNT)"/>
+<Code V="NNT"/></Correspondance>
+<Correspondance>
+<Libelle V="NOMINATION STAGIAIRE (NST)"/>
+<Code V="NST"/></Correspondance>
+<Correspondance>
+<Libelle V="NOM PAR  EXAMEN PROFESSIONNEL (EXA)"/>
+<Code V="EXA"/></Correspondance>
+<Correspondance>
+<Libelle V="POSTE DE VOLANT (VOL)"/>
+<Code V="VOL"/></Correspondance>
+<Correspondance>
+<Libelle V="POSTE VACANT (POS)"/>
+<Code V="POS"/></Correspondance>
+<Correspondance>
+<Libelle V="PREVISION DETACHEMENT (PDE)"/>
+<Code V="PDE"/></Correspondance>
+<Correspondance>
+<Libelle V="PREVISION DISPONIBILITE (PDI)"/>
+<Code V="PDI"/></Correspondance>
+<Correspondance>
+<Libelle V="PREVISION MUTATION (MUT)"/>
+<Code V="MUT"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION AUXILIAIRE (PAU)"/>
+<Code V="PAU"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION CONTRACTUEL (PCO)"/>
+<Code V="PCO"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION DE DETACHEMENT (RDE)"/>
+<Code V="RDE"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION DE STAGE (PST)"/>
+<Code V="PST"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION DISPONIBILITE (RDI)"/>
+<Code V="RDI"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION EMPLOI PAR DETACH (PED)"/>
+<Code V="PED"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION MI-TEMPS DE DROIT (RTD)"/>
+<Code V="RTD"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION TEMPORAIRE (PNT)"/>
+<Code V="PNT"/></Correspondance>
+<Correspondance>
+<Libelle V="PROLONGATION TEMPS PARTIEL (PPA)"/>
+<Code V="PPA"/></Correspondance>
+<Correspondance>
+<Libelle V="PROMOTION INTERNE (PIT)"/>
+<Code V="PIT"/></Correspondance>
+<Correspondance>
+<Libelle V="RADIATION (RAD)"/>
+<Code V="RAD"/></Correspondance>
+<Correspondance>
+<Libelle V="RADIATION POUR MUTATION (RMU)"/>
+<Code V="RMU"/></Correspondance>
+<Correspondance>
+<Libelle V="RATTACHEMENT FONCTION (FCT)"/>
+<Code V="FCT"/></Correspondance>
+<Correspondance>
+<Libelle V="RATTACHE. SCE. REPRISE DONNEES (SER)"/>
+<Code V="SER"/></Correspondance>
+<Correspondance>
+<Libelle V="RECLASSEMENT INDICIAIRE (RCL)"/>
+<Code V="RCL"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT (REC)"/>
+<Code V="REC"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PAR CONCOURS (SCO)"/>
+<Code V="SCO"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PAR DETACHEMENT (RED)"/>
+<Code V="RED"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PAR MUTATION (REM)"/>
+<Code V="REM"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PREVISIONNEL EXTER (PVE)"/>
+<Code V="PVE"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PREVISIONNEL INTER (PVI)"/>
+<Code V="PVI"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PRONONCE EXTERNE (PNE)"/>
+<Code V="PNE"/></Correspondance>
+<Correspondance>
+<Libelle V="RECRUTEMENT PRONONCE INTERNE (PNI)"/>
+<Code V="PNI"/></Correspondance>
+<Correspondance>
+<Libelle V="REINT APRES CONGE FORMATION (RCF)"/>
+<Code V="RCF"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEG. APRES MI TEMPS THERAP (RIT)"/>
+<Code V="RIT"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEG. APRES TEMPS PARTIEL (RIP)"/>
+<Code V="RIP"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP CHG POSIT STA (RIS)"/>
+<Code V="RIS"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP CONGE PARENTA (RCP)"/>
+<Code V="RCP"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP. C. SS. SOLDE (RCS)"/>
+<Code V="RCS"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP DETACHEMENT (RID)"/>
+<Code V="RID"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP DISPONIBILITE (RDS)"/>
+<Code V="RDS"/></Correspondance>
+<Correspondance>
+<Libelle V="REINTEGRATION AP MIS DISPOSIT (RIM)"/>
+<Code V="RIM"/></Correspondance>
+<Correspondance>
+<Libelle V="REN.DISPO PR  RAISON FAMILIALE (RFM)"/>
+<Code V="RFM"/></Correspondance>
+<Correspondance>
+<Libelle V="RENOUVELLEMENT CONGE PARENTAL (RPA)"/>
+<Code V="RPA"/></Correspondance>
+<Correspondance>
+<Libelle V="RENOUVELLEMENT DE CONTRAT (REN)"/>
+<Code V="REN"/></Correspondance>
+<Correspondance>
+<Libelle V="RENOUVELLEMENT DE STAGE (RST)"/>
+<Code V="RST"/></Correspondance>
+<Correspondance>
+<Libelle V="RENOUV MI-TEMPS THERAPEUTIQUE (MTR)"/>
+<Code V="MTR"/></Correspondance>
+<Correspondance>
+<Libelle V="REOUVERTURE EMPLOI RAPPEL (RER)"/>
+<Code V="RER"/></Correspondance>
+<Correspondance>
+<Libelle V="SANS DEMANDE DE RECRUTEMENT (SDE)"/>
+<Code V="SDE"/></Correspondance>
+<Correspondance>
+<Libelle V="SUPPRESSION POSTE (SUP)"/>
+<Code V="SUP"/></Correspondance>
+<Correspondance>
+<Libelle V="TEMPS COMPLET (TCP)"/>
+<Code V="TCP"/></Correspondance>
+<Correspondance>
+<Libelle V="TEMPS PARTIEL ANNUALISE (TPA)"/>
+<Code V="TPA"/></Correspondance>
+<Correspondance>
+<Libelle V="TEMPS PARTIEL CLASSIQUE (TPM)"/>
+<Code V="TPM"/></Correspondance>
+<Correspondance>
+<Libelle V="TITULARISATION (TIT)"/>
+<Code V="TIT"/></Correspondance>
+<Correspondance>
+<Libelle V="TRANSFORMATION DE POSTE (TRA)"/>
+<Code V="TRA"/></Correspondance></NomenclatureEvtPaye>
+<NomenclatureRubriquePaye>
+<Description V="rubrique de paie"/>
+<Correspondance>
+<Libelle V="DONT RAP NBI (002A)"/>
+<Code V="002A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="DONT NBI (002N)"/>
+<Code V="002N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="DONT RAP NBI (002R)"/>
+<Code V="002R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="DROIT AU REG IND (005A)"/>
+<Code V="005A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="JOURS ABAT. - R.I. (006A)"/>
+<Code V="006A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="JOURS ABAT. - R.I. (006N)"/>
+<Code V="006N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE MENS (010A)"/>
+<Code V="010A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT.BASE MENS. DT (010D)"/>
+<Code V="010D"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL TB. MENS. DT (010E)"/>
+<Code V="010E"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENU.ABSENCE SERVI (010G)"/>
+<Code V="010G"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT.BASE TIT. MENS (010N)"/>
+<Code V="010N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE MENS (010R)"/>
+<Code V="010R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT. NTIT MENS (011A)"/>
+<Code V="011A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT.BASE MENS. DT (011D)"/>
+<Code V="011D"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL TB. MENS. DT (011E)"/>
+<Code V="011E"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENU.ABSENCE SERVI (011G)"/>
+<Code V="011G"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT.BASE MENS. NT (011N)"/>
+<Code V="011N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE MENS (011R)"/>
+<Code V="011R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE HOR. (012A)"/>
+<Code V="012A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ABSENCE SERVICE TB H (012G)"/>
+<Code V="012G"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. BASE HORAIRE (012N)"/>
+<Code V="012N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE HOR. (012R)"/>
+<Code V="012R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE VACAT (013A)"/>
+<Code V="013A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ABSENCE SERVICE TB V (013G)"/>
+<Code V="013G"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT.BASE VACATAIRE (013N)"/>
+<Code V="013N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE VACAT (013R)"/>
+<Code V="013R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.BASE FORF. (014A)"/>
+<Code V="014A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ABSENCE SERVICE TB F (014G)"/>
+<Code V="014G"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. BASE FORFAIT. (014N)"/>
+<Code V="014N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT.FORFAIT. (014R)"/>
+<Code V="014R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL INDEMNITE ELU (015A)"/>
+<Code V="015A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ELU (015N)"/>
+<Code V="015N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.INDEMNIT.ELU (015R)"/>
+<Code V="015R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT. CEC.CES (016A)"/>
+<Code V="016A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. BASE CEC.CES (016N)"/>
+<Code V="016N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TRAIT. CEC.CES (016R)"/>
+<Code V="016R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R TRAIT. BASE APPREN (017A)"/>
+<Code V="017A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. BASE APPRENTI (017N)"/>
+<Code V="017N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R TRAIT. BASE APPREN (017R)"/>
+<Code V="017R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL INDEMNITE CFA (018A)"/>
+<Code V="018A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE CFA (018N)"/>
+<Code V="018N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL INDEMNITE CFA (018R)"/>
+<Code V="018R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.INDEN.EXCEP. CPA (019A)"/>
+<Code V="019A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE EXCEP. CPA (019N)"/>
+<Code V="019N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.INDEN.EXCEP. CPA (019R)"/>
+<Code V="019R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.IND.RESID.TIT (020A)"/>
+<Code V="020A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENU.ABS. SERV. IR (020G)"/>
+<Code V="020G"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. RESIDENCE (020N)"/>
+<Code V="020N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.IND.RES. TIT (020R)"/>
+<Code V="020R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.INDEMN.RESID. NT (021A)"/>
+<Code V="021A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENU.ABSEN IR N.T (021G)"/>
+<Code V="021G"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.RESIDENCE NT (021N)"/>
+<Code V="021N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.INDEMN.RESID.NT (021R)"/>
+<Code V="021R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. RESID. HOR. (022A)"/>
+<Code V="022A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. RESID. HOR. (022N)"/>
+<Code V="022N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. RESID. HOR. (022R)"/>
+<Code V="022R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.RESIDENCE NT (023A)"/>
+<Code V="023A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.RESIDENCE (023N)"/>
+<Code V="023N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.INDEMN.RESIDENCE (023R)"/>
+<Code V="023R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. SFT TIT. (030A)"/>
+<Code V="030A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUPPLEMT FAMILIAL TI (030N)"/>
+<Code V="030N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.SUPPL.FAMILIAL T (030R)"/>
+<Code V="030R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.SUPPL.FAMILIAL N (031A)"/>
+<Code V="031A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUP. FAMILIAL   N.T (031N)"/>
+<Code V="031N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.SUPPL.FAMILIAL N (031R)"/>
+<Code V="031R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT T (032A)"/>
+<Code V="032A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REVERSION SFT TIT (032N)"/>
+<Code V="032N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT T (032R)"/>
+<Code V="032R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT NT (033A)"/>
+<Code V="033A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REVERSION SFT NTIT (033N)"/>
+<Code V="033N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT NT (033R)"/>
+<Code V="033R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT T (034A)"/>
+<Code V="034A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REVERSION SFT TIT (034N)"/>
+<Code V="034N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT T (034R)"/>
+<Code V="034R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT NT (035A)"/>
+<Code V="035A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REVERSION SFT NTIT (035N)"/>
+<Code V="035N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REVERSION SFT NT (035R)"/>
+<Code V="035R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL SUP. FAMILIAL (036A)"/>
+<Code V="036A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUP. FAMILIAL (036N)"/>
+<Code V="036N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL ANCIENNETE (040A)"/>
+<Code V="040A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ANCIENNETE (040N)"/>
+<Code V="040N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL ANCIENNETE (040R)"/>
+<Code V="040R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. HORAIRE NUIT (050A)"/>
+<Code V="050A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. HORAIRE NUIT (050N)"/>
+<Code V="050N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAIT. HORAIRE NUIT (050R)"/>
+<Code V="050R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="DEDUCT - NBI C.P.A. (119A)"/>
+<Code V="119A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="DEDUCT - NBI C.P.A. (119N)"/>
+<Code V="119N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL BASE CNFPT (170C)"/>
+<Code V="170C"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (200A)"/>
+<Code V="200A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (200N)"/>
+<Code V="200N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (200R)"/>
+<Code V="200R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR STAGE (201A)"/>
+<Code V="201A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR STAGE (201N)"/>
+<Code V="201N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR STAGE (201R)"/>
+<Code V="201R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (202A)"/>
+<Code V="202A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (202N)"/>
+<Code V="202N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (202R)"/>
+<Code V="202R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (203A)"/>
+<Code V="203A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (203N)"/>
+<Code V="203N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (203R)"/>
+<Code V="203R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (204A)"/>
+<Code V="204A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (204N)"/>
+<Code V="204N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (204R)"/>
+<Code V="204R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (205A)"/>
+<Code V="205A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (205N)"/>
+<Code V="205N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (205R)"/>
+<Code V="205R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (206A)"/>
+<Code V="206A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (206N)"/>
+<Code V="206N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (206R)"/>
+<Code V="206R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (207A)"/>
+<Code V="207A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (207N)"/>
+<Code V="207N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (207R)"/>
+<Code V="207R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (210A)"/>
+<Code V="210A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (210N)"/>
+<Code V="210N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (210R)"/>
+<Code V="210R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (211A)"/>
+<Code V="211A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (211N)"/>
+<Code V="211N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (211R)"/>
+<Code V="211R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (213A)"/>
+<Code V="213A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (213N)"/>
+<Code V="213N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (213R)"/>
+<Code V="213R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (214A)"/>
+<Code V="214A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (214N)"/>
+<Code V="214N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (214R)"/>
+<Code V="214R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NUIT NORM MAJOREES (217A)"/>
+<Code V="217A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NUIT NORM MAJOREES (217N)"/>
+<Code V="217N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NUIT NORM MAJOREES (217R)"/>
+<Code V="217R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM SAMEDI  MAJ (218A)"/>
+<Code V="218A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NORM SAMEDI  MAJ (218N)"/>
+<Code V="218N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM SAMEDI  MAJ (218R)"/>
+<Code V="218R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM DIM/JF  MAJ (219A)"/>
+<Code V="219A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NORM DIM/JF  MAJ (219N)"/>
+<Code V="219N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM DIM/JF  MAJ (219R)"/>
+<Code V="219R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (221A)"/>
+<Code V="221A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (221N)"/>
+<Code V="221N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (221R)"/>
+<Code V="221R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (222A)"/>
+<Code V="222A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (222N)"/>
+<Code V="222N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (222R)"/>
+<Code V="222R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (223A)"/>
+<Code V="223A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (223N)"/>
+<Code V="223N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (223R)"/>
+<Code V="223R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (224A)"/>
+<Code V="224A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (224N)"/>
+<Code V="224N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (224R)"/>
+<Code V="224R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (230A)"/>
+<Code V="230A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (230N)"/>
+<Code V="230N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (230R)"/>
+<Code V="230R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (231A)"/>
+<Code V="231A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (231N)"/>
+<Code V="231N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (231R)"/>
+<Code V="231R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (233A)"/>
+<Code V="233A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (233N)"/>
+<Code V="233N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (233R)"/>
+<Code V="233R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (234A)"/>
+<Code V="234A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (234N)"/>
+<Code V="234N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (234R)"/>
+<Code V="234R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (235A)"/>
+<Code V="235A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (235N)"/>
+<Code V="235N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (235R)"/>
+<Code V="235R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (236A)"/>
+<Code V="236A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (236N)"/>
+<Code V="236N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (236R)"/>
+<Code V="236R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (237A)"/>
+<Code V="237A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (237N)"/>
+<Code V="237N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (237R)"/>
+<Code V="237R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (238A)"/>
+<Code V="238A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (238N)"/>
+<Code V="238N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (238R)"/>
+<Code V="238R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPATLE  DIREC (240A)"/>
+<Code V="240A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPATLE  DIREC (240N)"/>
+<Code V="240N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPATLE  DIREC (240R)"/>
+<Code V="240R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (241A)"/>
+<Code V="241A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (241N)"/>
+<Code V="241N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (241R)"/>
+<Code V="241R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (242A)"/>
+<Code V="242A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (242N)"/>
+<Code V="242N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (242R)"/>
+<Code V="242R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (243A)"/>
+<Code V="243A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (243N)"/>
+<Code V="243N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (243R)"/>
+<Code V="243R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (244A)"/>
+<Code V="244A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (244N)"/>
+<Code V="244N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (244R)"/>
+<Code V="244R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (245A)"/>
+<Code V="245A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (245N)"/>
+<Code V="245N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (245R)"/>
+<Code V="245R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (246A)"/>
+<Code V="246A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (246N)"/>
+<Code V="246N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (246R)"/>
+<Code V="246R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN. CONGES PAYES (247A)"/>
+<Code V="247A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN. CONGES PAYES (247N)"/>
+<Code V="247N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN. CONGES PAYES (247R)"/>
+<Code V="247R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES COMPLEMENTAIR (248A)"/>
+<Code V="248A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES COMPLEMENTAIR (248N)"/>
+<Code V="248N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES COMPLEMENTAIR (248R)"/>
+<Code V="248R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (250A)"/>
+<Code V="250A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (250N)"/>
+<Code V="250N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (250R)"/>
+<Code V="250R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (251A)"/>
+<Code V="251A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (251N)"/>
+<Code V="251N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (251R)"/>
+<Code V="251R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (253A)"/>
+<Code V="253A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (253N)"/>
+<Code V="253N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (253R)"/>
+<Code V="253R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (254A)"/>
+<Code V="254A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (254N)"/>
+<Code V="254N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (254R)"/>
+<Code V="254R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT SAM. AU DI (255A)"/>
+<Code V="255A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT SAM. AU DI (255N)"/>
+<Code V="255N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT SAM. AU DI (255R)"/>
+<Code V="255R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (256A)"/>
+<Code V="256A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (256N)"/>
+<Code V="256N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (256R)"/>
+<Code V="256R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (257A)"/>
+<Code V="257A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (257N)"/>
+<Code V="257N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (257R)"/>
+<Code V="257R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (258A)"/>
+<Code V="258A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (258N)"/>
+<Code V="258N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (258R)"/>
+<Code V="258R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (259A)"/>
+<Code V="259A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (259N)"/>
+<Code V="259N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (259R)"/>
+<Code V="259R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE D'ATTENTE (260A)"/>
+<Code V="260A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE D'ATTENTE (260N)"/>
+<Code V="260N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE D'ATTENTE (260R)"/>
+<Code V="260R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE PREAVIS (261A)"/>
+<Code V="261A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE PREAVIS (261N)"/>
+<Code V="261N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE PREAVIS (261R)"/>
+<Code V="261R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE LICENCIEMT (262A)"/>
+<Code V="262A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE LICENCIEMT (262N)"/>
+<Code V="262N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE LICENCIEMT (262R)"/>
+<Code V="262R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS MEDECIN (263A)"/>
+<Code V="263A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS MEDECIN (263N)"/>
+<Code V="263N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS MEDECIN (263R)"/>
+<Code V="263R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ANIMATIONS (264A)"/>
+<Code V="264A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ANIMATIONS (264N)"/>
+<Code V="264N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ANIMATIONS (264R)"/>
+<Code V="264R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONFERENCES (265A)"/>
+<Code V="265A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONFERENCES (265N)"/>
+<Code V="265N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONFERENCES (265R)"/>
+<Code V="265R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS DEBATS (266A)"/>
+<Code V="266A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS DEBATS (266N)"/>
+<Code V="266N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACATIONS DEBATS (266R)"/>
+<Code V="266R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (270A)"/>
+<Code V="270A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TOURNEUR DE PAGE (270N)"/>
+<Code V="270N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT1 (271A)"/>
+<Code V="271A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT1 (271N)"/>
+<Code V="271N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT1 (271R)"/>
+<Code V="271R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (272A)"/>
+<Code V="272A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (272N)"/>
+<Code V="272N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (272R)"/>
+<Code V="272R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (273A)"/>
+<Code V="273A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (273N)"/>
+<Code V="273N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (273R)"/>
+<Code V="273R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (274A)"/>
+<Code V="274A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (274N)"/>
+<Code V="274N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (274R)"/>
+<Code V="274R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (275A)"/>
+<Code V="275A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (275N)"/>
+<Code V="275N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (275R)"/>
+<Code V="275R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ASTREINTES FPH (276A)"/>
+<Code V="276A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTREINTES FPH (276N)"/>
+<Code V="276N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ASTREINTES FPH (276R)"/>
+<Code V="276R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE SPECIALE (280A)"/>
+<Code V="280A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE SPECIALE (280N)"/>
+<Code V="280N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANT. NATURE REPAS (297A)"/>
+<Code V="297A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANT. NATURE REPAS (297N)"/>
+<Code V="297N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT.REPAS (297R)"/>
+<Code V="297R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE NATURE LOGT (298A)"/>
+<Code V="298A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE NATURE LOGT (298N)"/>
+<Code V="298N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT. LOGT (298R)"/>
+<Code V="298R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE EN NATURE (299A)"/>
+<Code V="299A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE EN NATURE (299N)"/>
+<Code V="299N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. AVANTAGE NATURE (299R)"/>
+<Code V="299R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DISPONIBIL (305A)"/>
+<Code V="305A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DISPONIBIL (305N)"/>
+<Code V="305N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DISPONIBIL (305R)"/>
+<Code V="305R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP IND ENT - 10 ANS (310M)"/>
+<Code V="310M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND ENTRET  - 10 ANS (310N)"/>
+<Code V="310N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP IND ENT - 10 ANS (310R)"/>
+<Code V="310R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP IND ENT + 10 ANS (311M)"/>
+<Code V="311M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND ENTRET + 10 ANS (311N)"/>
+<Code V="311N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP IND ENT + 10 ANS (311R)"/>
+<Code V="311R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP MAJ ENT VAC (312M)"/>
+<Code V="312M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ ENT VACANCES (312N)"/>
+<Code V="312N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP MAJ ENT VAC (312R)"/>
+<Code V="312R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP MAJ ENTRET W.E. (313M)"/>
+<Code V="313M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ ENT WEEK END (313N)"/>
+<Code V="313N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP MAJ ENTRET W.E. (313R)"/>
+<Code V="313R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. TPS COMP (314A)"/>
+<Code V="314A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ACCUEIL TEMPS COMP. (314N)"/>
+<Code V="314N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. TPS COMP (314R)"/>
+<Code V="314R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACCUEIL SEMAINE (315A)"/>
+<Code V="315A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ACCUEIL SEMAINE (315N)"/>
+<Code V="315N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACCUEIL SEMAINE (315R)"/>
+<Code V="315R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. WEEK-END (316A)"/>
+<Code V="316A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ACCUEIL WEEK-END (316N)"/>
+<Code V="316N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. WEEK END (316R)"/>
+<Code V="316R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. INTERM. (317A)"/>
+<Code V="317A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ACCUEIL INTERMITTENT (317N)"/>
+<Code V="317N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP ACC. INTERM. (317R)"/>
+<Code V="317R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ. 1ER MAI INTERM (319A)"/>
+<Code V="319A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ.1ER MAI INTERM (319N)"/>
+<Code V="319N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ. 1ER MAI INTERM (319R)"/>
+<Code V="319R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 1 CONT (320A)"/>
+<Code V="320A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 1 CONT (320N)"/>
+<Code V="320N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 1 CONT (320R)"/>
+<Code V="320R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 2 CONT (321A)"/>
+<Code V="321A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 2 CONT (321N)"/>
+<Code V="321N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 2 CONT (321R)"/>
+<Code V="321R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 3 CONT (322A)"/>
+<Code V="322A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 3 CONT (322N)"/>
+<Code V="322N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 3 CONT (322R)"/>
+<Code V="322R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT SEM (323A)"/>
+<Code V="323A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ.1ER MAI CONT SEM (323N)"/>
+<Code V="323N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ1ER MAI CONT SEM (323R)"/>
+<Code V="323R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX 1 INTER (325A)"/>
+<Code V="325A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX 1 INTER (325N)"/>
+<Code V="325N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX 1 INTER (325R)"/>
+<Code V="325R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX2 INTERM (326A)"/>
+<Code V="326A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ. HAND TX2 INTERM (326N)"/>
+<Code V="326N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX2 INTERM (326R)"/>
+<Code V="326R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX3 INTERM (327A)"/>
+<Code V="327A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX3 INTERM (327N)"/>
+<Code V="327N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SUJ HAND TX3 INTERM (327R)"/>
+<Code V="327R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT TC (328A)"/>
+<Code V="328A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT TC (328N)"/>
+<Code V="328N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT TC (328R)"/>
+<Code V="328R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT WE (329A)"/>
+<Code V="329A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT WE (329N)"/>
+<Code V="329N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ 1ER MAI CONT WE (329R)"/>
+<Code V="329R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS DEPLCT FORMATI (330A)"/>
+<Code V="330A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS DEPLCT FORMATI (330N)"/>
+<Code V="330N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS DEPLCT FORMATI (330R)"/>
+<Code V="330R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.UNIQUE.DEGRESS (331A)"/>
+<Code V="331A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.UNIQUE DEGRESS (331N)"/>
+<Code V="331N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.UNIQUE.DEGRESS (331R)"/>
+<Code V="331R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.FORMAT.RECLAS. (332A)"/>
+<Code V="332A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.FORMAT.RECLAS. (332N)"/>
+<Code V="332N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOC.FORMAT.RECLAS. (332R)"/>
+<Code V="332R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE LICENCI (333A)"/>
+<Code V="333A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE LICENCI (333N)"/>
+<Code V="333N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE LICENCI (333R)"/>
+<Code V="333R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AIDE RETOUR EMPLOI (334A)"/>
+<Code V="334A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AIDE RETOUR EMPLOI (334N)"/>
+<Code V="334N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AIDE RETOUR EMPLOI (334R)"/>
+<Code V="334R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOCATION HANDICAPE (335A)"/>
+<Code V="335A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOCATION HANDICAPE (335N)"/>
+<Code V="335N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALLOCATION HANDICAPE (335R)"/>
+<Code V="335R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RENTE AT OU CAPITAL (336A)"/>
+<Code V="336A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RENTE AT OU CAPITAL (336N)"/>
+<Code V="336N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RENTE AT OU CAPITAL (336R)"/>
+<Code V="336R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GARDE D'ENFANTS (337A)"/>
+<Code V="337A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GARDE D'ENFANTS (337N)"/>
+<Code V="337N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GARDE D'ENFANTS (337R)"/>
+<Code V="337R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COLONIES VACANCES (338A)"/>
+<Code V="338A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COLONIES VACANCES (338N)"/>
+<Code V="338N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COLONIES VACANCES (338R)"/>
+<Code V="338R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CENTRE AERE (339A)"/>
+<Code V="339A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CENTRE AERE (339N)"/>
+<Code V="339N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CENTRE AERE (339R)"/>
+<Code V="339R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAISONS FAMILIALE (340A)"/>
+<Code V="340A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAISONS FAMILIALE (340N)"/>
+<Code V="340N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAISONS FAMILIALE (340R)"/>
+<Code V="340R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GITE (341A)"/>
+<Code V="341A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GITE (341N)"/>
+<Code V="341N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="GITE (341R)"/>
+<Code V="341R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR EDUCATIF (342A)"/>
+<Code V="342A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR EDUCATIF (342N)"/>
+<Code V="342N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR EDUCATIF (342R)"/>
+<Code V="342R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS LINGUISTIQUE (343A)"/>
+<Code V="343A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS LINGUISTIQUE (343N)"/>
+<Code V="343N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS LINGUISTIQUE (343R)"/>
+<Code V="343R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS SPECIALISES (344A)"/>
+<Code V="344A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS SPECIALISES (344N)"/>
+<Code V="344N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOURS SPECIALISES (344R)"/>
+<Code V="344R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR MAISON/REPOS (345A)"/>
+<Code V="345A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR MAISON/REPOS (345N)"/>
+<Code V="345N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SEJOUR MAISON/REPOS (345R)"/>
+<Code V="345R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (346A)"/>
+<Code V="346A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (346N)"/>
+<Code V="346N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (346R)"/>
+<Code V="346R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACCINATIONS (347A)"/>
+<Code V="347A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACCINATIONS (347N)"/>
+<Code V="347N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VACCINATIONS (347R)"/>
+<Code V="347R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS KILOMETRIQUE (348A)"/>
+<Code V="348A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS KILOMETRIQUE (348N)"/>
+<Code V="348N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FRAIS KILOMETRIQUE (348R)"/>
+<Code V="348R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMBT. TRANSPORT (349A)"/>
+<Code V="349A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMBT. TRANSPORT (349N)"/>
+<Code V="349N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMBT. TRANSPORT (349R)"/>
+<Code V="349R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE CHAUSSURES (350A)"/>
+<Code V="350A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE CHAUSSURES (350N)"/>
+<Code V="350N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE CHAUSSURES (350R)"/>
+<Code V="350R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE REMBOURSEM (351A)"/>
+<Code V="351A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE REMBOURSEM (351N)"/>
+<Code V="351N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE REMBOURSEM (351R)"/>
+<Code V="351R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPP.IND. DE REMBT (352A)"/>
+<Code V="352A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DE REMBOURSEMEN (352N)"/>
+<Code V="352N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DE REMBOURSEMEN (352R)"/>
+<Code V="352R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.ENT-10A/ FOYER (360M)"/>
+<Code V="360M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND ENT - 10A /FOYER (360N)"/>
+<Code V="360N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.IND ENT-10A /FOYER (360R)"/>
+<Code V="360R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.ENT+10A/ FOYER (361M)"/>
+<Code V="361M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND ENT + 10A /FOYER (361N)"/>
+<Code V="361N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.IND ENT+10A /FOYER (361R)"/>
+<Code V="361R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.MAJ ENT VAC/ FOYER (362M)"/>
+<Code V="362M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ ENT VAC  /FOYER (362N)"/>
+<Code V="362N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.MAJ ENT VAC /FOYER (362R)"/>
+<Code V="362R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.MAJ ENT W.E/ FOYER (363M)"/>
+<Code V="363M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MAJ ENT W.E  /FOYER (363N)"/>
+<Code V="363N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.MAJ ENT W.E /FOYER (363R)"/>
+<Code V="363R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRECOMPTE VEHICULE (400A)"/>
+<Code V="400A"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRECOMPTE VEHICULE (400M)"/>
+<Code V="400M"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRECOMPTE VEHICULE (400R)"/>
+<Code V="400R"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL M.N.T. (401A)"/>
+<Code V="401A"/>
+<CodeCaisse V="MNT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.N.T. (401M)"/>
+<Code V="401M"/>
+<CodeCaisse V="MNT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL M.N.T. (401R)"/>
+<Code V="401R"/>
+<CodeCaisse V="MNT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL M.G.P.A.T O (402A)"/>
+<Code V="402A"/>
+<CodeCaisse V="MGPAT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.G.P.A.T OUVRIERE (402M)"/>
+<Code V="402M"/>
+<CodeCaisse V="MGPAT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.G.P.A.T OUVRIERE (402R)"/>
+<Code V="402R"/>
+<CodeCaisse V="MGPAT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.G.E.T. (403A)"/>
+<Code V="403A"/>
+<CodeCaisse V="MGET"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.G.E.T. (403M)"/>
+<Code V="403M"/>
+<CodeCaisse V="MGET"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="M.G.E.T. (403R)"/>
+<Code V="403R"/>
+<CodeCaisse V="MGET"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.CREDIT MUNICIPAL (404A)"/>
+<Code V="404A"/>
+<CodeCaisse V="CREMUN"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CREDIT MUNICIPAL (404M)"/>
+<Code V="404M"/>
+<CodeCaisse V="CREMUN"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.CREDIT MUNICIPAL (404R)"/>
+<Code V="404R"/>
+<CodeCaisse V="CREMUN"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE AVANCE SALAI (405A)"/>
+<Code V="405A"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE AVANCE SALAI (405M)"/>
+<Code V="405M"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE AVANCE SALAI (405R)"/>
+<Code V="405R"/>
+<CodeCaisse V="COLL77"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL FONPEL OUV. (410A)"/>
+<Code V="410A"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FONPEL (410N)"/>
+<Code V="410N"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL FONPEL OUV. (410R)"/>
+<Code V="410R"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL FONPEL P.PAT. (411A)"/>
+<Code V="411A"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FONPEL (411N)"/>
+<Code V="411N"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL FONPEL P.PAT. (411R)"/>
+<Code V="411R"/>
+<CodeCaisse V="FONPEL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MGPAT PATRONAL (412M)"/>
+<Code V="412M"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MGPAT PATRONAL (412R)"/>
+<Code V="412R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CAREL (413A)"/>
+<Code V="413A"/>
+<CodeCaisse V="CAREL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CAREL (413N)"/>
+<Code V="413N"/>
+<CodeCaisse V="CAREL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CAREL (413R)"/>
+<Code V="413R"/>
+<CodeCaisse V="CAREL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN ACC TRAV (420A)"/>
+<Code V="420A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN ACC TRAV (420N)"/>
+<Code V="420N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN ACC TRAV (420R)"/>
+<Code V="420R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MALADIE (421A)"/>
+<Code V="421A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MALADIE (421N)"/>
+<Code V="421N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MALADIE (421R)"/>
+<Code V="421R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MATERN (422A)"/>
+<Code V="422A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MATERN (422N)"/>
+<Code V="422N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE JOURN MATERN (422R)"/>
+<Code V="422R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (423A)"/>
+<Code V="423A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (423N)"/>
+<Code V="423N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (423R)"/>
+<Code V="423R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COMPLEMENT IJ ASSMAT (424A)"/>
+<Code V="424A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COMPLEMENT IJ ASSMAT (424N)"/>
+<Code V="424N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COMPLEMENT IJ ASSMAT (424R)"/>
+<Code V="424R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (425A)"/>
+<Code V="425A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (425N)"/>
+<Code V="425N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (425R)"/>
+<Code V="425R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (426A)"/>
+<Code V="426A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (426N)"/>
+<Code V="426N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (426R)"/>
+<Code V="426R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (427A)"/>
+<Code V="427A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (427N)"/>
+<Code V="427N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (427R)"/>
+<Code V="427R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (428A)"/>
+<Code V="428A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (428N)"/>
+<Code V="428N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (428R)"/>
+<Code V="428R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (429A)"/>
+<Code V="429A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (429N)"/>
+<Code V="429N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NE PAS UTILISER (429R)"/>
+<Code V="429R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVM COTIS APDEP (430A)"/>
+<Code V="430A"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVM COTIS APDEP (430N)"/>
+<Code V="430N"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVM COTIS APDEP (430R)"/>
+<Code V="430R"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVEM TITRE REPAS (431A)"/>
+<Code V="431A"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVEM TITRE REPAS (431N)"/>
+<Code V="431N"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRELEVEM TITRE REPAS (431R)"/>
+<Code V="431R"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE CHEQUE VAC (432A)"/>
+<Code V="432A"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE CHEQUE VAC (432N)"/>
+<Code V="432N"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE CHEQUE VAC (432R)"/>
+<Code V="432R"/>
+<CodeCaisse V="APDEP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. RETENUE PREFON (450A)"/>
+<Code V="450A"/>
+<CodeCaisse V="PREFON"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE PREFON (450N)"/>
+<Code V="450N"/>
+<CodeCaisse V="PREFON"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. RETENUE PREFON (450R)"/>
+<Code V="450R"/>
+<CodeCaisse V="PREFON"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE C.G.O.S. (455A)"/>
+<Code V="455A"/>
+<CodeCaisse V="CGOS"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE C.G.O.S. (455N)"/>
+<Code V="455N"/>
+<CodeCaisse V="CGOS"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RETENUE C.G.O.S. (455R)"/>
+<Code V="455R"/>
+<CodeCaisse V="CGOS"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PO RAP.VALID. CNRACL (460A)"/>
+<Code V="460A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PO VALID. CNRACL (460N)"/>
+<Code V="460N"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PO RAP.VALID.CNRACL (460R)"/>
+<Code V="460R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP C. RETRO CNRACL (461A)"/>
+<Code V="461A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VALID.DE CNRACL (461N)"/>
+<Code V="461N"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.VALID.CNRACL (461R)"/>
+<Code V="461R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL VALID.P.CV (462A)"/>
+<Code V="462A"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VALIDATION DE P.CV (462N)"/>
+<Code V="462N"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL VALID.P.CV (462R)"/>
+<Code V="462R"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL VALID.P.CV (463A)"/>
+<Code V="463A"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VALIDATION DE P.CV (463N)"/>
+<Code V="463N"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL VALID.P.CV (463R)"/>
+<Code V="463R"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VALID. EX. DE P.CV (464N)"/>
+<Code V="464N"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="VALIDAT EX DE P.CV (465N)"/>
+<Code V="465N"/>
+<CodeCaisse V="VALCNR"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (500A)"/>
+<Code V="500A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (500N)"/>
+<Code V="500N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME INTERESSEMENT (500R)"/>
+<Code V="500R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR  STAGE (501A)"/>
+<Code V="501A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR  STAGE (501N)"/>
+<Code V="501N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. MONITEUR  STAGE (501R)"/>
+<Code V="501R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (502A)"/>
+<Code V="502A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (502N)"/>
+<Code V="502N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE FONCTION (502R)"/>
+<Code V="502R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (503A)"/>
+<Code V="503A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (503N)"/>
+<Code V="503N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.CONDUITE AUTO (503R)"/>
+<Code V="503R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (504A)"/>
+<Code V="504A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (504N)"/>
+<Code V="504N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.INSALUBRITE (504R)"/>
+<Code V="504R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (505A)"/>
+<Code V="505A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (505N)"/>
+<Code V="505N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 1 (505R)"/>
+<Code V="505R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (506A)"/>
+<Code V="506A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (506N)"/>
+<Code V="506N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 2 (506R)"/>
+<Code V="506R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (507A)"/>
+<Code V="507A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (507N)"/>
+<Code V="507N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND DOM COMP TX 3 (507R)"/>
+<Code V="507R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (510A)"/>
+<Code V="510A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (510N)"/>
+<Code V="510N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM ADMINISTRATEUR (510R)"/>
+<Code V="510R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (511A)"/>
+<Code V="511A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (511N)"/>
+<Code V="511N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM RESP REGUL AVA (511R)"/>
+<Code V="511R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D INSTALLATION (512A)"/>
+<Code V="512A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D INSTALLATION (512N)"/>
+<Code V="512N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D INSTALLATION (512R)"/>
+<Code V="512R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (513A)"/>
+<Code V="513A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (513N)"/>
+<Code V="513N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF TRVX SUPPLE (513R)"/>
+<Code V="513R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (514A)"/>
+<Code V="514A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (514N)"/>
+<Code V="514N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="I.F.T.S TX EXCEPTION (514R)"/>
+<Code V="514R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF REPRESENTAT (515A)"/>
+<Code V="515A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF REPRESENTAT (515N)"/>
+<Code V="515N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND FORF REPRESENTAT (515R)"/>
+<Code V="515R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ALL. INVALIDITE TEMP (516N)"/>
+<Code V="516N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R H NUIT NORM MAJORE (517A)"/>
+<Code V="517A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NUIT NORM MAJOREES (517N)"/>
+<Code V="517N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R H NUIT NORM MAJORE (517R)"/>
+<Code V="517R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM SAMEDI  MAJ (518A)"/>
+<Code V="518A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NORM SAMEDI  MAJ (518N)"/>
+<Code V="518N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R NORM SAMEDI  MAJ (518R)"/>
+<Code V="518R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R  NORM DIM/JF  MAJ (519A)"/>
+<Code V="519A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H NORM DIM/JF  MAJ (519N)"/>
+<Code V="519N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R  NORM DIM/JF  MAJ (519R)"/>
+<Code V="519R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE SPECIF. SERVIC (520A)"/>
+<Code V="520A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE SPECIF. SERVIC (520N)"/>
+<Code V="520N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE SPECIF. SERVIC (520R)"/>
+<Code V="520R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (521A)"/>
+<Code V="521A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (521N)"/>
+<Code V="521N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME - 13 HEURES (521R)"/>
+<Code V="521R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (522A)"/>
+<Code V="522A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (522N)"/>
+<Code V="522N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.UTILIS.LANG.ETRA (522R)"/>
+<Code V="522R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (523A)"/>
+<Code V="523A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (523N)"/>
+<Code V="523N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. SPEC. SUJETION (523R)"/>
+<Code V="523R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (524A)"/>
+<Code V="524A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (524N)"/>
+<Code V="524N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP.REGUL.RECET (524R)"/>
+<Code V="524R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (530A)"/>
+<Code V="530A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (530N)"/>
+<Code V="530N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.SPEC.SUJ.DIM/J.F (530R)"/>
+<Code V="530R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (531A)"/>
+<Code V="531A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (531N)"/>
+<Code V="531N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDTE INTENS DE NUIT (531R)"/>
+<Code V="531R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME ENCADREMENT (532A)"/>
+<Code V="532A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME ENCADREMENT (532N)"/>
+<Code V="532N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME ENCADREMENT (532R)"/>
+<Code V="532R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (533A)"/>
+<Code V="533A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (533N)"/>
+<Code V="533N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.HOR.DIM.JRS FERI (533R)"/>
+<Code V="533R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (534A)"/>
+<Code V="534A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (534N)"/>
+<Code V="534N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.RESP/FOYER/ECOLE (534R)"/>
+<Code V="534R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (535A)"/>
+<Code V="535A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (535N)"/>
+<Code V="535N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.FORF.REPR.TVX.SU (535R)"/>
+<Code V="535R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (536A)"/>
+<Code V="536A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (536N)"/>
+<Code V="536N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TRAVAIL DE NUIT (536R)"/>
+<Code V="536R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (537A)"/>
+<Code V="537A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (537N)"/>
+<Code V="537N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE ACCOMP.ENF (537R)"/>
+<Code V="537R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (538A)"/>
+<Code V="538A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (538N)"/>
+<Code V="538N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME D'AUXILIAIRE (538R)"/>
+<Code V="538R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SAGE/FEM/INFIR (539A)"/>
+<Code V="539A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SAGE/FEM/INFIR (539N)"/>
+<Code V="539N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SAGE/FEM/INFIR (539R)"/>
+<Code V="539R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPTALE DIRECT (540A)"/>
+<Code V="540A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPATLE  DIREC (540N)"/>
+<Code V="540N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM DPTALE DIRECT (540R)"/>
+<Code V="540R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (541A)"/>
+<Code V="541A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (541N)"/>
+<Code V="541N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME RESPONSABILITE (541R)"/>
+<Code V="541R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (542A)"/>
+<Code V="542A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (542N)"/>
+<Code V="542N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM EXCEPTIONNELLE (542R)"/>
+<Code V="542R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (543A)"/>
+<Code V="543A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (543N)"/>
+<Code V="543N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEM COMPLEMENTAIRE (543R)"/>
+<Code V="543R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (544A)"/>
+<Code V="544A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (544N)"/>
+<Code V="544N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DEPARTEMENTALE (544R)"/>
+<Code V="544R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (545A)"/>
+<Code V="545A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (545N)"/>
+<Code V="545N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME DE TRAVAUX (545R)"/>
+<Code V="545R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (546A)"/>
+<Code V="546A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (546N)"/>
+<Code V="546N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SCE RENDEMENT (546R)"/>
+<Code V="546R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (550A)"/>
+<Code V="550A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (550N)"/>
+<Code V="550N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRIME SERVICE DDASS (550R)"/>
+<Code V="550R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (551A)"/>
+<Code V="551A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (551N)"/>
+<Code V="551N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PRESTATION EN ESPECE (551R)"/>
+<Code V="551R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE AGT DETACH (552A)"/>
+<Code V="552A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE AGT DETACH (552N)"/>
+<Code V="552N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE AGT DETACH (552R)"/>
+<Code V="552R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (553A)"/>
+<Code V="553A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (553N)"/>
+<Code V="553N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DOMINICAL (553R)"/>
+<Code V="553R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (554A)"/>
+<Code V="554A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (554N)"/>
+<Code V="554N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. NUITS NORMALES (554R)"/>
+<Code V="554R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT.SAM.AU DIM (555A)"/>
+<Code V="555A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT.SAM.AU DIM (555N)"/>
+<Code V="555N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.NUIT.SAM.AU DIM (555R)"/>
+<Code V="555R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (556A)"/>
+<Code V="556A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (556N)"/>
+<Code V="556N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR SAM+NUIT.SUIV. (556R)"/>
+<Code V="556R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (557A)"/>
+<Code V="557A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (557N)"/>
+<Code V="557N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR DIM+NUIT.SUIV. (557R)"/>
+<Code V="557R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (558A)"/>
+<Code V="558A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (558N)"/>
+<Code V="558N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR. WEEK-END (558R)"/>
+<Code V="558R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (559A)"/>
+<Code V="559A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (559N)"/>
+<Code V="559N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTR.J.FERIE+NUITS.S (559R)"/>
+<Code V="559R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPP.CHERTE DE VIE (560A)"/>
+<Code V="560A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CHERTE DE VIE (560N)"/>
+<Code V="560N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CHERTE DE VIE (560R)"/>
+<Code V="560R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE RTT FPH (561N)"/>
+<Code V="561N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG INSAL. (571A)"/>
+<Code V="571A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG INSAL. (571N)"/>
+<Code V="571N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG INSAL. (571R)"/>
+<Code V="571R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (572A)"/>
+<Code V="572A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (572N)"/>
+<Code V="572N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT2 (572R)"/>
+<Code V="572R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (573A)"/>
+<Code V="573A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (573N)"/>
+<Code V="573N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT3 (573R)"/>
+<Code V="573R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (574A)"/>
+<Code V="574A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (574N)"/>
+<Code V="574N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND TRAV DANG - CAT4 (574R)"/>
+<Code V="574R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (575A)"/>
+<Code V="575A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMN.ENSEIGNEMENT (575N)"/>
+<Code V="575N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. ASTREINTES FPH (576A)"/>
+<Code V="576A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASTREINTES FPH (576N)"/>
+<Code V="576N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. ASTREINTES FPH (576R)"/>
+<Code V="576R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT. REPAS (597A)"/>
+<Code V="597A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANT. NATURE REPAS (597N)"/>
+<Code V="597N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT. REPAS (597R)"/>
+<Code V="597R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT. LOGT (598A)"/>
+<Code V="598A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE NATURE LOGT (598N)"/>
+<Code V="598N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.AVANT.NAT. LOGT (598R)"/>
+<Code V="598R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. AVANTAGE NATURE (599A)"/>
+<Code V="599A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="AVANTAGE EN NATURE (599N)"/>
+<Code V="599N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. AVANTAGE NATURE (599R)"/>
+<Code V="599R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. HEURES SUP. TX1 (601A)"/>
+<Code V="601A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (601N)"/>
+<Code V="601N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX1 (601R)"/>
+<Code V="601R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX2 (602A)"/>
+<Code V="602A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX2 (602N)"/>
+<Code V="602N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX2 (602R)"/>
+<Code V="602R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. H.SUP.DIM.FERIE (603A)"/>
+<Code V="603A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H. SUP. DIM. FERIES (603N)"/>
+<Code V="603N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.H.SUP.DIM.FERIES (603R)"/>
+<Code V="603R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (604A)"/>
+<Code V="604A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUP. NUIT (604N)"/>
+<Code V="604N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (604R)"/>
+<Code V="604R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP HEURES SUP. TX1 (611A)"/>
+<Code V="611A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (611N)"/>
+<Code V="611N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP HEURES SUP. TX1 (611R)"/>
+<Code V="611R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP HEURES SUP. TX2 (612A)"/>
+<Code V="612A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX2 (612N)"/>
+<Code V="612N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP HEURES SUP. TX2 (612R)"/>
+<Code V="612R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.H.SUP.DIM.FERIES (613A)"/>
+<Code V="613A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H. SUP. DIM. FERIES (613N)"/>
+<Code V="613N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.H.SUP.DIM.FERIES (613R)"/>
+<Code V="613R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (614A)"/>
+<Code V="614A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. NUIT (614N)"/>
+<Code V="614N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (614R)"/>
+<Code V="614R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (620A)"/>
+<Code V="620A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (620N)"/>
+<Code V="620N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (620R)"/>
+<Code V="620R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP HEURES SUP. TX1 (621A)"/>
+<Code V="621A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX1 (621N)"/>
+<Code V="621N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX1 (621R)"/>
+<Code V="621R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX2 (622A)"/>
+<Code V="622A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. TX2 (622N)"/>
+<Code V="622N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. TX2 (622R)"/>
+<Code V="622R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.H.SUP.DIM.FERIES (623A)"/>
+<Code V="623A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="H. SUP. DIM. FERIES (623N)"/>
+<Code V="623N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.H.SUP.DIM.FERIES (623R)"/>
+<Code V="623R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (624A)"/>
+<Code V="624A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="HEURES SUPPLEM. NUIT (624N)"/>
+<Code V="624N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.HEURES SUP. NUIT (624R)"/>
+<Code V="624R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL_RET_SOURCE (715A)"/>
+<Code V="715A"/>
+<CodeCaisse V="RETSOU"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="MONTANT_RET_SOURCE (715N)"/>
+<Code V="715N"/>
+<CodeCaisse V="RETSOU"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL_RET_SOURCE (715R)"/>
+<Code V="715R"/>
+<CodeCaisse V="RETSOU"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C INF.A 31/-3E (720A)"/>
+<Code V="720A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C INF.A 31/-3E (720N)"/>
+<Code V="720N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M AT SUP.A 28 (721A)"/>
+<Code V="721A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M AT SUP.A 28 (721N)"/>
+<Code V="721N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE FEU (750A)"/>
+<Code V="750A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE FEU (750N)"/>
+<Code V="750N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="INDEMNITE DE FEU (750R)"/>
+<Code V="750R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RS (760A)"/>
+<Code V="760A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RS (760N)"/>
+<Code V="760N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RS (760R)"/>
+<Code V="760R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RG (761A)"/>
+<Code V="761A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RG (761N)"/>
+<Code V="761N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND. DIFF. SMIC RG (761R)"/>
+<Code V="761R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="ASSIETTE SS PAT CEC (765N)"/>
+<Code V="765N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="BASE IDC FICT.POMP. (770A)"/>
+<Code V="770A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="BASE IDC FICT.POMP. (770N)"/>
+<Code V="770N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="BASE IDC FICT.POMP. (770R)"/>
+<Code V="770R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C SUP.A 30+2E (771A)"/>
+<Code V="771A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C SUP.A 30+2E (771N)"/>
+<Code V="771N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C SUP.A 30+2E (771R)"/>
+<Code V="771R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M INF.A 31 (772A)"/>
+<Code V="772A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M INF.A 31 (772N)"/>
+<Code V="772N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M INF.A 31 (772R)"/>
+<Code V="772R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C]7M-3E (773A)"/>
+<Code V="773A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C]7M-3E (773N)"/>
+<Code V="773N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C]7M+2E (774A)"/>
+<Code V="774A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C]7M+2E (774N)"/>
+<Code V="774N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB MAT C (775A)"/>
+<Code V="775A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB MAT C (775N)"/>
+<Code V="775N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB MAT M (776A)"/>
+<Code V="776A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB MAT M (776N)"/>
+<Code V="776N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C INF.A 29 AT (777A)"/>
+<Code V="777A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C INF.A 29 AT (777N)"/>
+<Code V="777N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C SUP.A 28 AT (778A)"/>
+<Code V="778A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB C SUP.A 28 AT (778N)"/>
+<Code V="778N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M AT INF.A 29 (779A)"/>
+<Code V="779A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS SUB M AT INF.A 29 (779N)"/>
+<Code V="779N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R IJSS SUB M AT INF.A 29 (779R)"/>
+<Code V="779R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.COMPENSATRICE (780A)"/>
+<Code V="780A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.COMPENSATRICE (780N)"/>
+<Code V="780N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.COMPENSATRICE (780R)"/>
+<Code V="780R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSAT SUR IR (781A)"/>
+<Code V="781A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSAT SUR IR (781N)"/>
+<Code V="781N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSAT SUR IR (781R)"/>
+<Code V="781R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSA SUR SFT (782A)"/>
+<Code V="782A"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSA SUR SFT (782N)"/>
+<Code V="782N"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND COMPENSA SUR SFT (782R)"/>
+<Code V="782R"/>
+<CodeCaisse V="AD0001"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="2/3 TR RS  C SUP.A 30+2E (783A)"/>
+<Code V="783A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="2/3 TR RS  C SUP.A 30+2E (783N)"/>
+<Code V="783N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL TRAIT. NET (785A)"/>
+<Code V="785A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL TRAIT. NET (785N)"/>
+<Code V="785N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL TRAIT. NET (785R)"/>
+<Code V="785R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONGES PAYES (790A)"/>
+<Code V="790A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONGES PAYES (790N)"/>
+<Code V="790N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONGES PAYES (790R)"/>
+<Code V="790R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS NETTE (796A)"/>
+<Code V="796A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IJSS NETTE (796N)"/>
+<Code V="796N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REG IJSS NETTE RG (797A)"/>
+<Code V="797A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REG IJSS NETTE RG (797N)"/>
+<Code V="797N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.COMPENSATRICE (799A)"/>
+<Code V="799A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="IND.COMPENSATRICE (799N)"/>
+<Code V="799N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.IND.COMPENSATRIC (799R)"/>
+<Code V="799R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT RS O (800A)"/>
+<Code V="800A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS TOT. RS (800C)"/>
+<Code V="800C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT.RS O (800R)"/>
+<Code V="800R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT.RS P (801A)"/>
+<Code V="801A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS TOT. RS (801C)"/>
+<Code V="801C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT RS P (801R)"/>
+<Code V="801R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RS O (802A)"/>
+<Code V="802A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS PLAF. RS (802C)"/>
+<Code V="802C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RS O (802R)"/>
+<Code V="802R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RS P (803A)"/>
+<Code V="803A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS PLAF. RS (803C)"/>
+<Code V="803C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RS P (803R)"/>
+<Code V="803R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS VIEIL RG (804A)"/>
+<Code V="804A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS VIEIL. RG (804C)"/>
+<Code V="804C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS VIEIL RG (804R)"/>
+<Code V="804R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS VIEIL RG (805A)"/>
+<Code V="805A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS VIEIL. RG (805C)"/>
+<Code V="805C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS VIEIL RG (805R)"/>
+<Code V="805R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.CSG DEDUCT. CA (806A)"/>
+<Code V="806A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CSG DEDUCTIBLE CA (806C)"/>
+<Code V="806C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REGUL BASE 859C (806R)"/>
+<Code V="806R"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.VIEIL.T RG (807A)"/>
+<Code V="807A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT.VIEILL.TOT. RG (807C)"/>
+<Code V="807C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT.VIEL.T RG (807R)"/>
+<Code V="807R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PRIME CAA (808A)"/>
+<Code V="808A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS PRIME CAA O (808C)"/>
+<Code V="808C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PRIME CAA (808R)"/>
+<Code V="808R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SS REVENUS REMPLACEM (809A)"/>
+<Code V="809A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SS REVENUS REMPLACEM (809C)"/>
+<Code V="809C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SS REVENUS REMPLACEM (809R)"/>
+<Code V="809R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT. RG O (810A)"/>
+<Code V="810A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS TOT. RG (810C)"/>
+<Code V="810C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. SS TOT. RG (810R)"/>
+<Code V="810R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT. RG P (811A)"/>
+<Code V="811A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS TOT. RG (811C)"/>
+<Code V="811C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS TOT. RG P (811R)"/>
+<Code V="811R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RG O (812A)"/>
+<Code V="812A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS PLAF. RG (812C)"/>
+<Code V="812C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RG O (812R)"/>
+<Code V="812R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RG P (813A)"/>
+<Code V="813A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. SS PLAF. RG (813C)"/>
+<Code V="813C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.SS PLF RG P (813R)"/>
+<Code V="813R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FNAL RS PAT (814A)"/>
+<Code V="814A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FNAL PAT. R.S. (814C)"/>
+<Code V="814C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. FNAL PAT. R.S. (814R)"/>
+<Code V="814R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ALF.PLAF RS (815A)"/>
+<Code V="815A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT.ALL.FAM.PLAF.RS (815C)"/>
+<Code V="815C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ALL.FAM.PLAF. RS (815R)"/>
+<Code V="815R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ALFAM TOT.RS (816A)"/>
+<Code V="816A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT.ALL.FAM.TOT.RS (816C)"/>
+<Code V="816C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ALL.FAM.TOT. RS (816R)"/>
+<Code V="816R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ACC.TRAV.RS (817A)"/>
+<Code V="817A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ACC. TRAV. RS (817C)"/>
+<Code V="817C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ACC.TRAV. RS (817R)"/>
+<Code V="817R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.TAXE TRAN.RS (818A)"/>
+<Code V="818A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. TAXE TRANSP. RS (818C)"/>
+<Code V="818C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE TRANSP. RS (818R)"/>
+<Code V="818R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMISE FORFAIT. NT (819A)"/>
+<Code V="819A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMISE FORFAIT. NT (819C)"/>
+<Code V="819C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.REM. FORFAIT. NT (819R)"/>
+<Code V="819R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. FNAL RG (824A)"/>
+<Code V="824A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FNAL PAT. R.G. (824C)"/>
+<Code V="824C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. FNAL PAT. R.G. (824R)"/>
+<Code V="824R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ALFAM.PLF.RG (825A)"/>
+<Code V="825A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT.ALL.FAM.PLAF.RG (825C)"/>
+<Code V="825C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ALL.FAM.PLAF.RG (825R)"/>
+<Code V="825R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.ALFAM TOT.RG (826A)"/>
+<Code V="826A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT.ALL.FAM/.TOT.RG (826C)"/>
+<Code V="826C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.ALL.FAM.TOT.RG (826R)"/>
+<Code V="826R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. ACC.TRAV.RG (827A)"/>
+<Code V="827A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ACC. TRAV. RG (827C)"/>
+<Code V="827C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. ACC. TRAV. RG (827R)"/>
+<Code V="827R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.TAXE TRAN.RG (828A)"/>
+<Code V="828A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. TAXE TRANSP. RG (828C)"/>
+<Code V="828C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE TRANSP. RG (828R)"/>
+<Code V="828R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.TAXE SAL. (829A)"/>
+<Code V="829A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. TAXE SAL. TOT. (829C)"/>
+<Code V="829C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE SAL. PAT. (829R)"/>
+<Code V="829R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. CNRACL OUV (830A)"/>
+<Code V="830A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. CNRACL (830C)"/>
+<Code V="830C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. CNRACL OUV (830R)"/>
+<Code V="830R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. CNRACL PAT (831A)"/>
+<Code V="831A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. CNRACL (831C)"/>
+<Code V="831C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. CNRACL PAT (831R)"/>
+<Code V="831R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.CNR POMPIER (832A)"/>
+<Code V="832A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. CNRACL POMPIER (832C)"/>
+<Code V="832C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.CNR POMPIER (832R)"/>
+<Code V="832R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. FCCPA PAT. (833A)"/>
+<Code V="833A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FCCPA PAT. (833C)"/>
+<Code V="833C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. FCCPA PAT. (833R)"/>
+<Code V="833R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ATIACL (834A)"/>
+<Code V="834A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ATIACL (834C)"/>
+<Code V="834C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ATIACL (834R)"/>
+<Code V="834R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. PENS.C.OUV (835A)"/>
+<Code V="835A"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. PENSION CIVILE (835C)"/>
+<Code V="835C"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. PCV. OUV (835R)"/>
+<Code V="835R"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. PENS.C.PAT (836A)"/>
+<Code V="836A"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. PENSION CIVILE (836C)"/>
+<Code V="836C"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT PCV PAT (836R)"/>
+<Code V="836R"/>
+<CodeCaisse V="TPGR02"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMISE FORFAITAIRE T (837A)"/>
+<Code V="837A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="REMISE FORFAITAIRE T (837C)"/>
+<Code V="837C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAPPEL REMISE FORF (837R)"/>
+<Code V="837R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TAXE TRP TOT .RS (838A)"/>
+<Code V="838A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TAXE TRANSPORT T. RS (838C)"/>
+<Code V="838C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE TRP T . RS (838R)"/>
+<Code V="838R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.TAXE SAL TR (839A)"/>
+<Code V="839A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. TAXE SAL. TR 1 (839C)"/>
+<Code V="839C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE SAL. TR1 (839R)"/>
+<Code V="839R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.IRCANTEC A (840A)"/>
+<Code V="840A"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. IRCANTEC A (840C)"/>
+<Code V="840C"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC A (840R)"/>
+<Code V="840R"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC A (841A)"/>
+<Code V="841A"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. IRCANTEC A (841C)"/>
+<Code V="841C"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC A (841R)"/>
+<Code V="841R"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC B (842A)"/>
+<Code V="842A"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. IRCANTEC B (842C)"/>
+<Code V="842C"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC B (842R)"/>
+<Code V="842R"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC B (843A)"/>
+<Code V="843A"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. IRCANTEC B (843C)"/>
+<Code V="843C"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. IRCANTEC B (843R)"/>
+<Code V="843R"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.D.S. (844A)"/>
+<Code V="844A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.D.S. (844C)"/>
+<Code V="844C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.D.S. (844R)"/>
+<Code V="844R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.RET. ADD. FP (845A)"/>
+<Code V="845A"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. RETRAITE ADD FP (845C)"/>
+<Code V="845C"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.RET. ADD. FP (845R)"/>
+<Code V="845R"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RCOT.RETRAITE ADD FP (846A)"/>
+<Code V="846A"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. RETRAITE ADD FP (846C)"/>
+<Code V="846C"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RCOT.RETRAITE ADD FP (846R)"/>
+<Code V="846R"/>
+<CodeCaisse V="RAFP"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.TAXE TRANSP T.RG (848A)"/>
+<Code V="848A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TAXE TRANSPORT T. RG (848C)"/>
+<Code V="848C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE TRP T.  RG (848R)"/>
+<Code V="848R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.TAXE SAL.TR2 (849A)"/>
+<Code V="849A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. TAXE SAL. TR 2 (849C)"/>
+<Code V="849C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. TAXE SAL. TR 2 (849R)"/>
+<Code V="849R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC A (850A)"/>
+<Code V="850A"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ASSEDIC TR A (850C)"/>
+<Code V="850C"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC A (850R)"/>
+<Code V="850R"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC A (851A)"/>
+<Code V="851A"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ASSEDIC TR A (851C)"/>
+<Code V="851C"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC A (851R)"/>
+<Code V="851R"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC B (852A)"/>
+<Code V="852A"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ASSEDIC TR B (852C)"/>
+<Code V="852C"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC B (852R)"/>
+<Code V="852R"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC B (853A)"/>
+<Code V="853A"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. ASSEDIC TR B (853C)"/>
+<Code V="853C"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. ASSEDIC B (853R)"/>
+<Code V="853R"/>
+<CodeCaisse V="ASSED"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP RET SUP AIDE SOI (855A)"/>
+<Code V="855A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RET SUPP AIDE SOIG (855C)"/>
+<Code V="855C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP RET SUP AIDE SOI (855R)"/>
+<Code V="855R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONTRIB  SUP AS (856A)"/>
+<Code V="856A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONT SUPP AIDE SOIG (856C)"/>
+<Code V="856C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONTRIB  SUP AS (856R)"/>
+<Code V="856R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CSG DEDUCTIBLE (859A)"/>
+<Code V="859A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CSG DEDUCTIBLE (859C)"/>
+<Code V="859C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CSG DEDUCTIBLE (859R)"/>
+<Code V="859R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID (860A)"/>
+<Code V="860A"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FONDS SOLIDAR. (860C)"/>
+<Code V="860C"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS.SOLID. (860R)"/>
+<Code V="860R"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (861A)"/>
+<Code V="861A"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FONDS SOLIDAR. (861C)"/>
+<Code V="861C"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (861R)"/>
+<Code V="861R"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (862A)"/>
+<Code V="862A"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. UNEDIC (862C)"/>
+<Code V="862C"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (862R)"/>
+<Code V="862R"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (863A)"/>
+<Code V="863A"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. UNEDIC (863C)"/>
+<Code V="863C"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (863R)"/>
+<Code V="863R"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONT SOL AUT TIT (864A)"/>
+<Code V="864A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONT SOLID AUTON TIT (864C)"/>
+<Code V="864C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONT SOL AUT TIT (864R)"/>
+<Code V="864R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (865A)"/>
+<Code V="865A"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FONDS SOLID.A N (865C)"/>
+<Code V="865C"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (865R)"/>
+<Code V="865R"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONT SOL AUT NT (866A)"/>
+<Code V="866A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="CONT SOLID AUTON NT (866C)"/>
+<Code V="866C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP CONT SOL AUT NT (866R)"/>
+<Code V="866R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (867A)"/>
+<Code V="867A"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FONDS SOLID.B N (867C)"/>
+<Code V="867C"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.FONDS SOLID. (867R)"/>
+<Code V="867R"/>
+<CodeCaisse V="SOLIDA"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP C.S.G. (869A)"/>
+<Code V="869A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="C.S.G. (869C)"/>
+<Code V="869C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP C.S.G. (869R)"/>
+<Code V="869R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT. C.N.F.P.T. (870A)"/>
+<Code V="870A"/>
+<CodeCaisse V="CNFPT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. C.N.F.P.T (870C)"/>
+<Code V="870C"/>
+<CodeCaisse V="CNFPT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.N.F.P.T. (870R)"/>
+<Code V="870R"/>
+<CodeCaisse V="CNFPT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP.COT.C.I.G. (871A)"/>
+<Code V="871A"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. C.I.G (871C)"/>
+<Code V="871C"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.I.G (871R)"/>
+<Code V="871R"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.D.G. (872A)"/>
+<Code V="872A"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. C.D.G. (872C)"/>
+<Code V="872C"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.D.G. (872R)"/>
+<Code V="872R"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.R.F. (873A)"/>
+<Code V="873A"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. C.R.F. (873C)"/>
+<Code V="873C"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. COT. C.R.F. (873R)"/>
+<Code V="873R"/>
+<CodeCaisse V="CDG"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FDS EMP. HOSPITALIER (874A)"/>
+<Code V="874A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FDS EMP. HOSPITALIER (874C)"/>
+<Code V="874C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="FDS EMP. HOSPITALIER (874R)"/>
+<Code V="874R"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RP.IRC TR. A APPRENT (875A)"/>
+<Code V="875A"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="P.IRC TR. A APPRENTI (875C)"/>
+<Code V="875C"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RP.IRC TR. A APPRENT (875R)"/>
+<Code V="875R"/>
+<CodeCaisse V="IRCANT"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R P. FNAL  APPRENTI (876A)"/>
+<Code V="876A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="P. FNAL  APPRENTI (876C)"/>
+<Code V="876C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R P. FNAL  APPRENTI (876R)"/>
+<Code V="876R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. FONDS SOLIDAR. (877A)"/>
+<Code V="877A"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="RAP. FONDS SOLIDAR. (877C)"/>
+<Code V="877C"/>
+<CodeCaisse V="SOLID"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R P. TRANSP  APPRENT (878A)"/>
+<Code V="878A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="P. TRANSP  APPRENTI (878C)"/>
+<Code V="878C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R P. TRANSP  APPRENT (878R)"/>
+<Code V="878R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SCOT CNRACL TPS PART (879A)"/>
+<Code V="879A"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="SCOT CNRACL TPS PART (879C)"/>
+<Code V="879C"/>
+<CodeCaisse V="CNRACL"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND SEC.SOC. RG (880P)"/>
+<Code V="880P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND IRCANTEC (881P)"/>
+<Code V="881P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND ASSEDIC (882P)"/>
+<Code V="882P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND TAXE SAL. T1 (883P)"/>
+<Code V="883P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND TAXE SAL. T2 (884P)"/>
+<Code V="884P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND SEC. SOC. RS (890A)"/>
+<Code V="890A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="PLAFOND SEC. SOC. RS (890P)"/>
+<Code V="890P"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.COT.FNAL.PAT.CEC. (891A)"/>
+<Code V="891A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="COT. FNAL PAT. CEC. (891C)"/>
+<Code V="891C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.COT.FNAL.PAT.CEC. (891R)"/>
+<Code V="891R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.TAXE TRANSPORT CEC (892A)"/>
+<Code V="892A"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TAXE TRANSPORT CEC (892C)"/>
+<Code V="892C"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="R.TAXE TRANSPORT CEC (892R)"/>
+<Code V="892R"/>
+<CodeCaisse V="URSSAF"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOTAL GAINS (901N)"/>
+<Code V="901N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOTAL RETENUES (902N)"/>
+<Code V="902N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NET A PAYER (905N)"/>
+<Code V="905N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="NET IMPOSABLE (907N)"/>
+<Code V="907N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOTAL RET. PATRONALE (908N)"/>
+<Code V="908N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOT. HEURES TRAVAIL. (910A)"/>
+<Code V="910A"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOT. HEURES TRAVAIL. (910N)"/>
+<Code V="910N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance>
+<Correspondance>
+<Libelle V="TOT. AVANT.NATURE (914N)"/>
+<Code V="914N"/>
+<CodeNatureEmp V=""/>
+<CodeNatureSal V=""/></Correspondance></NomenclatureRubriquePaye>
+<NomenclatureCaisse>
+<Description V="caisse"/>
+<Correspondance>
+<Libelle V="APDEP (APDEP)"/>
+<Code V="APDEP"/></Correspondance>
+<Correspondance>
+<Libelle V="CGOS (CGOS)"/>
+<Code V="CGOS"/></Correspondance>
+<Correspondance>
+<Libelle V="C.N.F.P.T. (CNFPT)"/>
+<Code V="CNFPT"/></Correspondance>
+<Correspondance>
+<Libelle V="C.N.R.A.C.L. (CNRACL)"/>
+<Code V="CNRACL"/></Correspondance>
+<Correspondance>
+<Libelle V="DEPARTEMENT (COLL77)"/>
+<Code V="COLL77"/></Correspondance>
+<Correspondance>
+<Libelle V="DIVERS CREANCIERS (AD0001)"/>
+<Code V="AD0001"/></Correspondance>
+<Correspondance>
+<Libelle V="FONDS DE SOLIDARITE (SOLID)"/>
+<Code V="SOLID"/></Correspondance>
+<Correspondance>
+<Libelle V="IRCANTEC (IRCANT)"/>
+<Code V="IRCANT"/></Correspondance>
+<Correspondance>
+<Libelle V="MUTUELLE M.G.E.T. (MGET)"/>
+<Code V="MGET"/></Correspondance>
+<Correspondance>
+<Libelle V="MUTUELLE M.G.P.A.T. (MGPAT)"/>
+<Code V="MGPAT"/></Correspondance>
+<Correspondance>
+<Libelle V="MUTUELLE M.N.T. (MNT)"/>
+<Code V="MNT"/></Correspondance>
+<Correspondance>
+<Libelle V="PAYEUR DEPARTEMENTAL (PAYEUR)"/>
+<Code V="PAYEUR"/></Correspondance>
+<Correspondance>
+<Libelle V="PREFON (PREFON)"/>
+<Code V="PREFON"/></Correspondance>
+<Correspondance>
+<Libelle V="RETRAITE ADDITIONNELLE FP (RAFP)"/>
+<Code V="RAFP"/></Correspondance>
+<Correspondance>
+<Libelle V="TPG RECOUVREMENT 2 (TPGR02)"/>
+<Code V="TPGR02"/></Correspondance>
+<Correspondance>
+<Libelle V="URSSAF (URSSAF)"/>
+<Code V="URSSAF"/></Correspondance></NomenclatureCaisse>
+<NomenclatureBudget>
+<Description V="Nomenclature des budgets"/>
+<Correspondance>
+<Libelle V="Budget principal (00)"/>
+<Code V="00"/></Correspondance>
+<Correspondance>
+<Libelle V="Budget annexe (01)"/>
+<Code V="01"/></Correspondance></NomenclatureBudget>
+<NomenclatureTrain>
+<Description V="Nomenclature des trains de paye"/>
+<Correspondance>
+<Libelle V="Train des agents (AGENTS)"/>
+<Code V="AGENTS"/></Correspondance>
+<Correspondance>
+<Libelle V="Train des élus (ELUS)"/>
+<Code V="ELUS"/></Correspondance></NomenclatureTrain><n:NomenclatureStatut xmlns=""><n:Description V="Nomenclature des statuts des agents"/><n:Correspondance><n:Libelle V="Titulaire"/><n:Code V="TITULAIRE"/></n:Correspondance><n:Correspondance><n:Libelle V="Non Titulaire"/><n:Code V="NON_TITULAIRE"/></n:Correspondance><n:Correspondance><n:Libelle V="Stagiaire"/><n:Code V="STAGIAIRE"/></n:Correspondance><n:Correspondance><n:Libelle V="Emploi Fonctionnel"/><n:Code V="EMPLOI_FONC"/></n:Correspondance><n:Correspondance><n:Libelle V="Emploi aidé"/><n:Code V="EMPLOI_AIDE"/></n:Correspondance><n:Correspondance><n:Libelle V="Autre statut"/><n:Code V="AUTRE_STATUT"/></n:Correspondance></n:NomenclatureStatut></Nomenclatures></n:DocumentPaye>

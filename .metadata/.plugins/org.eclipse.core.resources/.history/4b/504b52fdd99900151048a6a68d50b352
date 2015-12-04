@@ -1,0 +1,28 @@
+package mermory;
+
+import java.lang.ref.PhantomReference;
+import java.lang.ref.ReferenceQueue;
+import java.lang.Runtime;
+
+public class Memory {
+
+	public static void main(String[] args) {
+		for (int i = 0; i < 10; i++) {
+			Car car = new Car();
+		}
+		int numberOfGcCall = 0;
+		System.out.println("used memory : " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
+		while (numberOfGcCall<20) {
+			System.gc();
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			System.out.println("call number : "+ numberOfGcCall++);
+		}
+		System.out.println("used memory : " + (Runtime.getRuntime().totalMemory() - Runtime.getRuntime().freeMemory()));
+	}
+}
